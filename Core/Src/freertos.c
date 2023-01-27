@@ -50,6 +50,9 @@
 osThreadId blinkTaskHandle;
 uint32_t blinkTaskBuffer[ 128 ];
 osStaticThreadDef_t blinkTaskControlBlock;
+osThreadId xbeeTaskHandle;
+uint32_t xbeeTaskBuffer[ 256 ];
+osStaticThreadDef_t xbeeTaskControlBlock;
 osMutexId traceMutexHandle;
 osStaticMutexDef_t traceMutexControlBlock;
 
@@ -59,6 +62,7 @@ osStaticMutexDef_t traceMutexControlBlock;
 /* USER CODE END FunctionPrototypes */
 
 void StartBlinkTask(void const * argument);
+extern void StartXbeeTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -112,6 +116,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of blinkTask */
   osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityIdle, 0, 128, blinkTaskBuffer, &blinkTaskControlBlock);
   blinkTaskHandle = osThreadCreate(osThread(blinkTask), NULL);
+
+  /* definition and creation of xbeeTask */
+  osThreadStaticDef(xbeeTask, StartXbeeTask, osPriorityNormal, 0, 256, xbeeTaskBuffer, &xbeeTaskControlBlock);
+  xbeeTaskHandle = osThreadCreate(osThread(xbeeTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
