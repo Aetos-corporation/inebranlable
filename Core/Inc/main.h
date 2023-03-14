@@ -59,16 +59,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define VCP_TX_Pin GPIO_PIN_2
 #define VCP_TX_GPIO_Port GPIOA
-#define PWM_1_Pin GPIO_PIN_3
-#define PWM_1_GPIO_Port GPIOA
-#define AUTO_EN_Pin GPIO_PIN_1
-#define AUTO_EN_GPIO_Port GPIOB
-#define PWM_2_Pin GPIO_PIN_8
-#define PWM_2_GPIO_Port GPIOA
-#define XBEE_TX_Pin GPIO_PIN_9
-#define XBEE_TX_GPIO_Port GPIOA
-#define XBEE_RX_Pin GPIO_PIN_10
-#define XBEE_RX_GPIO_Port GPIOA
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14

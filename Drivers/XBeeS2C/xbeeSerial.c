@@ -10,7 +10,7 @@
 #include "xbee.h"
 #include "xbeeSerial.h"
 
-#include "trace.h"
+#include "log.h"
 
 /*** Private function prototype ***/
 void _ReceiveStart(void);

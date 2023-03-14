@@ -39,34 +39,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := inebranlable
+BUILD_ARTIFACT_NAME := XBeeS2C
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-inebranlable.elf \
+XBeeS2C.elf \
 
 MAP_FILES += \
-inebranlable.map \
+XBeeS2C.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-inebranlable.list \
+XBeeS2C.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: inebranlable.elf secondary-outputs
+main-build: XBeeS2C.elf secondary-outputs
 
 # Tool invocations
-inebranlable.elf inebranlable.map: $(OBJS) $(USER_OBJS) D:\Documents\Prog\bateau\repos_github\inebranlable_xbee\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "inebranlable.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Documents\Prog\bateau\repos_github\inebranlable_xbee\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="inebranlable.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+XBeeS2C.elf XBeeS2C.map: $(OBJS) $(USER_OBJS) C:\Users\Bastien\STM32CubeIDE\workspace_1.9.0\XBeeS2C\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "XBeeS2C.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Bastien\STM32CubeIDE\workspace_1.9.0\XBeeS2C\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="XBeeS2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,14 +75,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-inebranlable.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "inebranlable.list"
+XBeeS2C.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "XBeeS2C.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout inebranlable.elf inebranlable.list inebranlable.map
+	-$(RM) XBeeS2C.elf XBeeS2C.list XBeeS2C.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

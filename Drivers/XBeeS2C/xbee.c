@@ -9,11 +9,8 @@
 
 #include "xbee.h"
 #include "xbeeSerial.h"
-
 #include "stm32l4xx_hal.h"
-#include "usart.h"
-#include "trace.h"
-
+#include "log.h"
 
 /*** Private functions ***/
 uint8_t _EnterCmdMode(void);
@@ -30,30 +27,6 @@ uint8_t enteringCmdMode;
 
 static uint8_t _frame[TX_FRAME_SIZE];
 static uint32_t _size;
-
-
-/*** Public functions ***/
-
-void StartXbeeTask(void const * argument)
-{
-	//setup
-	xbee_init(&huart1);
-
-	//loop
-	for(;;)
-	{
-
-	}
-}
-
-
-// TODO
-// move following functions to serial layer
-//  'xbee_send_at_command'
-//  'xbee_wait_for_AT_response'
-//  'xbee_send_data'
-//  'xbee_byteRcvCallback'
-
 
 
 // Initialiser l'interface de communication avec le module XBee

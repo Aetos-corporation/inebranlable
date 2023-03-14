@@ -1,0 +1,11 @@
+../Drivers/XBeeS2C/xbee.c:35:9:xbee_init	24	static
+../Drivers/XBeeS2C/xbee.c:77:6:xbee_process	16	static
+../Drivers/XBeeS2C/xbee.c:96:9:xbee_send_at_command	24	static
+../Drivers/XBeeS2C/xbee.c:138:9:xbee_wait_for_AT_response	56	dynamic
+../Drivers/XBeeS2C/xbee.c:190:6:xbee_send_data	16	static
+../Drivers/XBeeS2C/xbee.c:203:13:xbee_byteRcvCallback	16	static
+../Drivers/XBeeS2C/xbee.c:216:9:_EnterCmdMode	16	static
+../Drivers/XBeeS2C/xbee.c:239:9:_ExitCmdMode	16	static
+../Drivers/XBeeS2C/xbee.c:258:6:_ResetFrame	8	static
+../Drivers/XBeeS2C/xbee.c:269:9:_allocateFrame	24	static
+../Drivers/XBeeS2C/xbee.c:281:6:_processStatus	16	static
