@@ -6,11 +6,16 @@
  */
 #include <string.h>
 #include <stdio.h>
+#include <trace.h>
+
+#include "main.h"
+#include "usart.h"
+#include "cmsis_os.h"
 
 #include "xbee.h"
 #include "xbeeSerial.h"
-#include "stm32l4xx_hal.h"
-#include "log.h"
+
+extern osThreadId xbeeTaskHandle;
 
 /*** Private functions ***/
 uint8_t _EnterCmdMode(void);
@@ -28,6 +33,27 @@ uint8_t enteringCmdMode;
 static uint8_t _frame[TX_FRAME_SIZE];
 static uint32_t _size;
 
+/*
+ * @brief FreeRTOS Task
+ * Setup : config xbee module and start receiving
+ * Loop : Process incoming messages
+ */
+void StartXbeeTask(void const * argument)
+{
+	PRINT("XBee Start Task\n");
+
+	if(xbee_init(&huart1) != 0)
+		vTaskDelete(xbeeTaskHandle);
+
+	osDelay(1000);
+
+//Loop
+	for(;;)
+	{
+		xbee_process();
+		osDelay(100);
+	}
+}
 
 // Initialiser l'interface de communication avec le module XBee
 // Return 0 if ok,

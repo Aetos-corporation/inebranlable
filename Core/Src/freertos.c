@@ -26,8 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "xbee.h"
-#include "usart.h"
-#include "log.h"
+#include "trace.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,11 +51,11 @@
 osThreadId blinkTaskHandle;
 uint32_t blinkTaskBuffer[ 128 ];
 osStaticThreadDef_t blinkTaskControlBlock;
-osThreadId XBeeTaskHandle;
-uint32_t XBeeTaskBuffer[ 256 ];
-osStaticThreadDef_t XBeeTaskControlBlock;
-osMutexId logMutexHandle;
-osStaticMutexDef_t logMutexControlBlock;
+osThreadId xbeeTaskHandle;
+uint32_t XbeeTaskBuffer[ 256 ];
+osStaticThreadDef_t XbeeTaskControlBlock;
+osMutexId traceMutexHandle;
+osStaticMutexDef_t traceMutexControlBlock;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -64,7 +63,7 @@ osStaticMutexDef_t logMutexControlBlock;
 /* USER CODE END FunctionPrototypes */
 
 void StartBlinkTask(void const * argument);
-extern void StartXBeeTask(void const * argument);
+extern void StartXbeeTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -94,12 +93,12 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE END Init */
   /* Create the mutex(es) */
-  /* definition and creation of logMutex */
-  osMutexStaticDef(logMutex, &logMutexControlBlock);
-  logMutexHandle = osMutexCreate(osMutex(logMutex));
+  /* definition and creation of traceMutex */
+  osMutexStaticDef(traceMutex, &traceMutexControlBlock);
+  traceMutexHandle = osMutexCreate(osMutex(traceMutex));
 
   /* USER CODE BEGIN RTOS_MUTEX */
-  osMutexRelease(logMutexHandle);
+  osMutexRelease(traceMutexHandle);
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -116,15 +115,15 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of blinkTask */
-  osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityNormal, 0, 128, blinkTaskBuffer, &blinkTaskControlBlock);
+  osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityIdle, 0, 128, blinkTaskBuffer, &blinkTaskControlBlock);
   blinkTaskHandle = osThreadCreate(osThread(blinkTask), NULL);
 
-  /* definition and creation of XBeeTask */
-  osThreadStaticDef(XBeeTask, StartXBeeTask, osPriorityNormal, 0, 256, XBeeTaskBuffer, &XBeeTaskControlBlock);
-  XBeeTaskHandle = osThreadCreate(osThread(XBeeTask), NULL);
+  /* definition and creation of xbeeTask */
+  osThreadStaticDef(xbeeTask, StartXbeeTask, osPriorityNormal, 0, 256, XbeeTaskBuffer, &XbeeTaskControlBlock);
+  xbeeTaskHandle = osThreadCreate(osThread(xbeeTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+  PRINT("\n\n\033[2J\033[H/---- StartUp ----/\n\n");
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -156,25 +155,5 @@ void StartBlinkTask(void const * argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-/*
- * @brief FreeRTOS Task
- * Setup : config xbee module and start receiving
- * Loop : Process incoming messages
- */
-void StartXBeeTask(void const * argument)
-{
-	PRINT("XBee Start Task\n");
 
-	if(xbee_init(&huart1) != 0)
-		vTaskDelete(XBeeTaskHandle);
-
-	osDelay(1000);
-
-//Loop
-	for(;;)
-	{
-		xbee_process();
-		osDelay(100);
-	}
-}
 /* USER CODE END Application */

@@ -1,5 +1,6 @@
 Drivers/XBeeS2C/xbeeSerial.o: ../Drivers/XBeeS2C/xbeeSerial.c \
- ../Core/Inc/main.h ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
+ ../Core/Inc/trace.h ../Core/Inc/main.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
@@ -29,8 +30,8 @@ Drivers/XBeeS2C/xbeeSerial.o: ../Drivers/XBeeS2C/xbeeSerial.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Drivers/XBeeS2C/xbee.h ../Drivers/XBeeS2C/xbeeSerial.h \
- ../Core/Inc/log.h
+ ../Drivers/XBeeS2C/xbee.h ../Drivers/XBeeS2C/xbeeSerial.h
+../Core/Inc/trace.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -64,4 +65,3 @@ Drivers/XBeeS2C/xbeeSerial.o: ../Drivers/XBeeS2C/xbeeSerial.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 ../Drivers/XBeeS2C/xbee.h:
 ../Drivers/XBeeS2C/xbeeSerial.h:
-../Core/Inc/log.h:

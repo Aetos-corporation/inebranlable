@@ -5,12 +5,12 @@
  *      Author: Bastien
  */
 #include <string.h>
+#include <trace.h>
 
 #include "main.h"
 #include "xbee.h"
 #include "xbeeSerial.h"
 
-#include "log.h"
 
 /*** Private function prototype ***/
 void _ReceiveStart(void);
