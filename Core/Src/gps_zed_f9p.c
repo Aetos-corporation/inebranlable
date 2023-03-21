@@ -47,3 +47,16 @@ void GPS_Init(GPS* gps, UART_HandleTypeDef* huart, USART_TypeDef* uart, uint32_t
 
 	HAL_UART_Receive_IT(huart, &gps->com.GPS_UART_Buffer, 1);
 }
+
+void GPS_Set_bauds_to_115200(GPS* gps)
+{
+	uint8_t enable_115200[28] = {0XB5, 0X62, 0X06, 0X00, 0X14, 0X00, 0X01, 0X00, 0X00, 0X00, 0XD0, 0X08, 0X00, 0X00, 0X00, 0XC2, 0X01, 0X00, 0X07, 0X00, 0X03, 0X00, 0X00, 0X00, 0X00, 0X00, 0XC0, 0X7E};
+
+	memset(enable_frame, '\0', sizeof(enable_115200));
+	memcpy(enable_frame, enable_115200, sizeof(enable_115200));
+
+	HAL_UART_Transmit(gps->huart, enable_frame, sizeof(enable_115200), 1000);
+	GPS_Set_UART_Baudrate(gps, 115200);
+
+	HAL_UART_Receive_IT(gps->huart, &gps->com.GPS_UART_Buffer, 1);
+}
