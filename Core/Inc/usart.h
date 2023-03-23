@@ -27,7 +27,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "gps_zed_f9p.h"
 
 /* USER CODE BEGIN Includes */
 

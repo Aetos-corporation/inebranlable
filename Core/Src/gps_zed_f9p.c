@@ -33,11 +33,7 @@ void GPS_Init(GPS* gps, UART_HandleTypeDef* huart, USART_TypeDef* uart, uint32_t
 
 	// Initialisation des flags de r�ception
 	gps->data.receivedPositionFlag = false;
-	gps->com.UBXFrameReceived = false;
-	gps->com.NMEAFrameReceived = false;
 
-	gps->GPSConfigured = false;
-	gps->StateOfConfig = 0;
 	gps->data.fixed = false;
 
 	HAL_UART_Receive_IT(huart, &gps->com.GPS_UART_Buffer, 1);
@@ -153,7 +149,9 @@ bool GPS_Parse_GGA_Frame (GPS* gps)
 
 	gps->data.receivedPositionFlag = true;
 
-	gps->data.pos_release_time = HAL_GetTick();
+	if (gps->data.fixed){									// MàJ de la "fraicheur" de l'information que si la donnée est considérée comme fiable
+		gps->data.pos_release_time = HAL_GetTick();
+	}
 
 	return true;
 }
@@ -178,14 +176,12 @@ void StartGpsTask(void const * argument){
 		if (gps_F9P.com.GGAFrameReceived){
 			gps_F9P.com.GGAFrameReceived = false;
 			GPS_Parse_GGA_Frame(&gps_F9P);
-			// MàJ de l'indicateur de "fraicheur" de la data
 			// Envoi de logs
 		}
 
 		if (gps_F9P.com.ZDAFrameReceived){
 			gps_F9P.com.ZDAFrameReceived = false;
 			GPS_Parse_ZDA_Frame(&gps_F9P);
-			// MàJ de l'indicateur de "fraicheur" de la data
 			// Envoi de logs
 		}
 	}

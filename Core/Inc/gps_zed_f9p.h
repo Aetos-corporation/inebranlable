@@ -35,13 +35,9 @@ typedef struct
 	char GPS_ZDA_Buffer_Chars[100];
 	char GPS_VTG_Buffer_Chars[100];
 
-	bool NMEAFrameReceived;
 	bool VTGFrameReceived;
 	bool GGAFrameReceived;
 	bool ZDAFrameReceived;
-	bool UBXFrameReceived;
-
-	UBXFrame LastUBXFrame;
 
 } GpsSerialCommunication;
 
@@ -65,8 +61,6 @@ typedef struct
 	UART_HandleTypeDef* huart;
 	GpsData data;
 	GpsSerialCommunication com;
-	uint8_t StateOfConfig;
-	bool GPSConfigured;
 }	GPS;
 
 void GPS_Init(GPS* gps, UART_HandleTypeDef* huart, USART_TypeDef* uart, uint32_t baudrate);
