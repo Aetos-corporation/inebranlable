@@ -24,9 +24,6 @@ uint16_t DEBUG_CountParsedGGA = 0;
 uint16_t DEBUG_CountParsedRMC = 0;
 uint16_t DEBUG_CountParsedZDA = 0;
 
-// - Variables globales - //
-GPS gps_F9P;
-
 
 void GPS_Init(GPS* gps, UART_HandleTypeDef* huart, USART_TypeDef* uart, uint32_t baudrate){
 	gps->huart = huart;
@@ -47,14 +44,16 @@ void GPS_Init(GPS* gps, UART_HandleTypeDef* huart, USART_TypeDef* uart, uint32_t
 }
 
 void GPS_Init_Uart(GPS* gps, USART_TypeDef* uart, uint32_t baudrate){
-	gps->huart->Instance = uart;
-	gps->huart->Init.BaudRate = baudrate;
-	gps->huart->Init.WordLength = UART_WORDLENGTH_8B;
-	gps->huart->Init.StopBits = UART_STOPBITS_1;
-	gps->huart->Init.Parity = UART_PARITY_NONE;
-	gps->huart->Init.Mode = UART_MODE_TX_RX;
-	gps->huart->Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	gps->huart->Init.OverSampling = UART_OVERSAMPLING_16;
+	  huart2.Instance = uart;
+	  huart2.Init.BaudRate = baudrate;
+	  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+	  huart2.Init.StopBits = UART_STOPBITS_1;
+	  huart2.Init.Parity = UART_PARITY_NONE;
+	  huart2.Init.Mode = UART_MODE_TX_RX;
+	  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+	  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
 
 	if (HAL_UART_Init(gps->huart) != HAL_OK){
 		GPS_Error_Handler();
@@ -159,8 +158,7 @@ bool GPS_Parse_GGA_Frame (GPS* gps)
 	return true;
 }
 
-void GPS_Error_Handler(void)
-{
+void GPS_Error_Handler(void){
 	return;
 }
 
@@ -171,36 +169,25 @@ void StartGpsTask(void const * argument){
 	GPS_Init(&gps_F9P, &huart2, USART2, 38400);
 
 	// Mettre le loop ici avec un while 1
-	while (1)
-	{
+	while (1){
 	/* USER CODE END WHILE */
 
 	/* USER CODE BEGIN 3 */
 
 	/* Acquisition GPS */
-	if (gps_F9P.com.GGAFrameReceived)
-	{
-		gps_F9P.com.GGAFrameReceived = false;
-		GPS_Parse_GGA_Frame(&gps_F9P);
-		// MàJ de l'indicateur de "fraicheur" de la data
-		// Envoi de logs
-	}
+		if (gps_F9P.com.GGAFrameReceived){
+			gps_F9P.com.GGAFrameReceived = false;
+			GPS_Parse_GGA_Frame(&gps_F9P);
+			// MàJ de l'indicateur de "fraicheur" de la data
+			// Envoi de logs
+		}
 
-	if (gps_F9P.com.ZDAFrameReceived)
-	{
-		gps_F9P.com.ZDAFrameReceived = false;
-		GPS_Parse_ZDA_Frame(&gps_F9P);
-		// MàJ de l'indicateur de "fraicheur" de la data
-		// Envoi de logs
-	}
-
-	}
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)				//Interruption sur UART
-{
-	if(huart->Instance == gps_F9P.huart->Instance){
-		GPS_UART_Handler(&gps_F9P);
+		if (gps_F9P.com.ZDAFrameReceived){
+			gps_F9P.com.ZDAFrameReceived = false;
+			GPS_Parse_ZDA_Frame(&gps_F9P);
+			// MàJ de l'indicateur de "fraicheur" de la data
+			// Envoi de logs
+		}
 	}
 }
 

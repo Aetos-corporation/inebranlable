@@ -225,4 +225,11 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 
 /* USER CODE BEGIN 1 */
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)				//Interruption sur UART
+{
+	if(huart == &huart2){
+		GPS_UART_Handler(&gps_F9P);
+	}
+}
+
 /* USER CODE END 1 */
