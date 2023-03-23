@@ -54,6 +54,8 @@ typedef struct
 	bool fixed;
 	struct tm time;
 	struct timespec timestamp;				//valeurs en sec et ns disponibles
+	uint32_t pos_release_time;
+	uint32_t date_release_time;
 	bool receivedPositionFlag;
 	uint8_t satellitesUsed;
 } GpsData;
@@ -76,16 +78,7 @@ bool GPS_Parse_NMEA_Frame (GPS* gps);
 bool GPS_Parse_ZDA_Frame (GPS* gps);
 bool GPS_Parse_GGA_Frame (GPS* gps);
 
-
 void GPS_Compute_checksums(uint8_t* msg, int start, int stop, int length);
-bool GPS_Check_for_UBX_ACK_frame(UBXFrame ubxReceived);
-void GPS_Decode_UBX_Data (GPS* gps);
-
-void GPS_Config (GPS* gps);
-void GPS_Enable_NMEA_frame(GPS* gps, char classe, char identifier, char freq);
-void GPS_Disable_NMEA_frame(GPS* gps, char classe, char identifier);
-void GPS_Set_bauds_to_115200(GPS* gps);
-void GPS_Set_Nav_Freq(GPS* gps, uint8_t freq);
 
 #endif
 

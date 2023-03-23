@@ -2,7 +2,7 @@
 FREERTOS.FootprintOK=true
 FREERTOS.IPParameters=Tasks01,FootprintOK,configUSE_NEWLIB_REENTRANT,Mutexes01
 FREERTOS.Mutexes01=traceMutex,Static,traceMutexControlBlock
-FREERTOS.Tasks01=blinkTask,-3,128,StartBlinkTask,Default,NULL,Static,blinkTaskBuffer,blinkTaskControlBlock
+FREERTOS.Tasks01=blinkTask,-3,128,StartBlinkTask,Default,NULL,Static,blinkTaskBuffer,blinkTaskControlBlock;gpsTask,0,128,StartGpsTask,As external,NULL,Static,gpsTaskBuffer,gpsTaskControlBlock
 FREERTOS.configUSE_NEWLIB_REENTRANT=1
 File.Version=6
 GPIO.groupedBy=Group By Peripherals
