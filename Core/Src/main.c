@@ -44,7 +44,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern osMutexId logMutexHandle;
 
 /* USER CODE END PV */
 

@@ -21,8 +21,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-#include "uart2Passthrough.h"
-#include "xbeeSerial.h"
+#include "xbee_core.h"
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -86,7 +85,7 @@ void MX_USART2_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART2_Init 2 */
-  u2pt_StartReceive();
+
   /* USER CODE END USART2_Init 2 */
 
 }
@@ -233,7 +232,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	}
 	else if(huart == &huart2)
 	{
-		u2pt_rxCallback();
+		//GPS Callback
 	}
 }
 /* USER CODE END 1 */

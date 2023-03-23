@@ -6,14 +6,17 @@
  */
 #include <string.h>
 #include <stdio.h>
-#include <trace.h>
 
 #include "main.h"
 #include "usart.h"
 #include "cmsis_os.h"
 
+#include "xbee_core.h"
 #include "xbee.h"
-#include "xbeeSerial.h"
+#include "frame.h"
+#include "trace.h"
+
+#include "fifo.h"
 
 extern osThreadId xbeeTaskHandle;
 
@@ -22,7 +25,7 @@ uint8_t _EnterCmdMode(void);
 uint8_t _ExitCmdMode(void);
 uint8_t _allocateFrame(uint32_t nbBytes);
 
-void _ResetFrame(void);
+void _resetFrame(void);
 void _processStatus(uint8_t status);
 
 
@@ -32,6 +35,8 @@ uint8_t enteringCmdMode;
 
 static uint8_t _frame[TX_FRAME_SIZE];
 static uint32_t _size;
+
+static Fifo_t frameFifo;
 
 /*
  * @brief FreeRTOS Task
@@ -45,13 +50,13 @@ void StartXbeeTask(void const * argument)
 	if(xbee_init(&huart1) != 0)
 		vTaskDelete(xbeeTaskHandle);
 
-	osDelay(1000);
+	FifoInit(&frameFifo, sizeof(genericFrame_t), 100);
 
 //Loop
 	for(;;)
 	{
 		xbee_process();
-		osDelay(100);
+		osDelay(10);
 	}
 }
 
@@ -66,7 +71,7 @@ uint8_t xbee_init(UART_HandleTypeDef* uartHandle)
 	xbeeSerial_Init(uartHandle);
 
 	enteringCmdMode = 0;
-	_ResetFrame();
+	_resetFrame();
 
 	_EnterCmdMode();
 
@@ -102,17 +107,31 @@ uint8_t xbee_init(UART_HandleTypeDef* uartHandle)
 //Devrait être appelé toutes les 100ms
 void xbee_process(void)
 {
-	static uint32_t startTime = 0;
-	uint32_t currTime = HAL_GetTick();
+    if(IsFifoEmpty(&frameFifo)){
+    	return;
+    }
+	genericFrame_t frame;
+	uint8_t buffer[256];
+	uint32_t bufferSize = 0;
+	memset(buffer, 0x0, 256);
 
-	//time gate, vérifie que 1sec est passée afin d'être non-bloquant
-	if( (currTime - startTime) <= 1000 )
-		return;
-	else
-		startTime = HAL_GetTick();
+	FifoPop(&frameFifo, &frame);
+	serialize(frame, buffer, &bufferSize);
 
-//	uint8_t msg[] = "Here!\n";
-//	xbee_send_data(msg, 6);
+	PRINT("[Xbee] Sending frame: \n\r");
+	PRINT(" >func:     0x%02X\n\r", frame.codeFunc);
+	PRINT(" >mode:     0x%02X\n\r", frame.mode);
+	PRINT(" >dataSize: 0x%02X\n\r", frame.dataSize);
+	PRINT(" >data:     ");
+	for (int i = 0; i < bufferSize; i++)
+	    PRINT("0x%02X ", buffer[i]);
+	PRINT("\n\r\n\r");
+
+//	taskENTER_CRITICAL();
+	xbeeSerial_Transmit(buffer, bufferSize);
+//    taskEXIT_CRITICAL();
+
+	frameDelete(&frame); //Free Memory
 }
 
 // Copy command to frame buffer
@@ -190,7 +209,7 @@ uint8_t xbee_wait_for_AT_response(void)
 		if((currTime - startTime) > 2000)
 		{
 			//Timeout, module failed to respond
-			_ResetFrame();
+			_resetFrame();
 			return 1;
 		}
 	}
@@ -204,24 +223,12 @@ uint8_t xbee_wait_for_AT_response(void)
 	if(memcmp(rxBuffer, correctBuffer, 3) != 0)
 	{
 		//Response is incorrect
-		_ResetFrame();
+		_resetFrame();
 		return 2;
 	}
 
-	_ResetFrame();
+	_resetFrame();
 	return 0;
-}
-
-// Envoyer des données au module XBee en mode transparent
-void xbee_send_data(const uint8_t *data, int length)
-{
-	if(isCmdMode)
-		_processStatus(_ExitCmdMode());
-
-	//TODO convert to ascii
-	PRINT("%.s", length, data);
-
-	xbeeSerial_Transmit(data, length); //Send to module
 }
 
 //Byte receive callback in transparent mode
@@ -233,6 +240,10 @@ __weak void xbee_byteRcvCallback(const uint8_t byte)
 		PRINT("\n");
 }
 
+void xbee_sendFrame(const genericFrame_t frame)
+{
+	FifoPush(&frameFifo, &frame);
+}
 
 /*** Private functions ***/
 
@@ -281,7 +292,7 @@ uint8_t _ExitCmdMode(void)
 	return ret;
 }
 
-void _ResetFrame(void)
+void _resetFrame(void)
 {
 	memset(_frame, 0, TX_FRAME_SIZE);
 	_size = 0;
@@ -298,7 +309,7 @@ uint8_t _allocateFrame(uint32_t nbBytes)
 	if((_size+nbBytes) > TX_FRAME_SIZE) //check size
 	{
 		//buffer overflow, erase _frame and return
-		_ResetFrame();
+		_resetFrame();
 		ret = 1;
 	}
 	return ret;

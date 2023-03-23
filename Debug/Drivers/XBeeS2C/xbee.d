@@ -1,5 +1,5 @@
-Drivers/XBeeS2C/xbee.o: ../Drivers/XBeeS2C/xbee.c ../Core/Inc/trace.h \
- ../Core/Inc/main.h ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
+Drivers/XBeeS2C/xbee.o: ../Drivers/XBeeS2C/xbee.c ../Core/Inc/main.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
@@ -47,8 +47,9 @@ Drivers/XBeeS2C/xbee.o: ../Drivers/XBeeS2C/xbee.c ../Core/Inc/trace.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Drivers/XBeeS2C/xbee.h ../Drivers/XBeeS2C/xbeeSerial.h
-../Core/Inc/trace.h:
+ ../Drivers/XBeeS2C/xbee_core.h ../Drivers/XBeeS2C/xbee.h \
+ D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/log/frame.h \
+ ../Core/Inc/trace.h ../Drivers/XBeeS2C/fifo.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -99,5 +100,8 @@ Drivers/XBeeS2C/xbee.o: ../Drivers/XBeeS2C/xbee.c ../Core/Inc/trace.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+../Drivers/XBeeS2C/xbee_core.h:
 ../Drivers/XBeeS2C/xbee.h:
-../Drivers/XBeeS2C/xbeeSerial.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/log/frame.h:
+../Core/Inc/trace.h:
+../Drivers/XBeeS2C/fifo.h:

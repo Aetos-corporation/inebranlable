@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "xbee.h"
+#include "log.h"
 #include "trace.h"
 /* USER CODE END Includes */
 
@@ -98,7 +98,7 @@ void MX_FREERTOS_Init(void) {
   traceMutexHandle = osMutexCreate(osMutex(traceMutex));
 
   /* USER CODE BEGIN RTOS_MUTEX */
-  osMutexRelease(traceMutexHandle);
+
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -149,6 +149,14 @@ void StartBlinkTask(void const * argument)
     osDelay(100);
     HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
     osDelay(1000);
+
+//    uint8_t msg[] = "abcdefghijklmnopqrstuvwxyz\n\r";
+//    LOG(msg, sizeof(msg)-1);
+    static float f = 0;
+    static int i = 0;
+//    PRINT("LOG %d\n\r", i++);
+    LOG_ROLL(f);
+    f += 1;
   }
   /* USER CODE END StartBlinkTask */
 }
