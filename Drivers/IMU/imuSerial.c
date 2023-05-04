@@ -5,12 +5,11 @@
  *      Author: Bastien
  */
 
+#include <IMU/imu_RegisterMap.h>
+#include <IMU/imuSerial.h>
 #include <string.h>
 
-#include "imuSerial.h"
-#include "imu_RegisterMap.h"
-
-#include "trace.h"
+#include "trace/trace.h"
 
 /*** Variables ***/
 static I2C_HandleTypeDef* i2c;

@@ -25,6 +25,7 @@ Core/Src \
 Core/Startup \
 Drivers/IMU \
 Drivers/STM32L4xx_HAL_Driver/Src \
+Drivers/trace \
 Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \
 Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F \

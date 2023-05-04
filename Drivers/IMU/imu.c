@@ -4,54 +4,154 @@
  *  Created on: Jan 14, 2023
  *      Author: Bastien
  */
-
-#include "imu.h"
-#include "imuSerial.h"
-#include "imu_RegisterMap.h"
+#include <cmsis_os.h>
+#include <math.h>
 
 #include "i2c.h"
-#include "trace.h"
-
-#include <cmsis_os.h>
+#include "trace/trace.h"
+#include "IMU/imu.h"
+#include "IMU/imu_RegisterMap.h"
+#include "IMU/imuSerial.h"
+#include "IMU/micros.h"
 
 /*** Private functions prototypes ***/
 uint8_t _isConnected(void);
 uint8_t _isConnectedMPU9250(void);
 uint8_t _isConnectedAK8963(void);
 
+float _get_acc_resolution(const ACCEL_FS_SEL_t accel_af_sel);
+float _get_gyro_resolution(const GYRO_FS_SEL_t gyro_fs_sel);
+float _get_mag_resolution(const MAG_OUTPUT_BITS_t mag_output_bits);
+
 const uint16_t CALIB_GYRO_SENSITIVITY = 131;     // LSB/degrees/sec
 const uint16_t CALIB_ACCEL_SENSITIVITY = 16384;  // LSB/g
 
+imuHandle_t imuHandle;
 
 /*** public functions declarations ***/
 
+/*
+ * IMU periodic task
+ * SDA - PB7 - D4
+ * SCL - PB6 - D5
+ */
 void StartImuTask(void const * argument)
 {
 	PRINT("Init IMU...");
-	if(imu_init(&hi2c1) == 0)
-		PRINT("done\n");
+
+	taskENTER_CRITICAL();
+	if(imu_init(&hi2c1, &imuHandle) == 0)
+		PRINT("done\n\n");
 	else
 	{
 		PRINT("ERROR!\n");
 		while(1);
 	}
+	taskEXIT_CRITICAL();
 
-	for(;;)
-	{
-		int16_t accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
-		imu_getMotion9(&accX, &accY, &accZ, &gyrX, &gyrY, &gyrZ, &magX, &magY, &magZ);
+	for(;;){
+		imu_getMotion9(&imuHandle);
+		imu_updateQuat(&imuHandle);
+		imu_updateRPY(&imuHandle);
+//		imu_updateRPY_from_quat(&imuHandle);
 
-		PRINT("Accelero - x: %6d  y: %6d  z: %6d\n", accX, accY, accZ);
-		PRINT("Gyro     - x: %6d  y: %6d  z: %6d\n", gyrX, gyrY, gyrZ);
-		PRINT("Magneto  - x: %6d  y: %6d  z: %6d\n\n", magX, magY, magZ);
+		PRINT("Accelero - x: %+1.4f  y: %+1.4f  z: %+1.4f\n", imuHandle.a[0], imuHandle.a[1], imuHandle.a[2]);
+		//PRINT("Gyro     - x: %+3.2f  y: %+3.2f  z: %+3.2f\n", imuHandle.g[0], imuHandle.g[1], imuHandle.g[2]);
+		PRINT("Magneto  - x: %+3.2f  y: %+3.2f  z: %+3.2f\n", imuHandle.m[0], imuHandle.m[1], imuHandle.m[2]);
+
+		PRINT("RPY - roll: %+2.2f  pitch: %+2.2f  yaw:  %+2.2f\n\n", imuHandle.rpy[0], imuHandle.rpy[1], imuHandle.rpy[2]);
 
 		osDelay(1000);
 	}
 }
 
-uint8_t imu_init(I2C_HandleTypeDef* i2c)
+uint8_t imu_init(I2C_HandleTypeDef* i2c, imuHandle_t* imuH)
 {
+	DWT_Init();
+
 	imuSerial_Init(i2c);
+
+	if(!_isConnectedMPU9250())
+		return 2;
+
+//*** IMU HANDLE Init
+	//RAZ Values
+	imuH->quarternion.q[0] = 1.0f;			 //Quaternion
+	for(uint8_t i=1 ; i<4 ; i++)
+		imuH->quarternion.q[i] = 0.f;
+	for(uint8_t i=0 ; i<3 ; i++) //Accelero
+		imuH->a[i] = 0.f;
+	for(uint8_t i=0 ; i<3 ; i++) //Gyroscope
+		imuH->g[i] = 0.f;
+	for(uint8_t i=0 ; i<3 ; i++) //Magneto
+		imuH->m[i] = 0.f;
+	for(uint8_t i=0 ; i<3 ; i++) //Raw Pitch Yaw
+		imuH->rpy[i] = 0.f;
+	for(uint8_t i=0 ; i<3 ; i++) //Linear acceleration
+		imuH->lin_acc[i] = 0.f;
+	for(uint8_t i=0 ; i<3 ; i++) //Mag scale
+		imuH->mag_scale[i] = 1.f;
+
+	quatF_init(&imuH->quarternion);
+	imuH->magnetic_declination = -7.51;
+	imuH->temperature = 0.0f;
+
+	imuH->settings.accel_fs_sel = A16G;
+	imuH->settings.gyro_fs_sel = G2000DPS;
+	imuH->settings.mag_output_bits = M16BITS;
+	imuH->settings.fifo_sample_rate = SMPL_200HZ;
+	imuH->settings.gyro_fchoice = 0x03;
+	imuH->settings.gyro_dlpf_cfg = GYRO_DLPF_41HZ;
+	imuH->settings.accel_fchoice = 0x01;
+	imuH->settings.accel_dlpf_cfg = ACC_DLPF_45HZ;
+
+//*** Init physical chips
+	imu_initMPU9250(imuH);
+	imu_initAK8963(imuH);
+
+	return 0;
+}
+
+// Init Accelero and gyro
+void imu_initMPU9250(imuHandle_t* imuH)
+{
+	imuH->MAG_MODE = 0x06;
+	imuH->acc_resolution = _get_acc_resolution(A16G);   //settings
+	imuH->gyro_resolution = _get_gyro_resolution(G2000DPS);
+	imuH->mag_resolution = _get_mag_resolution(M16BITS);
+
+	// reset device
+	imuSerial_writeReg(MPU9250_ADDR, MPU9250_PWR_MGMT_1, 0x80);  // Write a one to bit 7 reset bit; toggle reset device
+	osDelay(100);
+
+	// wake up device
+	imuSerial_writeReg(MPU9250_ADDR, MPU9250_PWR_MGMT_1, 0x00);  // Clear sleep mode bit (6), enable all sensors
+	osDelay(100);                                  // Wait for all registers to reset
+
+	// get stable time source
+	imuSerial_writeReg(MPU9250_ADDR, MPU9250_PWR_MGMT_1, 0x01);  // Auto select clock source to be PLL gyroscope reference if ready else
+	osDelay(200);
+
+	uint8_t c = 0;
+
+	// Set accelerometer full-scale range configuration
+	imuSerial_readReg(MPU9250_ADDR, MPU9250_ACCEL_CONFIG, &c);     // get current ACCEL_CONFIG register value
+	c = c & ~0xE0;                                 // Clear self-test bits [7:5]
+	c = c & ~0x18;                                 // Clear ACCEL_FS_SEL bits [4:3]
+	c = c | (uint8_t)(imuH->settings.accel_fs_sel << 3);  // Set full scale range for the accelerometer
+	imuSerial_writeReg(MPU9250_ADDR, MPU9250_ACCEL_CONFIG, c);     // Write new ACCEL_CONFIG register value
+
+    // Set accelerometer sample rate configuration
+    // It is possible to get a 4 kHz sample rate from the accelerometer by choosing 1 for
+    // accel_fchoice_b bit [3]; in this case the bandwidth is 1.13 kHz
+	imuSerial_readReg(MPU9250_ADDR, MPU9250_ACCEL_CONFIG_2, &c);// get current ACCEL_CONFIG2 register value
+    c = c & ~0x0F;                                     // Clear accel_fchoice_b (bit 3) and A_DLPFG (bits [2:0])
+    c = c | (~(imuH->settings.accel_fchoice << 3) & 0x08);    // Set accel_fchoice_b to 1
+    c = c | (uint8_t)(imuH->settings.accel_dlpf_cfg & 0x07);  // Set accelerometer rate to 1 kHz and bandwidth to 41 Hz
+    imuSerial_writeReg(MPU9250_ADDR, MPU9250_ACCEL_CONFIG_2, c);        // Write new ACCEL_CONFIG2 register value
+
+    // The accelerometer, gyro, and thermometer are set to 1 kHz sample rates,
+    // but all these rates are further reduced by a factor of 5 to 200 Hz because of the SMPLRT_DIV setting
 
 	// Configure Interrupts and Bypass Enable
 	// Set interrupt pin active high, push-pull, hold interrupt pin level HIGH until interrupt cleared,
@@ -59,30 +159,98 @@ uint8_t imu_init(I2C_HandleTypeDef* i2c)
 	// can join the I2C bus and all can be controlled by the Arduino as master
 	imuSerial_writeReg(MPU9250_ADDR, MPU9250_INT_PIN_CFG, 0x22);
 	imuSerial_writeReg(MPU9250_ADDR, MPU9250_INT_ENABLE, 0x01);  // Enable data ready (bit 0) interrupt
-
-	//Slave addr 0 to 0x0C
-	uint8_t data = 0;
-	imuSerial_readReg(MPU9250_ADDR, MPU9250_I2C_SLV0_ADDR, &data);
-	PRINT("slv0_addr = %d\n", data);
-	imuSerial_writeReg(MPU9250_ADDR, MPU9250_I2C_SLV0_ADDR, 0x0C);
-
-	if(!_isConnectedMPU9250())
-		return 2;
-
-//*** MPU9250
-	// get stable time source
-	imuSerial_writeReg(MPU9250_ADDR, MPU9250_PWR_MGMT_1, 0x01);  // Auto select clock source to be PLL gyroscope reference if ready else
-
-	//TODO calibration
-
-
-//*** AK8963
-	//TODO calibration
-
-	return 0;
+	osDelay(100);
 }
 
+// Init Magneto
+void imu_initAK8963(imuHandle_t* imuH)
+{
+    // First extract the factory calibration for each magnetometer axis
+    uint8_t raw_data[3];                            // x/y/z gyro calibration data stored here
+    imuSerial_writeReg(AK8963_ADDR, AK8963_CNTL, 0x00);  // Power down magnetometer
+    osDelay(10);
+    imuSerial_writeReg(AK8963_ADDR, AK8963_CNTL, 0x0F);  // Enter Fuse ROM access mode
+    osDelay(10);
+    imuSerial_readRegBurst(AK8963_ADDR, AK8963_ASAX, 3, &raw_data[0]);  // Read the x-, y-, and z-axis calibration values
+    imuH->mag_bias_factory[0] = (float)(raw_data[0] - 128) / 256. + 1.;   // Return x-axis sensitivity adjustment values, etc.
+    imuH->mag_bias_factory[1] = (float)(raw_data[1] - 128) / 256. + 1.;
+    imuH->mag_bias_factory[2] = (float)(raw_data[2] - 128) / 256. + 1.;
+    imuSerial_writeReg(AK8963_ADDR, AK8963_CNTL, 0x00);  // Power down magnetometer
+    osDelay(10);
 
+    // Configure the magnetometer for continuous read and highest resolution
+    // set Mscale bit 4 to 1 (0) to enable 16 (14) bit resolution in CNTL register,
+    // and enable continuous mode data acquisition MAG_MODE (bits [3:0]), 0010 for 8 Hz and 0110 for 100 Hz sample rates
+    imuSerial_writeReg(AK8963_ADDR, AK8963_CNTL, (uint8_t)imuH->settings.mag_output_bits << 4 | imuH->MAG_MODE);  // Set magnetometer data resolution and sample ODR
+    osDelay(10);
+
+    PRINT("\n");
+	PRINT("Mag Factory Calibration Values: \n");
+	PRINT("X-Axis sensitivity offset value %f\n", imuH->mag_bias_factory[0]);
+	PRINT("Y-Axis sensitivity offset value %f\n", imuH->mag_bias_factory[1]);
+	PRINT("Z-Axis sensitivity offset value %f\n", imuH->mag_bias_factory[2]);
+}
+
+void imu_updateQuat(imuHandle_t* imuH)
+{
+	// Madgwick function needs to be fed North, East, and Down direction like
+	// (AN, AE, AD, GN, GE, GD, MN, ME, MD)
+	// Accel and Gyro direction is Right-Hand, X-Forward, Z-Up
+	// Magneto direction is Right-Hand, Y-Forward, Z-Down
+	// So to adopt to the general Aircraft coordinate system (Right-Hand, X-Forward, Z-Down),
+	// we need to feed (ax, -ay, -az, gx, -gy, -gz, my, -mx, mz)
+	// but we pass (-ax, ay, az, gx, -gy, -gz, my, -mx, mz)
+	// because gravity is by convention positive down, we need to invert the accel data
+
+	quatF_update(&imuH->quarternion, -(imuH->a[0]), imuH->a[1], imuH->a[2], imuH->g[0], -(imuH->g[1]), -(imuH->g[2]), imuH->m[1], -(imuH->m[0]), imuH->m[2]);
+
+//	quatF_update(&imuH->quarternion, imuH->a[0], imuH->a[1], imuH->a[2], imuH->g[0], imuH->g[1], imuH->g[2], imuH->m[0], imuH->m[1], imuH->m[2]);
+}
+
+void imu_updateRPY(imuHandle_t* imuH) {
+	imuH->rpy[0] = atan2((double)imuH->a[1], (double)imuH->a[2]);				//roll
+	imuH->rpy[1] = asin((double)imuH->a[0]);							//pitch
+	imuH->rpy[2] = atan2((double)imuH->m[0], (double)imuH->m[1]) * 180 / M_PI;	//yaw
+//	imuH->rpy[2] += imuH->magnetic_declination; //add magnetic to yaw to find the 'TRUE' heading
+}
+
+void imu_updateRPY_from_quat(imuHandle_t* imuH) {
+	// Define output variables from updated quaternion---these are Tait-Bryan angles, commonly used in aircraft orientation.
+	// In this coordinate system, the positive z-axis is down toward Earth.
+	// Yaw is the angle between Sensor x-axis and Earth magnetic North (or true North if corrected for local declination, looking down on the sensor positive yaw is counterclockwise.
+	// Pitch is angle between sensor x-axis and Earth ground plane, toward the Earth is positive, up toward the sky is negative.
+	// Roll is angle between sensor y-axis and Earth ground plane, y-axis up is positive roll.
+	// These arise from the definition of the homogeneous rotation matrix constructed from quaternions.
+	// Tait-Bryan angles as well as Euler angles are non-commutative; that is, the get the correct orientation the rotations must be
+	// applied in the correct order which for this configuration is yaw, pitch, and then roll.
+	// For more see http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles which has additional links.
+
+	double a12, a22, a31, a32, a33;  // rotation matrix coefficients for Euler angles and gravity components
+	// short name local variable for readability
+	double qw = imuH->quarternion.q[0], qx = imuH->quarternion.q[1], qy = imuH->quarternion.q[2], qz = imuH->quarternion.q[3];
+	double *roll = &imuH->rpy[0], *pitch = &imuH->rpy[1], *yaw = &imuH->rpy[2];
+
+	a12 = 2.0f * (qx * qy + qw * qz);
+	a22 = qw * qw + qx * qx - qy * qy - qz * qz;
+	a31 = 2.0f * (qw * qx + qy * qz);
+	a32 = 2.0f * (qx * qz - qw * qy);
+	a33 = qw * qw - qx * qx - qy * qy + qz * qz;
+	*roll = atan2f(a31, a33);
+	*pitch = -asinf(a32);
+	*yaw = atan2f(a12, a22);
+	*roll *= 180.0f / M_PI;
+	*pitch *= 180.0f / M_PI;
+	*yaw *= 180.0f / M_PI;
+	*yaw += imuH->magnetic_declination;
+	if (*yaw >= +180.f)
+		*yaw -= 360.f;
+	else if (*yaw < -180.f)
+		*yaw += 360.f;
+
+	imuH->lin_acc[0] = imuH->a[0] + a31;
+	imuH->lin_acc[1] = imuH->a[1] + a32;
+	imuH->lin_acc[2] = imuH->a[2] - a33;
+}
 
 
 // ACCEL_*OUT_* registers
@@ -103,13 +271,37 @@ uint8_t imu_init(I2C_HandleTypeDef* i2c)
     @see getRotation()
     @see getDirection()
 */
-void imu_getMotion9(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz, int16_t* mx,
-                         int16_t* my, int16_t* mz) {
+void imu_getMotion9(imuHandle_t* imuH) {
     //get accel and gyro
-    imu_getMotion6(ax, ay, az, gx, gy, gz);
+    imu_getMotion6(imuH);
 
-    //get magneto
-    imu_getDirection(mx, my, mz);
+    //Wait data ready flag
+    uint8_t ST1;
+	do
+	{
+		imuSerial_readReg(AK8963_ADDR, AK8963_ST1, &ST1);
+	} while (!(ST1 & 0x01));
+
+	//Get raw data
+    int16_t raw_mag_data[3] = {0, 0, 0};
+	uint8_t buffer[7];
+
+	imuSerial_readRegBurst(AK8963_ADDR, AK8963_HXH, 7, buffer);
+	if (imuH->MAG_MODE == 0x02 || imuH->MAG_MODE == 0x04 || imuH->MAG_MODE == 0x06) {  // continuous or external trigger read mode
+//		if ((ST1 & 0x02) != 0)	// check if data is not skipped
+//			return;             // this should be after data reading to clear DRDY register
+	}
+	raw_mag_data[0] = (((int16_t)buffer[0]) << 8) | buffer[1];
+	raw_mag_data[1] = (((int16_t)buffer[2]) << 8) | buffer[3];
+	raw_mag_data[2] = (((int16_t)buffer[4]) << 8) | buffer[5];
+
+	// Calculate the magnetometer values in milliGauss
+	// Include factory calibration per data sheet and user environmental corrections
+	// mag_bias is calculated in 16BITS
+	float bias_to_current_bits = imuH->mag_resolution / _get_mag_resolution(M16BITS);
+	imuH->m[0] = (float)(raw_mag_data[0] * imuH->mag_resolution * imuH->mag_bias_factory[0] - imuH->mag_bias[0] * bias_to_current_bits) * imuH->mag_scale[0];  // get actual magnetometer value, this depends on scale being set
+	imuH->m[1] = (float)(raw_mag_data[1] * imuH->mag_resolution * imuH->mag_bias_factory[1] - imuH->mag_bias[1] * bias_to_current_bits) * imuH->mag_scale[1];
+	imuH->m[2] = (float)(raw_mag_data[2] * imuH->mag_resolution * imuH->mag_bias_factory[2] - imuH->mag_bias[2] * bias_to_current_bits) * imuH->mag_scale[2];
 }
 
 /** Get raw 6-axis motion sensor readings (accel/gyro).
@@ -123,222 +315,32 @@ void imu_getMotion9(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t*
     @see getAcceleration()
     @see getRotation()
 */
-void imu_getMotion6(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz) {
+void imu_getMotion6(imuHandle_t* imuH) {
+    int16_t raw_acc_gyro_data[7];
+
+    //Get raw
 	uint8_t buffer[14];
 	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_ACCEL_XOUT_H, 14, buffer);
-    *ax = (((int16_t)buffer[0]) << 8) | buffer[1];
-    *ay = (((int16_t)buffer[2]) << 8) | buffer[3];
-    *az = (((int16_t)buffer[4]) << 8) | buffer[5];
-    //skip temp values
-    *gx = (((int16_t)buffer[8]) << 8) | buffer[9];
-    *gy = (((int16_t)buffer[10]) << 8) | buffer[11];
-    *gz = (((int16_t)buffer[12]) << 8) | buffer[13];
+
+	//Get accelerometer
+	raw_acc_gyro_data[0] = (((int16_t)buffer[0]) << 8) | buffer[1];
+    imuH->a[0] = (float)raw_acc_gyro_data[0] * imuH->acc_resolution;
+	raw_acc_gyro_data[1] = (((int16_t)buffer[2]) << 8) | buffer[3];
+    imuH->a[1] = (float)raw_acc_gyro_data[1] * imuH->acc_resolution;
+	raw_acc_gyro_data[2] = (((int16_t)buffer[4]) << 8) | buffer[5];
+    imuH->a[2] = (float)raw_acc_gyro_data[2] * imuH->acc_resolution;
+
+    raw_acc_gyro_data[3] = (float)((((int16_t)buffer[6]) << 8) | buffer[7])  / 333.87 + 21.0;  // Read the adc values
+    imuH->temperature = ((float)raw_acc_gyro_data[3]) / 333.87 + 21.0;  // Temperature in degrees Centigrade
+
+	//Get gyroscope
+	raw_acc_gyro_data[4] = (((int16_t)buffer[8]) << 8) | buffer[9];
+    imuH->g[0] = (float)raw_acc_gyro_data[4] * imuH->gyro_resolution;
+	raw_acc_gyro_data[5] = (((int16_t)buffer[10]) << 8) | buffer[11];
+    imuH->g[1] = (float)raw_acc_gyro_data[5] * imuH->gyro_resolution;
+	raw_acc_gyro_data[6] = (((int16_t)buffer[12]) << 8) | buffer[13];
+    imuH->g[2] = (float)raw_acc_gyro_data[6] * imuH->gyro_resolution;
 }
-
-/** Get 3-axis accelerometer readings.
-    These registers store the most recent accelerometer measurements.
-    Accelerometer measurements are written to these registers at the Sample Rate
-    as defined in Register 25.
-
-    The accelerometer measurement registers, along with the temperature
-    measurement registers, gyroscope measurement registers, and external sensor
-    data registers, are composed of two sets of registers: an internal register
-    set and a user-facing read register set.
-
-    The data within the accelerometer sensors' internal register set is always
-    updated at the Sample Rate. Meanwhile, the user-facing read register set
-    duplicates the internal register set's data values whenever the serial
-    interface is idle. This guarantees that a burst read of sensor registers will
-    read measurements from the same sampling instant. Note that if burst reads
-    are not used, the user is responsible for ensuring a set of single byte reads
-    correspond to a single sampling instant by checking the Data Ready interrupt.
-
-    Each 16-bit accelerometer measurement has a full scale defined in ACCEL_FS
-    (Register 28). For each full scale setting, the accelerometers' sensitivity
-    per LSB in ACCEL_xOUT is shown in the table below:
-
-    <pre>
-    AFS_SEL | Full Scale Range | LSB Sensitivity
-    --------+------------------+----------------
-    0       | +/- 2g           | 8192 LSB/mg
-    1       | +/- 4g           | 4096 LSB/mg
-    2       | +/- 8g           | 2048 LSB/mg
-    3       | +/- 16g          | 1024 LSB/mg
-    </pre>
-
-    @param x 16-bit signed integer container for X-axis acceleration
-    @param y 16-bit signed integer container for Y-axis acceleration
-    @param z 16-bit signed integer container for Z-axis acceleration
-*/
-void imu_getAcceleration(int16_t* x, int16_t* y, int16_t* z) {
-	uint8_t buffer[6];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_ACCEL_XOUT_H, 6, buffer);
-    *x = (((int16_t)buffer[0]) << 8) | buffer[1];
-    *y = (((int16_t)buffer[2]) << 8) | buffer[3];
-    *z = (((int16_t)buffer[4]) << 8) | buffer[5];
-}
-/** Get X-axis accelerometer reading.
-    @return X-axis acceleration measurement in 16-bit 2's complement format
-    @see getMotion6()
-*/
-int16_t imu_getAccelerationX() {
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_ACCEL_XOUT_H, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-/** Get Y-axis accelerometer reading.
-    @return Y-axis acceleration measurement in 16-bit 2's complement format
-    @see getMotion6()
-*/
-int16_t imu_getAccelerationY() {
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_ACCEL_YOUT_H, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-/** Get Z-axis accelerometer reading.
-    @return Z-axis acceleration measurement in 16-bit 2's complement format
-    @see getMotion6()
-*/
-int16_t imu_getAccelerationZ() {
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_ACCEL_ZOUT_H, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-
-// GYRO_*OUT_* registers
-
-/** Get 3-axis gyroscope readings.
-    These gyroscope measurement registers, along with the accelerometer
-    measurement registers, temperature measurement registers, and external sensor
-    data registers, are composed of two sets of registers: an internal register
-    set and a user-facing read register set.
-    The data within the gyroscope sensors' internal register set is always
-    updated at the Sample Rate. Meanwhile, the user-facing read register set
-    duplicates the internal register set's data values whenever the serial
-    interface is idle. This guarantees that a burst read of sensor registers will
-    read measurements from the same sampling instant. Note that if burst reads
-    are not used, the user is responsible for ensuring a set of single byte reads
-    correspond to a single sampling instant by checking the Data Ready interrupt.
-
-    Each 16-bit gyroscope measurement has a full scale defined in FS_SEL
-    (Register 27). For each full scale setting, the gyroscopes' sensitivity per
-    LSB in GYRO_xOUT is shown in the table below:
-
-    <pre>
-    FS_SEL | Full Scale Range   | LSB Sensitivity
-    -------+--------------------+----------------
-    0      | +/- 250 degrees/s  | 131 LSB/deg/s
-    1      | +/- 500 degrees/s  | 65.5 LSB/deg/s
-    2      | +/- 1000 degrees/s | 32.8 LSB/deg/s
-    3      | +/- 2000 degrees/s | 16.4 LSB/deg/s
-    </pre>
-
-    @param x 16-bit signed integer container for X-axis rotation
-    @param y 16-bit signed integer container for Y-axis rotation
-    @param z 16-bit signed integer container for Z-axis rotation
-    @see getMotion6()
-*/
-void imu_getRotation(int16_t* x, int16_t* y, int16_t* z) {
-	uint8_t buffer[6];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_GYRO_XOUT_H, 6, buffer);
-    *x = (((int16_t)buffer[0]) << 8) | buffer[1];
-    *y = (((int16_t)buffer[2]) << 8) | buffer[3];
-    *z = (((int16_t)buffer[4]) << 8) | buffer[5];
-}
-/** Get X-axis gyroscope reading.
-    @return X-axis rotation measurement in 16-bit 2's complement format
-    @see getMotion6()
-*/
-int16_t imugetRotationX() {
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_GYRO_XOUT_H, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-/** Get Y-axis gyroscope reading.
-    @return Y-axis rotation measurement in 16-bit 2's complement format
-    @see getMotion6()
-*/
-int16_t imugetRotationY() {
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_GYRO_YOUT_H, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-/** Get Z-axis gyroscope reading.
-    @return Z-axis rotation measurement in 16-bit 2's complement format
-    @see getMotion6()
-*/
-int16_t imugetRotationZ() {
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_GYRO_ZOUT_H, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-
-
-/** Get 3-axis magnetometer readings.
-
-    @param x 16-bit signed integer container for X-axis rotation
-    @param y 16-bit signed integer container for Y-axis rotation
-    @param z 16-bit signed integer container for Z-axis rotation
-    @see getMotion9()
-*/
-void imu_getDirection(int16_t* x, int16_t* y, int16_t* z)
-{
-	uint8_t ST1;
-	imuSerial_writeReg(AK8963_ADDR, 0x0A, 0x01);
-	do
-	{
-		imuSerial_readReg(AK8963_ADDR, 0x02, &ST1);
-	} while (!(ST1 & 0x01));
-
-	uint8_t buffer[6];
-	imuSerial_readRegBurst(AK8963_ADDR, AK8963_HXH, 6, buffer);
-    *x = (((int16_t)buffer[0]) << 8) | buffer[1];
-    *y = (((int16_t)buffer[2]) << 8) | buffer[3];
-    *z = (((int16_t)buffer[4]) << 8) | buffer[5];
-}
-
-int16_t imu_getDirectionX()
-{
-	uint8_t ST1;
-	imuSerial_writeReg(AK8963_ADDR, 0x0A, 0x01);
-	do
-	{
-		imuSerial_readReg(AK8963_ADDR, 0x02, &ST1);
-	} while (!(ST1 & 0x01));
-
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(AK8963_ADDR, AK8963_HXH, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-
-int16_t imu_getDirectionY()
-{
-	uint8_t ST1;
-	imuSerial_writeReg(AK8963_ADDR, 0x0A, 0x01);
-	do
-	{
-		imuSerial_readReg(AK8963_ADDR, 0x02, &ST1);
-	} while (!(ST1 & 0x01));
-
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(AK8963_ADDR, AK8963_HYH, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-
-int16_t imu_getDirectionZ()
-{
-	uint8_t ST1;
-	imuSerial_writeReg(AK8963_ADDR, 0x0A, 0x01);
-	do
-	{
-		imuSerial_readReg(AK8963_ADDR, 0x02, &ST1);
-	} while (!(ST1 & 0x01));
-
-	uint8_t buffer[2];
-	imuSerial_readRegBurst(AK8963_ADDR, AK8963_HZH, 2, buffer);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
-}
-
 
 /*** Private functions ***/
 
@@ -402,44 +404,52 @@ void _set_acc_gyro_to_calibration() {
 	osDelay(40);  // accumulate 40 samples in 40 milliseconds = 480 bytes
 }
 
-void collect_acc_gyro_data_to(float* a_bias, float* g_bias) {
-	// At end of sample accumulation, turn off FIFO sensor read
-	uint8_t data[12];                                    // data array to hold accelerometer and gyro x, y, z, data
-	imuSerial_writeReg(MPU9250_ADDR, MPU9250_FIFO_EN, 0x00); // Disable gyro and accelerometer sensors for FIFO
-	imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_FIFO_COUNTH, 2, &data[0]); // read FIFO sample count
-
-	uint16_t fifo_count = ((uint16_t)data[0] << 8) | data[1];
-	uint16_t packet_count = fifo_count / 12;  // How many sets of full gyro and accelerometer data for averaging
-
-	for(uint16_t ii = 0; ii < packet_count; ii++) {
-		int16_t accel_temp[3] = {0, 0, 0}, gyro_temp[3] = {0, 0, 0};
-		imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_FIFO_COUNTH, 2, &data[0]); // read FIFO sample count
-		imuSerial_readRegBurst(MPU9250_ADDR, MPU9250_FIFO_R_W, 12, &data[0]); // read data for averaging
-		accel_temp[0] = (int16_t)(((int16_t)data[0] << 8) | data[1]);  // Form signed 16-bit integer for each sample in FIFO
-		accel_temp[1] = (int16_t)(((int16_t)data[2] << 8) | data[3]);
-		accel_temp[2] = (int16_t)(((int16_t)data[4] << 8) | data[5]);
-		gyro_temp[0] = (int16_t)(((int16_t)data[6] << 8) | data[7]);
-		gyro_temp[1] = (int16_t)(((int16_t)data[8] << 8) | data[9]);
-		gyro_temp[2] = (int16_t)(((int16_t)data[10] << 8) | data[11]);
-
-		a_bias[0] += (float)accel_temp[0];  // Sum individual signed 16-bit biases to get accumulated signed 32-bit biases
-		a_bias[1] += (float)accel_temp[1];
-		a_bias[2] += (float)accel_temp[2];
-		g_bias[0] += (float)gyro_temp[0];
-		g_bias[1] += (float)gyro_temp[1];
-		g_bias[2] += (float)gyro_temp[2];
+float _get_acc_resolution(const ACCEL_FS_SEL_t accel_af_sel) {
+	switch (accel_af_sel) {
+		// Possible accelerometer scales (and their register bit settings) are:
+		// 2 Gs (00), 4 Gs (01), 8 Gs (10), and 16 Gs  (11).
+		// Here's a bit of an algorith to calculate DPS/(ADC tick) based on that 2-bit value:
+		case A2G:
+			return 2.0 / 32768.0;
+		case A4G:
+			return 4.0 / 32768.0;
+		case A8G:
+			return 8.0 / 32768.0;
+		case A16G:
+			return 16.0 / 32768.0;
+		default:
+			return 0.;
 	}
-	a_bias[0] /= (float)packet_count;  // Normalize sums to get average count biases
-	a_bias[1] /= (float)packet_count;
-	a_bias[2] /= (float)packet_count;
-	g_bias[0] /= (float)packet_count;
-	g_bias[1] /= (float)packet_count;
-	g_bias[2] /= (float)packet_count;
+}
 
-	if (a_bias[2] > 0L) {
-		a_bias[2] -= (float)CALIB_ACCEL_SENSITIVITY;
-	}  // Remove gravity from the z-axis accelerometer bias calculation
-	else {
-		a_bias[2] += (float)CALIB_ACCEL_SENSITIVITY;
+float _get_gyro_resolution(const GYRO_FS_SEL_t gyro_fs_sel) {
+	switch (gyro_fs_sel) {
+		// Possible gyro scales (and their register bit settings) are:
+		// 250 DPS (00), 500 DPS (01), 1000 DPS (10), and 2000 DPS  (11).
+		// Here's a bit of an algorith to calculate DPS/(ADC tick) based on that 2-bit value:
+		case G250DPS:
+			return 250.0 / 32768.0;
+		case G500DPS:
+			return 500.0 / 32768.0;
+		case G1000DPS:
+			return 1000.0 / 32768.0;
+		case G2000DPS:
+			return 2000.0 / 32768.0;
+		default:
+			return 0.;
+	}
+}
+
+float _get_mag_resolution(const MAG_OUTPUT_BITS_t mag_output_bits) {
+	switch (mag_output_bits) {
+		// Possible magnetometer scales (and their register bit settings) are:
+		// 14 bit resolution (0) and 16 bit resolution (1)
+		// Proper scale to return milliGauss
+		case M14BITS:
+			return 10. * 4912. / 8190.0;
+		case M16BITS:
+			return 10. * 4912. / 32760.0;
+		default:
+			return 0.;
 	}
 }

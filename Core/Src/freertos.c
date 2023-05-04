@@ -118,7 +118,7 @@ void MX_FREERTOS_Init(void) {
   blinkTaskHandle = osThreadCreate(osThread(blinkTask), NULL);
 
   /* definition and creation of imuTask */
-  osThreadStaticDef(imuTask, StartImuTask, osPriorityIdle, 0, 256, imuTaskBuffer, &imuTaskControlBlock);
+  osThreadStaticDef(imuTask, StartImuTask, osPriorityNormal, 0, 256, imuTaskBuffer, &imuTaskControlBlock);
   imuTaskHandle = osThreadCreate(osThread(imuTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
