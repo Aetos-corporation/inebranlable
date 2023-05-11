@@ -50,8 +50,9 @@
 osThreadId blinkTaskHandle;
 uint32_t blinkTaskBuffer[ 128 ];
 osStaticThreadDef_t blinkTaskControlBlock;
-osMutexId traceMutexHandle;
-osStaticMutexDef_t traceMutexControlBlock;
+osThreadId PWMTaskHandle;
+osMutexId logMutexHandle;
+osStaticMutexDef_t logMutexControlBlock;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -59,6 +60,7 @@ osStaticMutexDef_t traceMutexControlBlock;
 /* USER CODE END FunctionPrototypes */
 
 void StartBlinkTask(void const * argument);
+extern void startPWMTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -88,9 +90,9 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE END Init */
   /* Create the mutex(es) */
-  /* definition and creation of traceMutex */
-  osMutexStaticDef(traceMutex, &traceMutexControlBlock);
-  traceMutexHandle = osMutexCreate(osMutex(traceMutex));
+  /* definition and creation of logMutex */
+  osMutexStaticDef(logMutex, &logMutexControlBlock);
+  logMutexHandle = osMutexCreate(osMutex(logMutex));
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -110,8 +112,12 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of blinkTask */
-  osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityIdle, 0, 128, blinkTaskBuffer, &blinkTaskControlBlock);
+  osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityNormal, 0, 128, blinkTaskBuffer, &blinkTaskControlBlock);
   blinkTaskHandle = osThreadCreate(osThread(blinkTask), NULL);
+
+  /* definition and creation of PWMTask */
+  osThreadDef(PWMTask, startPWMTask, osPriorityNormal, 0, 256);
+  PWMTaskHandle = osThreadCreate(osThread(PWMTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

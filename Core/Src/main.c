@@ -20,14 +20,13 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "i2c.h"
-#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "trace.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,10 +93,9 @@ int main(void)
   MX_USART1_UART_Init();
   MX_I2C1_Init();
   MX_TIM1_Init();
-  MX_SPI1_Init();
-  MX_TIM2_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
-  PRINT("\n/--- Startup ---/\n");
+
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -165,7 +163,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
