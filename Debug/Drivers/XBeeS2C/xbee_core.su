@@ -1,9 +1,0 @@
-../Drivers/XBeeS2C/xbee_core.c:29:6:xbeeSerial_Init	16	static
-../Drivers/XBeeS2C/xbee_core.c:37:6:xbeeSerial_DeInit	8	static
-../Drivers/XBeeS2C/xbee_core.c:47:6:xbeeSerial_getBuffer	24	static
-../Drivers/XBeeS2C/xbee_core.c:72:10:xbeeSerial_getBufferSize	16	static
-../Drivers/XBeeS2C/xbee_core.c:85:6:xbeeSerial_Transmit	16	static
-../Drivers/XBeeS2C/xbee_core.c:90:9:xbeeSerial_isMessageReceived	4	static
-../Drivers/XBeeS2C/xbee_core.c:96:6:_ReceiveStart	8	static
-../Drivers/XBeeS2C/xbee_core.c:107:6:_ReceiveStop	8	static
-../Drivers/XBeeS2C/xbee_core.c:115:6:xbeeSerial_rxCallback	8	static

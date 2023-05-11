@@ -1,0 +1,9 @@
+../Drivers/xbee/xbee_serial.c:28:6:xbeeSerial_Init	16	static
+../Drivers/xbee/xbee_serial.c:36:6:xbeeSerial_DeInit	8	static
+../Drivers/xbee/xbee_serial.c:46:6:xbeeSerial_getBuffer	24	static
+../Drivers/xbee/xbee_serial.c:71:10:xbeeSerial_getBufferSize	16	static
+../Drivers/xbee/xbee_serial.c:84:6:xbeeSerial_Transmit	16	static
+../Drivers/xbee/xbee_serial.c:89:9:xbeeSerial_isMessageReceived	4	static
+../Drivers/xbee/xbee_serial.c:95:6:_ReceiveStart	8	static
+../Drivers/xbee/xbee_serial.c:106:6:_ReceiveStop	8	static
+../Drivers/xbee/xbee_serial.c:114:6:xbeeSerial_rxCallback	8	static

@@ -21,7 +21,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-#include "xbee_core.h"
+#include "xbee/xbee_serial.h"
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;

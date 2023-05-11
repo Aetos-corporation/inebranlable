@@ -5,11 +5,10 @@
  *      Author: Bastien
  */
 #include <string.h>
-#include <trace.h>
-#include <xbee_core.h>
-
+#include <trace/trace.h>
+#include <xbee/xbee.h>
+#include <xbee/xbee_serial.h>
 #include "main.h"
-#include "xbee.h"
 
 
 /*** Private function prototype ***/

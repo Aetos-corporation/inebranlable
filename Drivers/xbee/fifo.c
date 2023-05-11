@@ -7,9 +7,9 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
+#include <xbee/fifo.h>
 
-#include "fifo.h"
-#include "frame.h"
+#include "log/frame.h"
 
 static uint16_t FifoNext( Fifo_t *fifo, uint16_t index )
 {

@@ -6,15 +6,16 @@
  */
 #include <string.h>
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <stdarg.h>
+#include <xbee/xbee.h>
+#include <xbee/xbee_serial.h>
 #include "cmsis_os.h"
-#include "xbee.h"
 #include "task.h"
-#include "frame.h"
+#include "log/frame.h"
 #include "log.h"
-#include "trace.h"
+#include "trace/trace.h"
 
-#include "xbee_core.h"
 
 void LOG_GPS_NORD(float val){
 	LOG_SENSOR(CODE_FUNC_GPS_NORD, val);
@@ -54,33 +55,63 @@ void LOG_SENSOR(uint8_t codeFunc, float val){
 
 	frame.codeFunc = codeFunc;
 	frame.mode = 1;
-	frame.dataSize = size;
+	frame.dataSize = 4;
 	memcpy(frame.data, (uint8_t*)&val, sizeof(float));
 	LOG(frame);
 }
 
 //Fonctionne comme un printf
 void LOG_INFO(const char *fmt, ...){
-	LOG_TEXT(CODE_FUNC_LOG_INFO, val, 4);
+	va_list argp;
+    va_start(argp, fmt);
+	LOG_TEXT(fmt, argp, CODE_FUNC_LOG_INFO);
+    va_end(argp);
 }
 
 void LOG_WARNING(const char *fmt, ...){
-	LOG_TEXT(CODE_FUNC_LOG_WARN, val, 4);
+	va_list argp;
+    va_start(argp, fmt);
+//	LOG_TEXT(CODE_FUNC_LOG_WARN, fmt, argp);
+    va_end(argp);
 }
 
 void LOG_ERROR(const char *fmt, ...){
-	LOG_TEXT(CODE_FUNC_LOG_ERROR, val, 4);
+	va_list argp;
+    va_start(argp, fmt);
+//	LOG_TEXT(CODE_FUNC_LOG_ERROR, fmt, argp);
+    va_end(argp);
 }
 
-void LOG_TEXT(uint8_t codeFunc, const char *fmt, ...){
+void LOG_TEXT(const char *fmt, va_list arg, uint8_t codeFunc){
 	genericFrame_t frame;
 	frameCreate(&frame); //Allocate Memory
 
 	frame.codeFunc = codeFunc;
 	frame.mode = 1;
-	frame.dataSize = size;
-	memcpy(frame.data, (uint8_t*)&val, sizeof(float));
-	LOG(frame);
+
+	// build string
+	char string[0xFF];
+	uint16_t stringSize = 0;
+	stringSize = vsprintf(string,fmt,arg);
+
+	//Split string in multiple frames if too long
+	uint32_t nbCharToSend = stringSize;
+	while(nbCharToSend != 0)
+	{
+		if(nbCharToSend > MAX_DATA_SIZE)
+		{
+			memcpy(frame.data, &string[stringSize - nbCharToSend], MAX_DATA_SIZE);
+			frame.dataSize = MAX_DATA_SIZE;
+			nbCharToSend -= MAX_DATA_SIZE;
+		}
+		else
+		{
+			memcpy(frame.data, &string[stringSize - nbCharToSend], nbCharToSend);
+			frame.dataSize = nbCharToSend;
+			nbCharToSend = 0;
+		}
+		LOG(frame);
+	}
 }
 
 void LOG(const genericFrame_t frame)

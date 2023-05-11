@@ -24,11 +24,10 @@ void vprint(const char *fmt, va_list argp)
 
 void PRINT(const char *fmt, ...) // custom printf() function
 {
-	va_list argp;
-
 	if( osMutexWait(traceMutexHandle, 0) != osOK)
 		return;
 
+	va_list argp;
     va_start(argp, fmt);
     vprint(fmt, argp);
     va_end(argp);

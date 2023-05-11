@@ -25,8 +25,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "log.h"
-#include "trace.h"
+#include <string.h>
+#include "log/log.h"
+#include "trace/trace.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,10 +50,10 @@
 
 /* USER CODE END Variables */
 osThreadId blinkTaskHandle;
-uint32_t blinkTaskBuffer[ 128 ];
+uint32_t blinkTaskBuffer[ 1024 ];
 osStaticThreadDef_t blinkTaskControlBlock;
 osThreadId xbeeTaskHandle;
-uint32_t XbeeTaskBuffer[ 256 ];
+uint32_t XbeeTaskBuffer[ 1024 ];
 osStaticThreadDef_t XbeeTaskControlBlock;
 osMutexId traceMutexHandle;
 osStaticMutexDef_t traceMutexControlBlock;
@@ -115,11 +116,11 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of blinkTask */
-  osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityIdle, 0, 128, blinkTaskBuffer, &blinkTaskControlBlock);
+  osThreadStaticDef(blinkTask, StartBlinkTask, osPriorityIdle, 0, 1024, blinkTaskBuffer, &blinkTaskControlBlock);
   blinkTaskHandle = osThreadCreate(osThread(blinkTask), NULL);
 
   /* definition and creation of xbeeTask */
-  osThreadStaticDef(xbeeTask, StartXbeeTask, osPriorityNormal, 0, 256, XbeeTaskBuffer, &XbeeTaskControlBlock);
+  osThreadStaticDef(xbeeTask, StartXbeeTask, osPriorityNormal, 0, 1024, XbeeTaskBuffer, &XbeeTaskControlBlock);
   xbeeTaskHandle = osThreadCreate(osThread(xbeeTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -150,13 +151,7 @@ void StartBlinkTask(void const * argument)
     HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
     osDelay(1000);
 
-//    uint8_t msg[] = "abcdefghijklmnopqrstuvwxyz\n\r";
-//    LOG(msg, sizeof(msg)-1);
-    static float f = 0;
-    static int i = 0;
-//    PRINT("LOG %d\n\r", i++);
-    LOG_ROLL(f);
-    f += 1;
+    LOG_INFO("CA GUY");
   }
   /* USER CODE END StartBlinkTask */
 }

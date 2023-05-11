@@ -1,9 +1,0 @@
-../Drivers/XBeeS2C/fifo.c:14:17:FifoNext	16	static
-../Drivers/XBeeS2C/fifo.c:27:6:FifoInit	40	static
-../Drivers/XBeeS2C/fifo.c:44:6:FifoDeInit	24	static
-../Drivers/XBeeS2C/fifo.c:62:6:FifoPush	16	static
-../Drivers/XBeeS2C/fifo.c:75:6:FifoPop	24	static
-../Drivers/XBeeS2C/fifo.c:86:6:FifoFlush	16	static
-../Drivers/XBeeS2C/fifo.c:98:10:FifoCount	16	static
-../Drivers/XBeeS2C/fifo.c:109:6:IsFifoEmpty	16	static
-../Drivers/XBeeS2C/fifo.c:120:6:IsFifoFull	16	static

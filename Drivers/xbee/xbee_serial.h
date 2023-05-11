@@ -5,8 +5,8 @@
  *      Author: Bastien
  */
 
-#ifndef XBEES2C_XBEE_CORE_H_
-#define XBEES2C_XBEE_CORE_H_
+#ifndef XBEE_XBEE_SERIAL_H_
+#define XBEE_XBEE_SERIAL_H_
 
 #include <stdint.h>
 
@@ -28,4 +28,4 @@ void xbeeSerial_getBuffer(uint8_t* destination);
 void xbeeSerial_rxCallback(void);
 
 
-#endif /* XBEES2C_XBEE_CORE_H_ */
+#endif /* XBEE_XBEE_SERIAL_H_ */

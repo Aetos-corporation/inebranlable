@@ -48,7 +48,7 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/log/log.h \
  D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/log/frame.h \
- ../Core/Inc/trace.h
+ D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/trace/trace.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -99,4 +99,4 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/log/log.h:
 D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/log/frame.h:
-../Core/Inc/trace.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_xbee/Drivers/trace/trace.h:

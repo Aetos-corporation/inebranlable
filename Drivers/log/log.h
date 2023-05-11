@@ -8,7 +8,9 @@
 #ifndef INC_LOG_H_
 #define INC_LOG_H_
 
-#include "frame.h"
+#include <stdarg.h>
+
+#include "log/frame.h"
 
 #define CODE_FUNC_GPS_NORD   0x01
 #define CODE_FUNC_GPS_WEST   0x02
@@ -35,8 +37,8 @@ void LOG_INFO(const char *fmt, ...);
 void LOG_WARNING(const char *fmt, ...);
 void LOG_ERROR(const char *fmt, ...);
 
-void LOG_SENSOR(uint8_t codeFunc, float val, uint8_t size);
-void LOG_TEXT(uint8_t codeFunc, const char *fmt, ...);
+void LOG_SENSOR(uint8_t codeFunc, float val);
+void LOG_TEXT(const char *fmt, va_list arg, uint8_t codeFunc);
 
 void LOG(const genericFrame_t frame);
 

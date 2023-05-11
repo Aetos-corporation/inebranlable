@@ -1,0 +1,2 @@
+../Drivers/trace/trace.c:16:6:vprint	216	static
+../Drivers/trace/trace.c:25:6:PRINT	16	static
