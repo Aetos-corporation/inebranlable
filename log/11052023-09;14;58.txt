@@ -1,0 +1,17 @@
+Time: 09:14:58.691256| SYSTEM   | Connect events done
+Time: 09:14:58.719258| SYSTEM   | Pictures init done
+Time: 09:14:58.723262| SYSTEM   | Frame initialized and ready
+Time: 09:14:58.998636| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:00.338870| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:01.673174| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:02.908548| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:04.234937| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:05.553239| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:06.872392| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:08.193522| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:09.522662| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:10.855387| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:12.183503| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:13.415787| LOG      | [INFO]: received: Bien ou Bien?
+Time: 09:15:13.604313| SYSTEM   | Device ZigBee closed
+Time: 09:15:13.604313| SYSTEM   | Thread to update gui ended

@@ -1,0 +1,390 @@
+Time: 17:53:25.810281| SYSTEM   | Connect events done
+Time: 17:53:25.837862| SYSTEM   | Pictures init done
+Time: 17:53:25.839859| SYSTEM   | Frame initialized and ready
+Time: 17:53:25.914740| SENSOR   | Roll value received: 0.009
+Time: 17:53:26.015319| SENSOR   | Pitch value received: 0.012
+Time: 17:53:26.116096| SENSOR   | Yaw value received: 30.417
+Time: 17:53:26.116096| DEBUG    | Yaw value is float
+Time: 17:53:26.116096| SYSTEM   | Changed compass orientation
+Time: 17:53:26.725372| SENSOR   | Roll value received: 0.01
+Time: 17:53:26.826123| SENSOR   | Pitch value received: 0.013
+Time: 17:53:26.926964| SENSOR   | Yaw value received: 49.41
+Time: 17:53:26.926964| DEBUG    | Yaw value is float
+Time: 17:53:26.926964| SYSTEM   | Changed compass orientation
+Time: 17:53:27.837627| SENSOR   | Roll value received: 0.01
+Time: 17:53:27.938486| SENSOR   | Pitch value received: 0.011
+Time: 17:53:28.039279| SENSOR   | Yaw value received: 49.704
+Time: 17:53:28.039279| DEBUG    | Yaw value is float
+Time: 17:53:28.039279| SYSTEM   | Changed compass orientation
+Time: 17:53:28.848261| SENSOR   | Roll value received: 0.008
+Time: 17:53:28.948534| SENSOR   | Pitch value received: 0.013
+Time: 17:53:29.049445| SENSOR   | Yaw value received: 49.938
+Time: 17:53:29.049445| DEBUG    | Yaw value is float
+Time: 17:53:29.049445| SYSTEM   | Changed compass orientation
+Time: 17:53:29.859531| SENSOR   | Roll value received: 0.007
+Time: 17:53:29.960711| SENSOR   | Pitch value received: 0.006
+Time: 17:53:30.061401| SENSOR   | Yaw value received: 49.121
+Time: 17:53:30.061401| DEBUG    | Yaw value is float
+Time: 17:53:30.061401| SYSTEM   | Changed compass orientation
+Time: 17:53:30.871349| SENSOR   | Roll value received: 0.011
+Time: 17:53:30.972421| SENSOR   | Pitch value received: 0.013
+Time: 17:53:31.073553| SENSOR   | Yaw value received: 48.655
+Time: 17:53:31.073553| DEBUG    | Yaw value is float
+Time: 17:53:31.073553| SYSTEM   | Changed compass orientation
+Time: 17:53:31.882359| SENSOR   | Roll value received: 0.04
+Time: 17:53:31.983303| SENSOR   | Pitch value received: -0.042
+Time: 17:53:32.084591| SENSOR   | Yaw value received: 48.879
+Time: 17:53:32.084591| DEBUG    | Yaw value is float
+Time: 17:53:32.084591| SYSTEM   | Changed compass orientation
+Time: 17:53:32.892132| SENSOR   | Roll value received: 0.011
+Time: 17:53:32.993332| SENSOR   | Pitch value received: 0.013
+Time: 17:53:33.094011| SENSOR   | Yaw value received: 49.092
+Time: 17:53:33.094011| DEBUG    | Yaw value is float
+Time: 17:53:33.094011| SYSTEM   | Changed compass orientation
+Time: 17:53:33.903821| SENSOR   | Roll value received: 0.009
+Time: 17:53:34.004968| SENSOR   | Pitch value received: 0.014
+Time: 17:53:34.105805| SENSOR   | Yaw value received: 48.483
+Time: 17:53:34.105805| DEBUG    | Yaw value is float
+Time: 17:53:34.105805| SYSTEM   | Changed compass orientation
+Time: 17:53:35.016372| SENSOR   | Roll value received: 0.014
+Time: 17:53:35.117514| SENSOR   | Pitch value received: 0.015
+Time: 17:53:35.319597| SENSOR   | Yaw value received: 48.296
+Time: 17:53:35.319597| DEBUG    | Yaw value is float
+Time: 17:53:35.319597| SYSTEM   | Changed compass orientation
+Time: 17:53:36.129617| SENSOR   | Roll value received: 0.013
+Time: 17:53:36.230667| SENSOR   | Pitch value received: 0.013
+Time: 17:53:36.331651| SENSOR   | Yaw value received: 48.097
+Time: 17:53:36.331651| DEBUG    | Yaw value is float
+Time: 17:53:36.331651| SYSTEM   | Changed compass orientation
+Time: 17:53:37.141097| SENSOR   | Roll value received: 0.012
+Time: 17:53:37.242225| SENSOR   | Pitch value received: 0.015
+Time: 17:53:37.343450| SENSOR   | Yaw value received: 47.3
+Time: 17:53:37.343450| DEBUG    | Yaw value is float
+Time: 17:53:37.343450| SYSTEM   | Changed compass orientation
+Time: 17:53:38.154918| SENSOR   | Roll value received: 0.013
+Time: 17:53:38.255815| SENSOR   | Pitch value received: 0.012
+Time: 17:53:38.356708| SENSOR   | Yaw value received: 49.063
+Time: 17:53:38.356708| DEBUG    | Yaw value is float
+Time: 17:53:38.356708| SYSTEM   | Changed compass orientation
+Time: 17:53:39.165812| SENSOR   | Roll value received: 0.008
+Time: 17:53:39.267019| SENSOR   | Pitch value received: 0.011
+Time: 17:53:39.368173| SENSOR   | Yaw value received: 48.992
+Time: 17:53:39.368173| DEBUG    | Yaw value is float
+Time: 17:53:39.368173| SYSTEM   | Changed compass orientation
+Time: 17:53:40.176727| SENSOR   | Roll value received: 0.011
+Time: 17:53:40.277388| SENSOR   | Pitch value received: 0.014
+Time: 17:53:40.377969| SENSOR   | Yaw value received: 47.857
+Time: 17:53:40.377969| DEBUG    | Yaw value is float
+Time: 17:53:40.377969| SYSTEM   | Changed compass orientation
+Time: 17:53:41.188453| SENSOR   | Roll value received: 0.01
+Time: 17:53:41.289627| SENSOR   | Pitch value received: 0.013
+Time: 17:53:41.390813| SENSOR   | Yaw value received: 48.949
+Time: 17:53:41.390813| DEBUG    | Yaw value is float
+Time: 17:53:41.390813| SYSTEM   | Changed compass orientation
+Time: 17:53:42.302097| SENSOR   | Roll value received: 0.008
+Time: 17:53:42.403072| SENSOR   | Pitch value received: 0.011
+Time: 17:53:42.504165| SENSOR   | Yaw value received: 49.092
+Time: 17:53:42.504165| DEBUG    | Yaw value is float
+Time: 17:53:42.504165| SYSTEM   | Changed compass orientation
+Time: 17:53:43.311468| SENSOR   | Roll value received: 0.004
+Time: 17:53:43.412752| SENSOR   | Pitch value received: 0.01
+Time: 17:53:43.513726| SENSOR   | Yaw value received: 49.537
+Time: 17:53:43.513726| DEBUG    | Yaw value is float
+Time: 17:53:43.513726| SYSTEM   | Changed compass orientation
+Time: 17:53:44.322881| SENSOR   | Roll value received: 0.015
+Time: 17:53:44.423810| SENSOR   | Pitch value received: 0.017
+Time: 17:53:44.524624| SENSOR   | Yaw value received: 49.077
+Time: 17:53:44.524624| DEBUG    | Yaw value is float
+Time: 17:53:44.524624| SYSTEM   | Changed compass orientation
+Time: 17:53:45.334662| SENSOR   | Roll value received: 0.01
+Time: 17:53:45.435667| SENSOR   | Pitch value received: 0.009
+Time: 17:53:45.536775| SENSOR   | Yaw value received: 48.108
+Time: 17:53:45.536775| DEBUG    | Yaw value is float
+Time: 17:53:45.538831| SYSTEM   | Changed compass orientation
+Time: 17:53:46.345392| SENSOR   | Roll value received: 0.007
+Time: 17:53:46.446648| SENSOR   | Pitch value received: 0.009
+Time: 17:53:46.547519| SENSOR   | Yaw value received: 48.907
+Time: 17:53:46.547519| DEBUG    | Yaw value is float
+Time: 17:53:46.547519| SYSTEM   | Changed compass orientation
+Time: 17:53:47.358019| SENSOR   | Roll value received: 0.008
+Time: 17:53:47.459049| SENSOR   | Pitch value received: 0.01
+Time: 17:53:47.560044| SENSOR   | Yaw value received: 49.245
+Time: 17:53:47.560044| DEBUG    | Yaw value is float
+Time: 17:53:47.560044| SYSTEM   | Changed compass orientation
+Time: 17:53:48.571918| SENSOR   | Roll value received: 0.012
+Time: 17:53:48.672793| SENSOR   | Pitch value received: 0.016
+Time: 17:53:48.773417| SENSOR   | Yaw value received: 48.446
+Time: 17:53:48.773417| DEBUG    | Yaw value is float
+Time: 17:53:48.775948| SYSTEM   | Changed compass orientation
+Time: 17:53:49.584771| SENSOR   | Roll value received: 0.01
+Time: 17:53:49.685787| SENSOR   | Pitch value received: 0.011
+Time: 17:53:49.786863| SENSOR   | Yaw value received: 49.671
+Time: 17:53:49.786863| DEBUG    | Yaw value is float
+Time: 17:53:49.786863| SYSTEM   | Changed compass orientation
+Time: 17:53:50.597526| SENSOR   | Roll value received: 0.009
+Time: 17:53:50.698690| SENSOR   | Pitch value received: 0.01
+Time: 17:53:50.798781| SENSOR   | Yaw value received: 49.23
+Time: 17:53:50.798781| DEBUG    | Yaw value is float
+Time: 17:53:50.798781| SYSTEM   | Changed compass orientation
+Time: 17:53:51.608350| SENSOR   | Roll value received: 0.008
+Time: 17:53:51.709333| SENSOR   | Pitch value received: 0.011
+Time: 17:53:51.810533| SENSOR   | Yaw value received: 48.642
+Time: 17:53:51.810533| DEBUG    | Yaw value is float
+Time: 17:53:51.810533| SYSTEM   | Changed compass orientation
+Time: 17:53:52.621052| SENSOR   | Roll value received: 0.009
+Time: 17:53:52.721593| SENSOR   | Pitch value received: 0.013
+Time: 17:53:52.822664| SENSOR   | Yaw value received: 49.063
+Time: 17:53:52.822664| DEBUG    | Yaw value is float
+Time: 17:53:52.822664| SYSTEM   | Changed compass orientation
+Time: 17:53:53.632363| SENSOR   | Roll value received: 0.012
+Time: 17:53:53.733635| SENSOR   | Pitch value received: 0.011
+Time: 17:53:53.834491| SENSOR   | Yaw value received: 48.261
+Time: 17:53:53.834491| DEBUG    | Yaw value is float
+Time: 17:53:53.834491| SYSTEM   | Changed compass orientation
+Time: 17:53:54.744992| SENSOR   | Roll value received: 0.01
+Time: 17:53:54.846211| SENSOR   | Pitch value received: 0.012
+Time: 17:53:54.947330| SENSOR   | Yaw value received: 49.72
+Time: 17:53:54.947330| DEBUG    | Yaw value is float
+Time: 17:53:54.947330| SYSTEM   | Changed compass orientation
+Time: 17:53:55.755655| SENSOR   | Roll value received: 0.013
+Time: 17:53:55.856632| SENSOR   | Pitch value received: 0.011
+Time: 17:53:55.957732| SENSOR   | Yaw value received: 48.25
+Time: 17:53:55.957732| DEBUG    | Yaw value is float
+Time: 17:53:55.957732| SYSTEM   | Changed compass orientation
+Time: 17:53:56.768580| SENSOR   | Roll value received: 0.006
+Time: 17:53:56.869072| SENSOR   | Pitch value received: 0.011
+Time: 17:53:56.969476| SENSOR   | Yaw value received: 47.275
+Time: 17:53:56.969476| DEBUG    | Yaw value is float
+Time: 17:53:56.969476| SYSTEM   | Changed compass orientation
+Time: 17:53:57.780198| SENSOR   | Roll value received: 0.009
+Time: 17:53:57.881054| SENSOR   | Pitch value received: 0.011
+Time: 17:53:57.981919| SENSOR   | Yaw value received: 49.441
+Time: 17:53:57.981919| DEBUG    | Yaw value is float
+Time: 17:53:57.981919| SYSTEM   | Changed compass orientation
+Time: 17:53:58.790361| SENSOR   | Roll value received: 0.006
+Time: 17:53:58.891641| SENSOR   | Pitch value received: 0.015
+Time: 17:53:58.992663| SENSOR   | Yaw value received: 49.622
+Time: 17:53:58.992663| DEBUG    | Yaw value is float
+Time: 17:53:58.992663| SYSTEM   | Changed compass orientation
+Time: 17:53:59.802467| SENSOR   | Roll value received: 0.015
+Time: 17:53:59.903367| SENSOR   | Pitch value received: 0.012
+Time: 17:54:00.004550| SENSOR   | Yaw value received: 48.668
+Time: 17:54:00.004550| DEBUG    | Yaw value is float
+Time: 17:54:00.012561| SYSTEM   | Changed compass orientation
+Time: 17:54:00.821445| SENSOR   | Roll value received: 0.011
+Time: 17:54:00.922625| SENSOR   | Pitch value received: 0.012
+Time: 17:54:01.024016| SENSOR   | Yaw value received: 49.638
+Time: 17:54:01.024016| DEBUG    | Yaw value is float
+Time: 17:54:01.024016| SYSTEM   | Changed compass orientation
+Time: 17:54:01.935034| SENSOR   | Roll value received: 0.003
+Time: 17:54:02.036077| SENSOR   | Pitch value received: -0.097
+Time: 17:54:02.137245| SENSOR   | Yaw value received: 35.377
+Time: 17:54:02.137245| DEBUG    | Yaw value is float
+Time: 17:54:02.137245| SYSTEM   | Changed compass orientation
+Time: 17:54:02.948327| SENSOR   | Roll value received: 0.03
+Time: 17:54:03.049124| SENSOR   | Pitch value received: 0.039
+Time: 17:54:03.249892| SENSOR   | Yaw value received: 32.225
+Time: 17:54:03.249892| DEBUG    | Yaw value is float
+Time: 17:54:03.250924| SYSTEM   | Changed compass orientation
+Time: 17:54:04.061902| SENSOR   | Roll value received: 0.03
+Time: 17:54:04.163017| SENSOR   | Pitch value received: 0.042
+Time: 17:54:04.263918| SENSOR   | Yaw value received: 31.962
+Time: 17:54:04.263918| DEBUG    | Yaw value is float
+Time: 17:54:04.263918| SYSTEM   | Changed compass orientation
+Time: 17:54:05.074200| SENSOR   | Roll value received: 0.028
+Time: 17:54:05.175186| SENSOR   | Pitch value received: 0.043
+Time: 17:54:05.275986| SENSOR   | Yaw value received: 32.185
+Time: 17:54:05.275986| DEBUG    | Yaw value is float
+Time: 17:54:05.275986| SYSTEM   | Changed compass orientation
+Time: 17:54:06.086046| SENSOR   | Roll value received: 0.026
+Time: 17:54:06.187147| SENSOR   | Pitch value received: 0.047
+Time: 17:54:06.288132| SENSOR   | Yaw value received: 33.13
+Time: 17:54:06.288132| DEBUG    | Yaw value is float
+Time: 17:54:06.288132| SYSTEM   | Changed compass orientation
+Time: 17:54:07.098027| SENSOR   | Roll value received: 0.028
+Time: 17:54:07.198339| SENSOR   | Pitch value received: -0.004
+Time: 17:54:07.299379| SENSOR   | Yaw value received: 31.806
+Time: 17:54:07.299379| DEBUG    | Yaw value is float
+Time: 17:54:07.299379| SYSTEM   | Changed compass orientation
+Time: 17:54:08.108538| SENSOR   | Roll value received: 0.026
+Time: 17:54:08.209327| SENSOR   | Pitch value received: 0.05
+Time: 17:54:08.310545| SENSOR   | Yaw value received: 32.111
+Time: 17:54:08.310545| DEBUG    | Yaw value is float
+Time: 17:54:08.310545| SYSTEM   | Changed compass orientation
+Time: 17:54:09.221003| SENSOR   | Roll value received: 0.043
+Time: 17:54:09.322293| SENSOR   | Pitch value received: -0.025
+Time: 17:54:09.423451| SENSOR   | Yaw value received: 40.397
+Time: 17:54:09.423451| DEBUG    | Yaw value is float
+Time: 17:54:09.423451| SYSTEM   | Changed compass orientation
+Time: 17:54:10.231985| SENSOR   | Roll value received: 0.017
+Time: 17:54:10.333005| SENSOR   | Pitch value received: 0.016
+Time: 17:54:10.433890| SENSOR   | Yaw value received: 30.309
+Time: 17:54:10.433890| DEBUG    | Yaw value is float
+Time: 17:54:10.433890| SYSTEM   | Changed compass orientation
+Time: 17:54:11.243467| SENSOR   | Roll value received: 0.015
+Time: 17:54:11.344424| SENSOR   | Pitch value received: 0.015
+Time: 17:54:11.445264| SENSOR   | Yaw value received: 30.881
+Time: 17:54:11.445264| DEBUG    | Yaw value is float
+Time: 17:54:11.445264| SYSTEM   | Changed compass orientation
+Time: 17:54:12.257077| SENSOR   | Roll value received: 0.015
+Time: 17:54:12.357887| SENSOR   | Pitch value received: 0.014
+Time: 17:54:12.458574| SENSOR   | Yaw value received: 30.005
+Time: 17:54:12.458574| DEBUG    | Yaw value is float
+Time: 17:54:12.458574| SYSTEM   | Changed compass orientation
+Time: 17:54:13.266878| SENSOR   | Roll value received: 0.014
+Time: 17:54:13.367957| SENSOR   | Pitch value received: 0.016
+Time: 17:54:13.468458| SENSOR   | Yaw value received: 29.664
+Time: 17:54:13.468458| DEBUG    | Yaw value is float
+Time: 17:54:13.468458| SYSTEM   | Changed compass orientation
+Time: 17:54:14.277959| SENSOR   | Roll value received: 0.015
+Time: 17:54:14.378065| SENSOR   | Pitch value received: 0.013
+Time: 17:54:14.478367| SENSOR   | Yaw value received: 30.916
+Time: 17:54:14.478367| DEBUG    | Yaw value is float
+Time: 17:54:14.478367| SYSTEM   | Changed compass orientation
+Time: 17:54:15.288785| SENSOR   | Roll value received: 0.014
+Time: 17:54:15.389878| SENSOR   | Pitch value received: 0.015
+Time: 17:54:15.491046| SENSOR   | Yaw value received: 30.636
+Time: 17:54:15.491046| DEBUG    | Yaw value is float
+Time: 17:54:15.491046| SYSTEM   | Changed compass orientation
+Time: 17:54:16.401172| SENSOR   | Roll value received: 0.015
+Time: 17:54:16.602994| SENSOR   | Pitch value received: 0.014
+Time: 17:54:16.703911| SENSOR   | Yaw value received: 29.893
+Time: 17:54:16.703911| DEBUG    | Yaw value is float
+Time: 17:54:16.703911| SYSTEM   | Changed compass orientation
+Time: 17:54:17.514019| SENSOR   | Roll value received: 0.015
+Time: 17:54:17.615140| SENSOR   | Pitch value received: 0.014
+Time: 17:54:17.716399| SENSOR   | Yaw value received: 28.935
+Time: 17:54:17.716399| DEBUG    | Yaw value is float
+Time: 17:54:17.716399| SYSTEM   | Changed compass orientation
+Time: 17:54:18.526552| SENSOR   | Roll value received: 0.012
+Time: 17:54:18.627415| SENSOR   | Pitch value received: 0.015
+Time: 17:54:18.728402| SENSOR   | Yaw value received: 30.174
+Time: 17:54:18.728402| DEBUG    | Yaw value is float
+Time: 17:54:18.728402| SYSTEM   | Changed compass orientation
+Time: 17:54:19.539896| SENSOR   | Roll value received: 0.016
+Time: 17:54:19.641034| SENSOR   | Pitch value received: 0.016
+Time: 17:54:19.742272| SENSOR   | Yaw value received: 29.689
+Time: 17:54:19.742272| DEBUG    | Yaw value is float
+Time: 17:54:19.742272| SYSTEM   | Changed compass orientation
+Time: 17:54:20.552365| SENSOR   | Roll value received: 0.016
+Time: 17:54:20.653487| SENSOR   | Pitch value received: 0.015
+Time: 17:54:20.754863| SENSOR   | Yaw value received: 29.876
+Time: 17:54:20.754863| DEBUG    | Yaw value is float
+Time: 17:54:20.754863| SYSTEM   | Changed compass orientation
+Time: 17:54:21.564467| SENSOR   | Roll value received: 0.014
+Time: 17:54:21.665396| SENSOR   | Pitch value received: 0.013
+Time: 17:54:21.766629| SENSOR   | Yaw value received: 30.429
+Time: 17:54:21.766629| DEBUG    | Yaw value is float
+Time: 17:54:21.766629| SYSTEM   | Changed compass orientation
+Time: 17:54:22.674939| SENSOR   | Roll value received: 0.015
+Time: 17:54:22.775455| SENSOR   | Pitch value received: 0.014
+Time: 17:54:22.876590| SENSOR   | Yaw value received: 29.676
+Time: 17:54:22.876590| DEBUG    | Yaw value is float
+Time: 17:54:22.876590| SYSTEM   | Changed compass orientation
+Time: 17:54:23.687423| SENSOR   | Roll value received: 0.014
+Time: 17:54:23.788617| SENSOR   | Pitch value received: 0.016
+Time: 17:54:23.889672| SENSOR   | Yaw value received: 30.456
+Time: 17:54:23.889672| DEBUG    | Yaw value is float
+Time: 17:54:23.889672| SYSTEM   | Changed compass orientation
+Time: 17:54:24.698982| SENSOR   | Roll value received: 0.016
+Time: 17:54:24.799897| SENSOR   | Pitch value received: 0.014
+Time: 17:54:24.900976| SENSOR   | Yaw value received: 29.449
+Time: 17:54:24.900976| DEBUG    | Yaw value is float
+Time: 17:54:24.900976| SYSTEM   | Changed compass orientation
+Time: 17:54:25.708892| SENSOR   | Roll value received: 0.015
+Time: 17:54:25.810109| SENSOR   | Pitch value received: 0.015
+Time: 17:54:25.910750| SENSOR   | Yaw value received: 30.425
+Time: 17:54:25.910750| DEBUG    | Yaw value is float
+Time: 17:54:25.910750| SYSTEM   | Changed compass orientation
+Time: 17:54:26.719529| SENSOR   | Roll value received: 0.014
+Time: 17:54:26.820419| SENSOR   | Pitch value received: 0.015
+Time: 17:54:26.921252| SENSOR   | Yaw value received: 29.372
+Time: 17:54:26.921252| DEBUG    | Yaw value is float
+Time: 17:54:26.921252| SYSTEM   | Changed compass orientation
+Time: 17:54:27.732055| SENSOR   | Roll value received: 0.014
+Time: 17:54:27.833143| SENSOR   | Pitch value received: 0.013
+Time: 17:54:27.933789| SENSOR   | Yaw value received: 30.315
+Time: 17:54:27.933789| DEBUG    | Yaw value is float
+Time: 17:54:27.933789| SYSTEM   | Changed compass orientation
+Time: 17:54:28.742435| SENSOR   | Roll value received: 0.015
+Time: 17:54:28.843394| SENSOR   | Pitch value received: 0.014
+Time: 17:54:28.944751| SENSOR   | Yaw value received: 30.357
+Time: 17:54:28.944751| DEBUG    | Yaw value is float
+Time: 17:54:28.944751| SYSTEM   | Changed compass orientation
+Time: 17:54:29.858019| SENSOR   | Roll value received: 0.014
+Time: 17:54:29.959012| SENSOR   | Pitch value received: 0.015
+Time: 17:54:30.059798| SENSOR   | Yaw value received: 30.705
+Time: 17:54:30.059798| DEBUG    | Yaw value is float
+Time: 17:54:30.059798| SYSTEM   | Changed compass orientation
+Time: 17:54:30.970420| SENSOR   | Roll value received: 0.014
+Time: 17:54:31.070849| SENSOR   | Pitch value received: 0.014
+Time: 17:54:31.171771| SENSOR   | Yaw value received: 29.211
+Time: 17:54:31.171771| DEBUG    | Yaw value is float
+Time: 17:54:31.171771| SYSTEM   | Changed compass orientation
+Time: 17:54:31.982685| SENSOR   | Roll value received: 0.015
+Time: 17:54:32.083469| SENSOR   | Pitch value received: 0.012
+Time: 17:54:32.184308| SENSOR   | Yaw value received: 30.297
+Time: 17:54:32.184308| DEBUG    | Yaw value is float
+Time: 17:54:32.184308| SYSTEM   | Changed compass orientation
+Time: 17:54:32.994470| SENSOR   | Roll value received: 0.015
+Time: 17:54:33.095471| SENSOR   | Pitch value received: 0.014
+Time: 17:54:33.196654| SENSOR   | Yaw value received: 29.626
+Time: 17:54:33.196654| DEBUG    | Yaw value is float
+Time: 17:54:33.196654| SYSTEM   | Changed compass orientation
+Time: 17:54:34.006019| SENSOR   | Roll value received: 0.013
+Time: 17:54:34.107159| SENSOR   | Pitch value received: 0.016
+Time: 17:54:34.207672| SENSOR   | Yaw value received: 30.248
+Time: 17:54:34.207672| DEBUG    | Yaw value is float
+Time: 17:54:34.207672| SYSTEM   | Changed compass orientation
+Time: 17:54:35.017988| SENSOR   | Roll value received: 0.016
+Time: 17:54:35.118846| SENSOR   | Pitch value received: 0.014
+Time: 17:54:35.219292| SENSOR   | Yaw value received: 30.493
+Time: 17:54:35.219292| DEBUG    | Yaw value is float
+Time: 17:54:35.219292| SYSTEM   | Changed compass orientation
+Time: 17:54:36.132022| SENSOR   | Roll value received: 0.013
+Time: 17:54:36.233126| SENSOR   | Pitch value received: 0.015
+Time: 17:54:36.334452| SENSOR   | Yaw value received: 30.291
+Time: 17:54:36.334452| DEBUG    | Yaw value is float
+Time: 17:54:36.334452| SYSTEM   | Changed compass orientation
+Time: 17:54:37.145212| SENSOR   | Roll value received: 0.013
+Time: 17:54:37.246275| SENSOR   | Pitch value received: 0.012
+Time: 17:54:37.347067| SENSOR   | Yaw value received: 31.153
+Time: 17:54:37.347067| DEBUG    | Yaw value is float
+Time: 17:54:37.347067| SYSTEM   | Changed compass orientation
+Time: 17:54:38.154120| SENSOR   | Roll value received: 0.01
+Time: 17:54:38.255179| SENSOR   | Pitch value received: 0.012
+Time: 17:54:38.356163| SENSOR   | Yaw value received: 30.408
+Time: 17:54:38.356163| DEBUG    | Yaw value is float
+Time: 17:54:38.356163| SYSTEM   | Changed compass orientation
+Time: 17:54:39.165151| SENSOR   | Roll value received: 0.01
+Time: 17:54:39.266294| SENSOR   | Pitch value received: 0.011
+Time: 17:54:39.366996| SENSOR   | Yaw value received: 30.574
+Time: 17:54:39.366996| DEBUG    | Yaw value is float
+Time: 17:54:39.366996| SYSTEM   | Changed compass orientation
+Time: 17:54:40.177937| SENSOR   | Roll value received: 0.007
+Time: 17:54:40.278966| SENSOR   | Pitch value received: 0.012
+Time: 17:54:40.379797| SENSOR   | Yaw value received: 31.223
+Time: 17:54:40.379797| DEBUG    | Yaw value is float
+Time: 17:54:40.379797| SYSTEM   | Changed compass orientation
+Time: 17:54:41.189840| SENSOR   | Roll value received: 0.04
+Time: 17:54:41.289968| SENSOR   | Pitch value received: -0.485
+Time: 17:54:41.390786| SENSOR   | Yaw value received: 39.722
+Time: 17:54:41.390786| DEBUG    | Yaw value is float
+Time: 17:54:41.390786| SYSTEM   | Changed compass orientation
+Time: 17:54:42.300356| SENSOR   | Roll value received: 0.031
+Time: 17:54:42.400960| SENSOR   | Pitch value received: -0.55
+Time: 17:54:42.502235| SENSOR   | Yaw value received: 19.49
+Time: 17:54:42.502235| DEBUG    | Yaw value is float
+Time: 17:54:42.502235| SYSTEM   | Changed compass orientation
+Time: 17:54:43.310473| SENSOR   | Roll value received: 0.038
+Time: 17:54:43.411444| SENSOR   | Pitch value received: -0.57
+Time: 17:54:43.512401| SENSOR   | Yaw value received: 21.073
+Time: 17:54:43.512401| DEBUG    | Yaw value is float
+Time: 17:54:43.512401| SYSTEM   | Changed compass orientation
+Time: 17:54:44.320836| SENSOR   | Roll value received: 0.04
+Time: 17:54:44.421786| SENSOR   | Pitch value received: -0.573
+Time: 17:54:44.522722| SENSOR   | Yaw value received: 20.858
+Time: 17:54:44.522722| DEBUG    | Yaw value is float
+Time: 17:54:44.522722| SYSTEM   | Changed compass orientation
+Time: 17:54:44.655785| SYSTEM   | Device ZigBee closed
+Time: 17:54:44.655785| SYSTEM   | Thread to update gui ended

@@ -1,2 +1,0 @@
-# inebranlable
-Autonomous boat project

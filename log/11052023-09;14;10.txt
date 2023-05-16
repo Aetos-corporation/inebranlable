@@ -1,0 +1,5 @@
+Time: 09:14:12.398307| SYSTEM   | Connect events done
+Time: 09:14:12.426306| SYSTEM   | Pictures init done
+Time: 09:14:12.430306| SYSTEM   | Frame initialized and ready
+Time: 09:14:14.103263| SYSTEM   | Device ZigBee closed
+Time: 09:14:14.103263| SYSTEM   | Thread to update gui ended
