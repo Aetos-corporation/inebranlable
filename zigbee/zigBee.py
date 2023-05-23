@@ -144,6 +144,8 @@ class zigBeeComDevice(object):
         else:
             data = str(data)[2:]
             data = data[:-1]
+        self.frame.trace.log("DEBUG", "func: {}| mode: {}| size: {}| data: {}".format(func, mode, size, data))
+        print("func: " + str(func) + " | wr: " + str(mode) + " | size: " + str(size) + "| data: " + str(data))
         return func, mode, size, data
     
     def read_data_in_queue(self):
