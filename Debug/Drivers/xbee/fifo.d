@@ -1,6 +1,6 @@
 Drivers/xbee/fifo.o: ../Drivers/xbee/fifo.c \
- D:/Clement/Centrale/Projet\ Bateau/inebranlable-dev/Drivers/xbee/fifo.h \
- D:/Clement/Centrale/Projet\ Bateau/inebranlable-dev/Drivers/log/frame.h \
+ D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/xbee/fifo.h \
+ D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/log/frame.h \
  ../Core/Inc/main.h ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -31,8 +31,8 @@ Drivers/xbee/fifo.o: ../Drivers/xbee/fifo.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
-D:/Clement/Centrale/Projet\ Bateau/inebranlable-dev/Drivers/xbee/fifo.h:
-D:/Clement/Centrale/Projet\ Bateau/inebranlable-dev/Drivers/log/frame.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/xbee/fifo.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/log/frame.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:

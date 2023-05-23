@@ -15,7 +15,9 @@ RM := rm -rf
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/xbee/subdir.mk
 -include Drivers/trace/subdir.mk
+-include Drivers/system/subdir.mk
 -include Drivers/log/subdir.mk
+-include Drivers/imu/subdir.mk
 -include Drivers/gps/subdir.mk
 -include Drivers/cmd_servo/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
@@ -69,8 +71,8 @@ all: main-build
 main-build: inebranlable.elf secondary-outputs
 
 # Tool invocations
-inebranlable.elf inebranlable.map: $(OBJS) $(USER_OBJS) D:\Clement\Centrale\Projet\ Bateau\inebranlable-dev\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "inebranlable.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Clement\Centrale\Projet Bateau\inebranlable-dev\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="inebranlable.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+inebranlable.elf inebranlable.map: $(OBJS) $(USER_OBJS) D:\Documents\Prog\bateau\repos_github\inebranlable_dev\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "inebranlable.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Documents\Prog\bateau\repos_github\inebranlable_dev\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="inebranlable.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

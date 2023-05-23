@@ -17,12 +17,12 @@
 #include "trace/trace.h"
 
 
-void LOG_GPS_NORD(float val){
-	LOG_SENSOR(CODE_FUNC_GPS_NORD, val);
+void LOG_GPS_LONGITUDE(float val){
+	LOG_SENSOR(CODE_FUNC_GPS_LONG, val);
 }
 
-void LOG_GPS_WEST(float val){
-	LOG_SENSOR(CODE_FUNC_GPS_WEST, val);
+void LOG_GPS_LATITUDE(float val){
+	LOG_SENSOR(CODE_FUNC_GPS_LATI, val);
 }
 
 void LOG_GIROUETTE(float val){

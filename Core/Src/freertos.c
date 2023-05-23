@@ -28,6 +28,9 @@
 #include <cmd_servo/cmd_servo.h>
 #include <log/log.h>
 #include <trace/trace.h>
+#include <imu/imu.h>
+#include <gps/gps_zed_f9p.h>
+#include <system/system.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,7 +57,7 @@ typedef StaticSemaphore_t osStaticMutexDef_t;
 /* USER CODE END Variables */
 /* Definitions for blinkTask */
 osThreadId_t blinkTaskHandle;
-uint32_t blinkTaskBuffer[ 128 ];
+uint32_t blinkTaskBuffer[ 1024 ];
 osStaticThreadDef_t blinkTaskControlBlock;
 const osThreadAttr_t blinkTask_attributes = {
   .name = "blinkTask",
@@ -66,7 +69,7 @@ const osThreadAttr_t blinkTask_attributes = {
 };
 /* Definitions for PWMTask */
 osThreadId_t PWMTaskHandle;
-uint32_t PWMTaskBuffer[ 256 ];
+uint32_t PWMTaskBuffer[ 1024 ];
 osStaticThreadDef_t PWMTaskControlBlock;
 const osThreadAttr_t PWMTask_attributes = {
   .name = "PWMTask",
@@ -86,11 +89,11 @@ const osThreadAttr_t xbeeTask_attributes = {
   .cb_size = sizeof(XbeeTaskControlBlock),
   .stack_mem = &XbeeTaskBuffer[0],
   .stack_size = sizeof(XbeeTaskBuffer),
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityAboveNormal,
 };
 /* Definitions for gpsTask */
 osThreadId_t gpsTaskHandle;
-uint32_t gpsTaskBuffer[ 128 ];
+uint32_t gpsTaskBuffer[ 1024 ];
 osStaticThreadDef_t gpsTaskControlBlock;
 const osThreadAttr_t gpsTask_attributes = {
   .name = "gpsTask",
@@ -99,6 +102,30 @@ const osThreadAttr_t gpsTask_attributes = {
   .stack_mem = &gpsTaskBuffer[0],
   .stack_size = sizeof(gpsTaskBuffer),
   .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for imuTask */
+osThreadId_t imuTaskHandle;
+uint32_t imuTaskBuffer[ 1024 ];
+osStaticThreadDef_t imuTaskControlBlock;
+const osThreadAttr_t imuTask_attributes = {
+  .name = "imuTask",
+  .cb_mem = &imuTaskControlBlock,
+  .cb_size = sizeof(imuTaskControlBlock),
+  .stack_mem = &imuTaskBuffer[0],
+  .stack_size = sizeof(imuTaskBuffer),
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for navTask */
+osThreadId_t navTaskHandle;
+uint32_t navTaskBuffer[ 1024 ];
+osStaticThreadDef_t navTaskControlBlock;
+const osThreadAttr_t navTask_attributes = {
+  .name = "navTask",
+  .cb_mem = &navTaskControlBlock,
+  .cb_size = sizeof(navTaskControlBlock),
+  .stack_mem = &navTaskBuffer[0],
+  .stack_size = sizeof(navTaskBuffer),
+  .priority = (osPriority_t) osPriorityHigh,
 };
 /* Definitions for traceMutex */
 osMutexId_t traceMutexHandle;
@@ -115,9 +142,11 @@ const osMutexAttr_t traceMutex_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void StartBlinkTask(void *argument);
-void startPWMTask(void *argument);
+extern void startPWMTask(void *argument);
 extern void StartXbeeTask(void *argument);
 extern void StartGpsTask(void *argument);
+extern void StartImuTask(void *argument);
+void StartNavTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -155,13 +184,19 @@ void MX_FREERTOS_Init(void) {
   blinkTaskHandle = osThreadNew(StartBlinkTask, NULL, &blinkTask_attributes);
 
   /* creation of PWMTask */
-  PWMTaskHandle = osThreadNew(startPWMTask, NULL, &PWMTask_attributes);
+//  PWMTaskHandle = osThreadNew(startPWMTask, NULL, &PWMTask_attributes);
 
   /* creation of xbeeTask */
   xbeeTaskHandle = osThreadNew(StartXbeeTask, NULL, &xbeeTask_attributes);
 
   /* creation of gpsTask */
-  gpsTaskHandle = osThreadNew(StartGpsTask, NULL, &gpsTask_attributes);
+//  gpsTaskHandle = osThreadNew(StartGpsTask, NULL, &gpsTask_attributes);
+
+  /* creation of imuTask */
+  imuTaskHandle = osThreadNew(StartImuTask, NULL, &imuTask_attributes);
+
+  /* creation of navTask */
+  navTaskHandle = osThreadNew(StartNavTask, NULL, &navTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -183,40 +218,41 @@ void MX_FREERTOS_Init(void) {
 void StartBlinkTask(void *argument)
 {
   /* USER CODE BEGIN StartBlinkTask */
-  /* Infinite loop */
+	/* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	osDelay(100);
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	osDelay(100);
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	osDelay(100);
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	osDelay(1000);
   }
   /* USER CODE END StartBlinkTask */
 }
 
-/* USER CODE BEGIN Header_startPWMTask */
+/* USER CODE BEGIN Header_StartNavTask */
 /**
-* @brief Function implementing the PWMTask thread.
+* @brief Function implementing the navTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_startPWMTask */
-void startPWMTask(void *argument)
+/* USER CODE END Header_StartNavTask */
+void StartNavTask(void *argument)
 {
-  /* USER CODE BEGIN startPWMTask */
+  /* USER CODE BEGIN StartNavTask */
+	while( !sys_testInitFlag(SYS_MASK_XBEE) && !sys_testInitFlag(SYS_MASK_IMU))
+		osDelay(1000);
   /* Infinite loop */
-	//démarrage des PWM
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
-
-	//initialisation des PWM dans les valeurs par défaut
-	TIM1->CCR1 = DEFAULT_PWM_VALUE_SAFRAN; //safran à 0°
-	TIM1->CCR4 = DEFAULT_PWM_VALUE_VOILE; //voile dans l'axe du bateau
-
-	PRINT("PWM initialized\n");
   for(;;)
   {
-
-	osDelay(100);
+	  LOG_INFO("update (%ds)", HAL_GetTick() /1000 );
+	  LOG_YAW(imu_getYaw());
+	  osDelay(500 / portTICK_PERIOD_MS);
   }
-  /* USER CODE END startPWMTask */
+  /* USER CODE END StartNavTask */
 }
 
 /* Private application code --------------------------------------------------*/

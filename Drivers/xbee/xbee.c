@@ -16,7 +16,9 @@
 #include "log/frame.h"
 #include "trace/trace.h"
 
+#include "system/system.h"
 
+extern uint8_t initFlags;
 extern osThreadId xbeeTaskHandle;
 
 /*** Private functions ***/
@@ -44,12 +46,14 @@ static Fifo_t frameFifo;
  */
 void StartXbeeTask(void const * argument)
 {
-	PRINT("XBee Start Task\n");
-
 	if(xbee_init(&huart1) != 0)
 		vTaskDelete(xbeeTaskHandle);
 
 	FifoInit(&frameFifo, sizeof(genericFrame_t), 100);
+
+	sys_setInitFlag(SYS_MASK_XBEE);
+
+	PRINT("XBee Start Task");
 
 //Loop
 	for(;;)
@@ -69,6 +73,7 @@ uint8_t xbee_init(UART_HandleTypeDef* uartHandle)
 	PRINT("Init xbeeSerial...");
 	xbeeSerial_Init(uartHandle);
 
+	/*
 	enteringCmdMode = 0;
 	_resetFrame();
 
@@ -98,6 +103,7 @@ uint8_t xbee_init(UART_HandleTypeDef* uartHandle)
 		return ret;
 
 	_ExitCmdMode();
+*/
 
 	return ret;
 }
@@ -117,18 +123,18 @@ void xbee_process(void)
 	FifoPop(&frameFifo, &frame);
 	serialize(frame, buffer, &bufferSize);
 
-	PRINT("[Xbee] Sending frame: \n\r");
-	PRINT(" >func:     0x%02X\n\r", frame.codeFunc);
-	PRINT(" >mode:     0x%02X\n\r", frame.mode);
-	PRINT(" >dataSize: 0x%02X\n\r", frame.dataSize);
-	PRINT(" >data:     ");
-	for (int i = 0; i < bufferSize; i++)
-	    PRINT("0x%02X ", buffer[i]);
-	PRINT("\n\r\n\r");
+//	PRINT("[Xbee] Sending frame: \n\r");
+//	PRINT(" >func:     0x%02X\n\r", frame.codeFunc);
+//	PRINT(" >mode:     0x%02X\n\r", frame.mode);
+//	PRINT(" >dataSize: 0x%02X\n\r", frame.dataSize);
+//	PRINT(" >data:     ");
+//	for (int i = 0; i < bufferSize; i++)
+//	    PRINT("0x%02X ", buffer[i]);
+//	PRINT("\n\r\n\r");
 
-//	taskENTER_CRITICAL();
+	taskENTER_CRITICAL();
 	xbeeSerial_Transmit(buffer, bufferSize);
-//    taskEXIT_CRITICAL();
+    taskEXIT_CRITICAL();
 
 	frameDelete(&frame); //Free Memory
 }

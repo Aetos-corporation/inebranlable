@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "trace/trace.h"
+#include "system/system.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,7 +95,7 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  PRINT("\n/--- Startup ---/\n");
+//  PRINT("\n/--- Startup ---/\n");
   /* USER CODE END 2 */
 
   /* Init scheduler */

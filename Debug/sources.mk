@@ -26,7 +26,9 @@ Core/Startup \
 Drivers/STM32L4xx_HAL_Driver/Src \
 Drivers/cmd_servo \
 Drivers/gps \
+Drivers/imu \
 Drivers/log \
+Drivers/system \
 Drivers/trace \
 Drivers/xbee \
 Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 \

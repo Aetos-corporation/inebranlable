@@ -74,8 +74,8 @@ bool GPS_Parse_GGA_Frame (GPS* gps);
 
 void GPS_Compute_checksums(uint8_t* msg, int start, int stop, int length);
 
-// - Variables globales - //
-GPS gps_F9P;
+float GPS_getLatitude(void);
+float GPS_getLongitude(void);
 
 #endif
 

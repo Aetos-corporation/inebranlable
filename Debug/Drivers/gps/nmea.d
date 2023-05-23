@@ -1,3 +1,3 @@
 Drivers/gps/nmea.o: ../Drivers/gps/nmea.c \
- D:/Clement/Centrale/Projet\ Bateau/inebranlable-dev/Drivers/gps/nmea.h
-D:/Clement/Centrale/Projet\ Bateau/inebranlable-dev/Drivers/gps/nmea.h:
+ D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/gps/nmea.h
+D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/gps/nmea.h:

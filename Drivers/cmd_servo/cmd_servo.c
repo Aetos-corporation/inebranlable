@@ -7,12 +7,13 @@
 #include <cmd_servo/cmd_servo.h>
 #include <log/log.h>
 #include <trace/trace.h>
+#include <system/system.h>
 
 #define DEFAULT_PWM_VALUE_SAFRAN  153
 #define DEFAULT_PWM_VALUE_VOILE   150
 
 /*fonction pour modifier la valeur de la PWM pour la voile
-Valeurs d'entrée pour le paramètre val:
+Valeurs d'entrée pour le paramètre val: entre 0 et 90
 Valeurs d'entrée pour val: intervale entre 0 et 90
 */
 void set_PWM_value_voile(int val){
@@ -99,7 +100,7 @@ void execute_exemple_safran(){
 	PRINT("Fin exemple\n");
 	PRINT("====================\n");
 }
-/*
+
 void startPWMTask(void const * argument){
 	//démarrage des PWM
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
@@ -110,11 +111,14 @@ void startPWMTask(void const * argument){
 	TIM1->CCR4 = DEFAULT_PWM_VALUE_VOILE; //voile dans l'axe du bateau
 
 	PRINT("PWM initialized\n");
+	sys_setInitFlag(SYS_MASK_PWM);
 
+	/*
 	while(1){
 		//execute_exemple_safran();
 		//execute_exemple_voile();
 
 		osDelay(100);
 	}
-}*/
+	*/
+}

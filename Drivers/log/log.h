@@ -12,8 +12,8 @@
 
 #include "log/frame.h"
 
-#define CODE_FUNC_GPS_NORD   0x01
-#define CODE_FUNC_GPS_WEST   0x02
+#define CODE_FUNC_GPS_LONG   0x01
+#define CODE_FUNC_GPS_LATI   0x02
 #define CODE_FUNC_GIROUETTE  0x03
 #define CODE_FUNC_ROLL       0x04
 #define CODE_FUNC_PITCH      0x05
@@ -24,8 +24,8 @@
 #define CODE_FUNC_LOG_WARN   0x10
 #define CODE_FUNC_LOG_ERROR  0x11
 
-void LOG_GPS_NORD(float val);
-void LOG_GPS_WEST(float val);
+void LOG_GPS_LONGITUDE(float val);
+void LOG_GPS_LATITUDE(float val);
 void LOG_GIROUETTE(float val);
 void LOG_ROLL(float val);
 void LOG_PITCH(float val);
