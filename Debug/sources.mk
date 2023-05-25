@@ -30,6 +30,7 @@ Drivers/imu \
 Drivers/log \
 Drivers/system \
 Drivers/trace \
+Drivers/windSensor \
 Drivers/xbee \
 Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 \
 Middlewares/Third_Party/FreeRTOS/Source \

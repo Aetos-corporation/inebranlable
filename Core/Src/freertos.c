@@ -127,6 +127,18 @@ const osThreadAttr_t navTask_attributes = {
   .stack_size = sizeof(navTaskBuffer),
   .priority = (osPriority_t) osPriorityHigh,
 };
+/* Definitions for windSensorTask */
+osThreadId_t windSensorTaskHandle;
+uint32_t windSensorTaskBuffer[ 1024 ];
+osStaticThreadDef_t windSensorTaskControlBlock;
+const osThreadAttr_t windSensorTask_attributes = {
+  .name = "windSensorTask",
+  .cb_mem = &windSensorTaskControlBlock,
+  .cb_size = sizeof(windSensorTaskControlBlock),
+  .stack_mem = &windSensorTaskBuffer[0],
+  .stack_size = sizeof(windSensorTaskBuffer),
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for traceMutex */
 osMutexId_t traceMutexHandle;
 osStaticMutexDef_t traceMutexControlBlock;
@@ -147,6 +159,7 @@ extern void StartXbeeTask(void *argument);
 extern void StartGpsTask(void *argument);
 extern void StartImuTask(void *argument);
 void StartNavTask(void *argument);
+extern void StartWindSensorTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -190,13 +203,16 @@ void MX_FREERTOS_Init(void) {
   xbeeTaskHandle = osThreadNew(StartXbeeTask, NULL, &xbeeTask_attributes);
 
   /* creation of gpsTask */
-//  gpsTaskHandle = osThreadNew(StartGpsTask, NULL, &gpsTask_attributes);
+  gpsTaskHandle = osThreadNew(StartGpsTask, NULL, &gpsTask_attributes);
 
   /* creation of imuTask */
   imuTaskHandle = osThreadNew(StartImuTask, NULL, &imuTask_attributes);
 
   /* creation of navTask */
   navTaskHandle = osThreadNew(StartNavTask, NULL, &navTask_attributes);
+
+  /* creation of windSensorTask */
+  windSensorTaskHandle = osThreadNew(StartWindSensorTask, NULL, &windSensorTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

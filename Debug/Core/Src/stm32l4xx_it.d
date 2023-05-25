@@ -30,8 +30,8 @@ Core/Src/stm32l4xx_it.o: ../Core/Src/stm32l4xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../Core/Inc/stm32l4xx_it.h \
- D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/trace/trace.h \
- D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/system/system.h
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/trace/trace.h \
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -64,5 +64,5 @@ Core/Src/stm32l4xx_it.o: ../Core/Src/stm32l4xx_it.c ../Core/Inc/main.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 ../Core/Inc/stm32l4xx_it.h:
-D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/trace/trace.h:
-D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/system/system.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/trace/trace.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h:

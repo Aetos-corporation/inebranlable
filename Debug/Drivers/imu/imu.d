@@ -41,11 +41,11 @@ Drivers/imu/imu.o: ../Drivers/imu/imu.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/imu/imu.h \
- D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/imu/imuRegisterMap.h \
- D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/trace/trace.h \
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/imu/imu.h \
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/imu/imuRegisterMap.h \
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/trace/trace.h \
  ../Core/Inc/usart.h \
- D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/system/system.h
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
@@ -89,8 +89,8 @@ Drivers/imu/imu.o: ../Drivers/imu/imu.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/imu/imu.h:
-D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/imu/imuRegisterMap.h:
-D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/trace/trace.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/imu/imu.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/imu/imuRegisterMap.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/trace/trace.h:
 ../Core/Inc/usart.h:
-D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/system/system.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h:
