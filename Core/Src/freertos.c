@@ -31,6 +31,8 @@
 #include <imu/imu.h>
 #include <gps/gps_zed_f9p.h>
 #include <system/system.h>
+#include <windSensor/windSensor.h>
+#include <navigation/navigation.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -259,27 +261,48 @@ void StartBlinkTask(void *argument)
 void StartNavTask(void *argument)
 {
   /* USER CODE BEGIN StartNavTask */
+	struct point bouee;
+	bouee.x = 47.2542979;
+	bouee.y = -1.3697171;
+
+	struct point mat;
+	mat.x = 0.0;
+	mat.y = 0.0;
+
+//	struct point ponton;
+//	ponton.x = 47.2533723;
+//	ponton.y = -1.3692439;
+
 	while( !sys_testInitFlag(SYS_MASK_XBEE) && !sys_testInitFlag(SYS_MASK_IMU))
 		osDelay(1000);
   /* Infinite loop */
   for(;;)
   {
 	  LOG_INFO("update (%ds)", HAL_GetTick() /1000 );
-	  LOG_YAW(imu_getYaw());
+//	  LOG_YAW(imu_getYaw());
 
-	  static bool toggle = 0;
+	  // Get IMU
+//	  float roll = imu_getRoll();
+//	  float pitch = imu_getPitch();
+	  float yaw = imu_getYaw();
 
-	  if(toggle){
-		  set_PWM_value_safran(-30);
-		  set_PWM_value_voile(0);
-	  } else {
-		  set_PWM_value_voile(90);
-		  set_PWM_value_safran(30);
-	  }
+	  float windAngle = getWindAngle();
 
-	  toggle = !toggle;
+	  mat.x = GPS_getLatitude();
+	  mat.y = GPS_getLongitude();
 
-	  osDelay(1000 / portTICK_PERIOD_MS);
+
+	  int strategie = decision_strategie(bouee, mat, windAngle, yaw);
+	  struct point navigation_result = navigation(bouee, mat, strategie, windAngle, yaw);
+	  struct cmd pilotage_result = pilotage(navigation_result, mat, windAngle, yaw);
+//	  decision_strategie
+//	  navigation
+//	  pilotage
+	  set_PWM_value_safran(pilotage_result.safran);
+	  set_PWM_value_voile(pilotage_result.voile);
+
+
+	  osDelay(3000 / portTICK_PERIOD_MS);
   }
   /* USER CODE END StartNavTask */
 }

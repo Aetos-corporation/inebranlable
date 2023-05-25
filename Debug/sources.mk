@@ -28,6 +28,7 @@ Drivers/cmd_servo \
 Drivers/gps \
 Drivers/imu \
 Drivers/log \
+Drivers/navigation \
 Drivers/system \
 Drivers/trace \
 Drivers/windSensor \

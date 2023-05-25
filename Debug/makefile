@@ -17,6 +17,7 @@ RM := rm -rf
 -include Drivers/windSensor/subdir.mk
 -include Drivers/trace/subdir.mk
 -include Drivers/system/subdir.mk
+-include Drivers/navigation/subdir.mk
 -include Drivers/log/subdir.mk
 -include Drivers/imu/subdir.mk
 -include Drivers/gps/subdir.mk

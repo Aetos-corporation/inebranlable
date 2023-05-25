@@ -49,7 +49,9 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Core/Inc/i2c.h \
  C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/gps/gps_zed_f9p.h \
  C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/gps/nmea.h \
- C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h \
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/windSensor/windSensor.h \
+ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/navigation/navigation.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -103,3 +105,5 @@ C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/imu/imu.h:
 C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/gps/gps_zed_f9p.h:
 C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/gps/nmea.h:
 C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/windSensor/windSensor.h:
+C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/navigation/navigation.h:
