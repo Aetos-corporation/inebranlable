@@ -1,0 +1,815 @@
+Time: 12:03:27.687059| SYSTEM   | Connect events done
+Time: 12:03:27.707004| SYSTEM   | Pictures init done
+Time: 12:03:27.709185| SYSTEM   | Frame initialized and ready
+Time: 12:03:27.788953| DEBUG    | func: 9| mode: 1| size: 12| data: update (79s)
+Time: 12:03:27.889102| LOG      | [INFO]: received: update (79s)
+Time: 12:03:27.891090| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:27.990790| SENSOR   | Yaw value received: 11.2
+Time: 12:03:27.992787| SYSTEM   | Changed compass orientation
+Time: 12:03:28.296372| DEBUG    | func: 9| mode: 1| size: 12| data: update (79s)
+Time: 12:03:28.395387| LOG      | [INFO]: received: update (79s)
+Time: 12:03:28.398132| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:28.496845| SENSOR   | Yaw value received: 11.2
+Time: 12:03:28.498862| SYSTEM   | Changed compass orientation
+Time: 12:03:28.805333| DEBUG    | func: 9| mode: 1| size: 12| data: update (80s)
+Time: 12:03:28.902514| LOG      | [INFO]: received: update (80s)
+Time: 12:03:28.908523| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:29.003582| SENSOR   | Yaw value received: 11.2
+Time: 12:03:29.005606| SYSTEM   | Changed compass orientation
+Time: 12:03:29.312907| DEBUG    | func: 9| mode: 1| size: 12| data: update (80s)
+Time: 12:03:29.408692| LOG      | [INFO]: received: update (80s)
+Time: 12:03:29.416473| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:29.509702| SENSOR   | Yaw value received: 11.2
+Time: 12:03:29.511700| SYSTEM   | Changed compass orientation
+Time: 12:03:29.822058| DEBUG    | func: 9| mode: 1| size: 12| data: update (81s)
+Time: 12:03:29.915245| LOG      | [INFO]: received: update (81s)
+Time: 12:03:29.924352| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:30.016233| SENSOR   | Yaw value received: 11.2
+Time: 12:03:30.018230| SYSTEM   | Changed compass orientation
+Time: 12:03:30.333681| DEBUG    | func: 9| mode: 1| size: 12| data: update (81s)
+Time: 12:03:30.421998| LOG      | [INFO]: received: update (81s)
+Time: 12:03:30.436754| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:30.523003| SENSOR   | Yaw value received: 11.2
+Time: 12:03:30.525027| SYSTEM   | Changed compass orientation
+Time: 12:03:30.847528| DEBUG    | func: 9| mode: 1| size: 12| data: update (82s)
+Time: 12:03:30.927959| LOG      | [INFO]: received: update (82s)
+Time: 12:03:30.950671| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:31.029114| SENSOR   | Yaw value received: 11.2
+Time: 12:03:31.031106| SYSTEM   | Changed compass orientation
+Time: 12:03:31.367882| DEBUG    | func: 9| mode: 1| size: 12| data: update (82s)
+Time: 12:03:31.434028| LOG      | [INFO]: received: update (82s)
+Time: 12:03:31.471098| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:31.535000| SENSOR   | Yaw value received: 11.2
+Time: 12:03:31.537590| SYSTEM   | Changed compass orientation
+Time: 12:03:31.977961| DEBUG    | func: 9| mode: 1| size: 12| data: update (83s)
+Time: 12:03:32.039296| LOG      | [INFO]: received: update (83s)
+Time: 12:03:32.081203| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:32.140573| SENSOR   | Yaw value received: 11.2
+Time: 12:03:32.143091| SYSTEM   | Changed compass orientation
+Time: 12:03:32.487965| DEBUG    | func: 9| mode: 1| size: 12| data: update (83s)
+Time: 12:03:32.545774| LOG      | [INFO]: received: update (83s)
+Time: 12:03:32.591187| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:32.647033| SENSOR   | Yaw value received: 11.2
+Time: 12:03:32.648623| SYSTEM   | Changed compass orientation
+Time: 12:03:32.998470| DEBUG    | func: 9| mode: 1| size: 12| data: update (84s)
+Time: 12:03:33.052218| LOG      | [INFO]: received: update (84s)
+Time: 12:03:33.101878| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:33.153322| SENSOR   | Yaw value received: 11.2
+Time: 12:03:33.155343| SYSTEM   | Changed compass orientation
+Time: 12:03:33.508945| DEBUG    | func: 9| mode: 1| size: 12| data: update (84s)
+Time: 12:03:33.558419| LOG      | [INFO]: received: update (84s)
+Time: 12:03:33.610956| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:33.659218| SENSOR   | Yaw value received: 11.2
+Time: 12:03:33.661243| SYSTEM   | Changed compass orientation
+Time: 12:03:34.017686| DEBUG    | func: 9| mode: 1| size: 12| data: update (85s)
+Time: 12:03:34.064138| LOG      | [INFO]: received: update (85s)
+Time: 12:03:34.121797| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:34.165129| SENSOR   | Yaw value received: 11.2
+Time: 12:03:34.167126| SYSTEM   | Changed compass orientation
+Time: 12:03:34.527264| DEBUG    | func: 9| mode: 1| size: 12| data: update (85s)
+Time: 12:03:34.570898| LOG      | [INFO]: received: update (85s)
+Time: 12:03:34.630692| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:34.671884| SENSOR   | Yaw value received: 11.2
+Time: 12:03:34.673908| SYSTEM   | Changed compass orientation
+Time: 12:03:35.037729| DEBUG    | func: 9| mode: 1| size: 12| data: update (86s)
+Time: 12:03:35.077133| LOG      | [INFO]: received: update (86s)
+Time: 12:03:35.140756| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:35.177562| SENSOR   | Yaw value received: 11.2
+Time: 12:03:35.180557| SYSTEM   | Changed compass orientation
+Time: 12:03:35.545246| DEBUG    | func: 9| mode: 1| size: 12| data: update (86s)
+Time: 12:03:35.583417| LOG      | [INFO]: received: update (86s)
+Time: 12:03:35.647176| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:35.684368| SENSOR   | Yaw value received: 11.2
+Time: 12:03:35.686365| SYSTEM   | Changed compass orientation
+Time: 12:03:36.053885| DEBUG    | func: 9| mode: 1| size: 12| data: update (87s)
+Time: 12:03:36.089867| LOG      | [INFO]: received: update (87s)
+Time: 12:03:36.156182| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:36.191071| SENSOR   | Yaw value received: 11.2
+Time: 12:03:36.193068| SYSTEM   | Changed compass orientation
+Time: 12:03:36.572951| DEBUG    | func: 9| mode: 1| size: 12| data: update (87s)
+Time: 12:03:36.595006| LOG      | [INFO]: received: update (87s)
+Time: 12:03:36.676204| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:36.695425| SENSOR   | Yaw value received: 11.2
+Time: 12:03:36.697444| SYSTEM   | Changed compass orientation
+Time: 12:03:37.093478| DEBUG    | func: 9| mode: 1| size: 12| data: update (88s)
+Time: 12:03:37.100438| LOG      | [INFO]: received: update (88s)
+Time: 12:03:37.195550| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:37.201447| SENSOR   | Yaw value received: 11.2
+Time: 12:03:37.203472| SYSTEM   | Changed compass orientation
+Time: 12:03:37.703494| DEBUG    | func: 9| mode: 1| size: 12| data: update (89s)
+Time: 12:03:37.706784| LOG      | [INFO]: received: update (89s)
+Time: 12:03:37.806309| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:37.908001| SENSOR   | Yaw value received: 11.2
+Time: 12:03:37.909999| SYSTEM   | Changed compass orientation
+Time: 12:03:38.214955| DEBUG    | func: 9| mode: 1| size: 12| data: update (89s)
+Time: 12:03:38.313604| LOG      | [INFO]: received: update (89s)
+Time: 12:03:38.318387| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:38.414569| SENSOR   | Yaw value received: 11.2
+Time: 12:03:38.416594| SYSTEM   | Changed compass orientation
+Time: 12:03:38.724959| DEBUG    | func: 9| mode: 1| size: 12| data: update (90s)
+Time: 12:03:38.819948| LOG      | [INFO]: received: update (90s)
+Time: 12:03:38.826680| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:38.920997| SENSOR   | Yaw value received: 11.2
+Time: 12:03:38.922995| SYSTEM   | Changed compass orientation
+Time: 12:03:39.234091| DEBUG    | func: 9| mode: 1| size: 12| data: update (90s)
+Time: 12:03:39.325343| LOG      | [INFO]: received: update (90s)
+Time: 12:03:39.337444| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:39.426201| SENSOR   | Yaw value received: 11.2
+Time: 12:03:39.428225| SYSTEM   | Changed compass orientation
+Time: 12:03:39.742851| DEBUG    | func: 9| mode: 1| size: 12| data: update (91s)
+Time: 12:03:39.830560| LOG      | [INFO]: received: update (91s)
+Time: 12:03:39.844488| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:39.931511| SENSOR   | Yaw value received: 11.2
+Time: 12:03:39.933540| SYSTEM   | Changed compass orientation
+Time: 12:03:40.252577| DEBUG    | func: 9| mode: 1| size: 12| data: update (91s)
+Time: 12:03:40.337467| LOG      | [INFO]: received: update (91s)
+Time: 12:03:40.356650| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:40.438453| SENSOR   | Yaw value received: 11.2
+Time: 12:03:40.440477| SYSTEM   | Changed compass orientation
+Time: 12:03:40.760709| DEBUG    | func: 9| mode: 1| size: 12| data: update (92s)
+Time: 12:03:40.843345| LOG      | [INFO]: received: update (92s)
+Time: 12:03:40.863708| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:40.944314| SENSOR   | Yaw value received: 11.2
+Time: 12:03:40.946339| SYSTEM   | Changed compass orientation
+Time: 12:03:41.271189| DEBUG    | func: 9| mode: 1| size: 12| data: update (92s)
+Time: 12:03:41.349617| LOG      | [INFO]: received: update (92s)
+Time: 12:03:41.373647| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:41.450610| SENSOR   | Yaw value received: 11.2
+Time: 12:03:41.452607| SYSTEM   | Changed compass orientation
+Time: 12:03:41.777549| DEBUG    | func: 9| mode: 1| size: 12| data: update (93s)
+Time: 12:03:41.855827| LOG      | [INFO]: received: update (93s)
+Time: 12:03:41.880128| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:41.956807| SENSOR   | Yaw value received: 11.2
+Time: 12:03:41.958833| SYSTEM   | Changed compass orientation
+Time: 12:03:42.297824| DEBUG    | func: 9| mode: 1| size: 12| data: update (93s)
+Time: 12:03:42.362748| LOG      | [INFO]: received: update (93s)
+Time: 12:03:42.398652| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:42.463482| SENSOR   | Yaw value received: 11.2
+Time: 12:03:42.465472| SYSTEM   | Changed compass orientation
+Time: 12:03:42.818674| DEBUG    | func: 9| mode: 1| size: 12| data: update (94s)
+Time: 12:03:42.868439| LOG      | [INFO]: received: update (94s)
+Time: 12:03:42.921989| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:42.969449| SENSOR   | Yaw value received: 11.2
+Time: 12:03:42.971473| SYSTEM   | Changed compass orientation
+Time: 12:03:43.430177| DEBUG    | func: 9| mode: 1| size: 12| data: update (94s)
+Time: 12:03:43.475505| LOG      | [INFO]: received: update (94s)
+Time: 12:03:43.533716| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:43.576497| SENSOR   | Yaw value received: 11.2
+Time: 12:03:43.578496| SYSTEM   | Changed compass orientation
+Time: 12:03:43.940705| DEBUG    | func: 9| mode: 1| size: 12| data: update (95s)
+Time: 12:03:43.982575| LOG      | [INFO]: received: update (95s)
+Time: 12:03:44.043475| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:44.083623| SENSOR   | Yaw value received: 11.2
+Time: 12:03:44.085649| SYSTEM   | Changed compass orientation
+Time: 12:03:44.447917| DEBUG    | func: 9| mode: 1| size: 12| data: update (95s)
+Time: 12:03:44.489367| LOG      | [INFO]: received: update (95s)
+Time: 12:03:44.550716| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:44.591029| SENSOR   | Yaw value received: 11.2
+Time: 12:03:44.592698| SYSTEM   | Changed compass orientation
+Time: 12:03:44.957417| DEBUG    | func: 9| mode: 1| size: 12| data: update (96s)
+Time: 12:03:44.996298| LOG      | [INFO]: received: update (96s)
+Time: 12:03:45.060436| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:45.097463| SENSOR   | Yaw value received: 11.2
+Time: 12:03:45.100092| SYSTEM   | Changed compass orientation
+Time: 12:03:45.467451| DEBUG    | func: 9| mode: 1| size: 12| data: update (96s)
+Time: 12:03:45.503027| LOG      | [INFO]: received: update (96s)
+Time: 12:03:45.569992| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:45.603912| SENSOR   | Yaw value received: 11.2
+Time: 12:03:45.606903| SYSTEM   | Changed compass orientation
+Time: 12:03:45.976998| DEBUG    | func: 9| mode: 1| size: 12| data: update (97s)
+Time: 12:03:46.009754| LOG      | [INFO]: received: update (97s)
+Time: 12:03:46.080289| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:46.110661| SENSOR   | Yaw value received: 11.2
+Time: 12:03:46.112685| SYSTEM   | Changed compass orientation
+Time: 12:03:46.487058| DEBUG    | func: 9| mode: 1| size: 12| data: update (97s)
+Time: 12:03:46.516458| LOG      | [INFO]: received: update (97s)
+Time: 12:03:46.589387| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:46.617542| SENSOR   | Yaw value received: 11.2
+Time: 12:03:46.619567| SYSTEM   | Changed compass orientation
+Time: 12:03:46.995007| DEBUG    | func: 9| mode: 1| size: 12| data: update (98s)
+Time: 12:03:47.022087| LOG      | [INFO]: received: update (98s)
+Time: 12:03:47.098290| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:47.122534| SENSOR   | Yaw value received: 11.2
+Time: 12:03:47.124561| SYSTEM   | Changed compass orientation
+Time: 12:03:47.504438| DEBUG    | func: 9| mode: 1| size: 12| data: update (98s)
+Time: 12:03:47.528168| LOG      | [INFO]: received: update (98s)
+Time: 12:03:47.607501| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:47.629923| SENSOR   | Yaw value received: 11.2
+Time: 12:03:47.631662| SYSTEM   | Changed compass orientation
+Time: 12:03:48.024045| DEBUG    | func: 9| mode: 1| size: 12| data: update (99s)
+Time: 12:03:48.035348| LOG      | [INFO]: received: update (99s)
+Time: 12:03:48.127103| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:48.136798| SENSOR   | Yaw value received: 11.2
+Time: 12:03:48.139459| SYSTEM   | Changed compass orientation
+Time: 12:03:48.544275| DEBUG    | func: 9| mode: 1| size: 12| data: update (99s)
+Time: 12:03:48.643004| LOG      | [INFO]: received: update (99s)
+Time: 12:03:48.645003| DEBUG    | func: 6| mode: 1| size: 4| data: 11.2
+Time: 12:03:48.743908| SENSOR   | Yaw value received: 11.2
+Time: 12:03:48.745933| SYSTEM   | Changed compass orientation
+Time: 12:03:49.059720| DEBUG    | func: 9| mode: 1| size: 13| data: update (100s)
+Time: 12:03:49.149375| LOG      | [INFO]: received: update (100s)
+Time: 12:03:49.161739| DEBUG    | func: 6| mode: 1| size: 4| data: 11.1
+Time: 12:03:49.250379| SENSOR   | Yaw value received: 11.1
+Time: 12:03:49.252375| SYSTEM   | Changed compass orientation
+Time: 12:03:49.670086| DEBUG    | func: 9| mode: 1| size: 13| data: update (100s)
+Time: 12:03:49.754456| LOG      | [INFO]: received: update (100s)
+Time: 12:03:49.771607| DEBUG    | func: 6| mode: 1| size: 4| data: 11.1
+Time: 12:03:49.855167| SENSOR   | Yaw value received: 11.1
+Time: 12:03:49.857192| SYSTEM   | Changed compass orientation
+Time: 12:03:50.177556| DEBUG    | func: 9| mode: 1| size: 13| data: update (101s)
+Time: 12:03:50.260868| LOG      | [INFO]: received: update (101s)
+Time: 12:03:50.279986| DEBUG    | func: 6| mode: 1| size: 4| data: 6.6
+Time: 12:03:50.361653| SENSOR   | Yaw value received: 6.6
+Time: 12:03:50.363675| SYSTEM   | Changed compass orientation
+Time: 12:03:50.686418| DEBUG    | func: 9| mode: 1| size: 13| data: update (102s)
+Time: 12:03:50.766336| LOG      | [INFO]: received: update (102s)
+Time: 12:03:50.787895| DEBUG    | func: 6| mode: 1| size: 4| data: 6.6
+Time: 12:03:50.867354| SENSOR   | Yaw value received: 6.6
+Time: 12:03:50.869383| SYSTEM   | Changed compass orientation
+Time: 12:03:51.194142| DEBUG    | func: 9| mode: 1| size: 13| data: update (102s)
+Time: 12:03:51.271378| LOG      | [INFO]: received: update (102s)
+Time: 12:03:51.297328| DEBUG    | func: 6| mode: 1| size: 4| data: 6.5
+Time: 12:03:51.372190| SENSOR   | Yaw value received: 6.5
+Time: 12:03:51.374188| SYSTEM   | Changed compass orientation
+Time: 12:03:51.703144| DEBUG    | func: 9| mode: 1| size: 13| data: update (103s)
+Time: 12:03:51.777418| LOG      | [INFO]: received: update (103s)
+Time: 12:03:51.804593| DEBUG    | func: 6| mode: 1| size: 4| data: 6.5
+Time: 12:03:51.879250| SENSOR   | Yaw value received: 6.5
+Time: 12:03:51.880854| SYSTEM   | Changed compass orientation
+Time: 12:03:52.210864| DEBUG    | func: 9| mode: 1| size: 13| data: update (103s)
+Time: 12:03:52.384986| LOG      | [INFO]: received: update (103s)
+Time: 12:03:52.418098| DEBUG    | func: 6| mode: 1| size: 4| data: 6.3
+Time: 12:03:52.485775| SENSOR   | Yaw value received: 6.3
+Time: 12:03:52.487804| SYSTEM   | Changed compass orientation
+Time: 12:03:52.721648| DEBUG    | func: 9| mode: 1| size: 13| data: update (104s)
+Time: 12:03:52.789983| LOG      | [INFO]: received: update (104s)
+Time: 12:03:52.824859| DEBUG    | func: 6| mode: 1| size: 4| data: 6.3
+Time: 12:03:52.890979| SENSOR   | Yaw value received: 6.3
+Time: 12:03:52.893004| SYSTEM   | Changed compass orientation
+Time: 12:03:53.235557| DEBUG    | func: 9| mode: 1| size: 13| data: update (104s)
+Time: 12:03:53.294846| LOG      | [INFO]: received: update (104s)
+Time: 12:03:53.339219| DEBUG    | func: 6| mode: 1| size: 4| data: 7.0
+Time: 12:03:53.395949| SENSOR   | Yaw value received: 7.0
+Time: 12:03:53.397537| SYSTEM   | Changed compass orientation
+Time: 12:03:53.844119| DEBUG    | func: 9| mode: 1| size: 13| data: update (105s)
+Time: 12:03:53.901741| LOG      | [INFO]: received: update (105s)
+Time: 12:03:53.948330| DEBUG    | func: 6| mode: 1| size: 4| data: 7.0
+Time: 12:03:54.002258| SENSOR   | Yaw value received: 7.0
+Time: 12:03:54.004300| SYSTEM   | Changed compass orientation
+Time: 12:03:54.354208| DEBUG    | func: 9| mode: 1| size: 13| data: update (105s)
+Time: 12:03:54.407375| LOG      | [INFO]: received: update (105s)
+Time: 12:03:54.457472| DEBUG    | func: 6| mode: 1| size: 4| data: 6.9
+Time: 12:03:54.508421| SENSOR   | Yaw value received: 6.9
+Time: 12:03:54.510419| SYSTEM   | Changed compass orientation
+Time: 12:03:54.864201| DEBUG    | func: 9| mode: 1| size: 13| data: update (106s)
+Time: 12:03:54.913261| LOG      | [INFO]: received: update (106s)
+Time: 12:03:54.967475| DEBUG    | func: 6| mode: 1| size: 4| data: 6.9
+Time: 12:03:55.014343| SENSOR   | Yaw value received: 6.9
+Time: 12:03:55.016367| SYSTEM   | Changed compass orientation
+Time: 12:03:55.373724| DEBUG    | func: 9| mode: 1| size: 13| data: update (106s)
+Time: 12:03:55.418221| LOG      | [INFO]: received: update (106s)
+Time: 12:03:55.476840| DEBUG    | func: 6| mode: 1| size: 4| data: 7.1
+Time: 12:03:55.519095| SENSOR   | Yaw value received: 7.1
+Time: 12:03:55.521131| SYSTEM   | Changed compass orientation
+Time: 12:03:55.882641| DEBUG    | func: 9| mode: 1| size: 13| data: update (107s)
+Time: 12:03:55.924087| LOG      | [INFO]: received: update (107s)
+Time: 12:03:55.985527| DEBUG    | func: 6| mode: 1| size: 4| data: 7.1
+Time: 12:03:56.025317| SENSOR   | Yaw value received: 7.1
+Time: 12:03:56.028310| SYSTEM   | Changed compass orientation
+Time: 12:03:56.389806| DEBUG    | func: 9| mode: 1| size: 13| data: update (107s)
+Time: 12:03:56.430684| LOG      | [INFO]: received: update (107s)
+Time: 12:03:56.492399| DEBUG    | func: 6| mode: 1| size: 4| data: 6.7
+Time: 12:03:56.531710| SENSOR   | Yaw value received: 6.7
+Time: 12:03:56.533757| SYSTEM   | Changed compass orientation
+Time: 12:03:56.898588| DEBUG    | func: 9| mode: 1| size: 13| data: update (108s)
+Time: 12:03:56.936548| LOG      | [INFO]: received: update (108s)
+Time: 12:03:57.000855| DEBUG    | func: 6| mode: 1| size: 4| data: 6.7
+Time: 12:03:57.037511| SENSOR   | Yaw value received: 6.7
+Time: 12:03:57.039553| SYSTEM   | Changed compass orientation
+Time: 12:03:57.406107| DEBUG    | func: 9| mode: 1| size: 13| data: update (108s)
+Time: 12:03:57.442168| LOG      | [INFO]: received: update (108s)
+Time: 12:03:57.509325| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:03:57.543263| SENSOR   | Yaw value received: 7.2
+Time: 12:03:57.545260| SYSTEM   | Changed compass orientation
+Time: 12:03:57.925513| DEBUG    | func: 9| mode: 1| size: 13| data: update (109s)
+Time: 12:03:57.948650| LOG      | [INFO]: received: update (109s)
+Time: 12:03:58.027540| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:03:58.049645| SENSOR   | Yaw value received: 7.2
+Time: 12:03:58.051643| SYSTEM   | Changed compass orientation
+Time: 12:03:58.534519| DEBUG    | func: 9| mode: 1| size: 13| data: update (109s)
+Time: 12:03:58.554858| LOG      | [INFO]: received: update (109s)
+Time: 12:03:58.637379| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:03:58.656112| SENSOR   | Yaw value received: 7.2
+Time: 12:03:58.658136| SYSTEM   | Changed compass orientation
+Time: 12:03:59.043667| DEBUG    | func: 9| mode: 1| size: 13| data: update (110s)
+Time: 12:03:59.061134| LOG      | [INFO]: received: update (110s)
+Time: 12:03:59.148104| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:03:59.162554| SENSOR   | Yaw value received: 7.2
+Time: 12:03:59.164141| SYSTEM   | Changed compass orientation
+Time: 12:03:59.553907| DEBUG    | func: 9| mode: 1| size: 13| data: update (110s)
+Time: 12:03:59.566611| LOG      | [INFO]: received: update (110s)
+Time: 12:03:59.657057| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:03:59.667032| SENSOR   | Yaw value received: 7.2
+Time: 12:03:59.669057| SYSTEM   | Changed compass orientation
+Time: 12:04:00.062057| DEBUG    | func: 9| mode: 1| size: 13| data: update (111s)
+Time: 12:04:00.072343| LOG      | [INFO]: received: update (111s)
+Time: 12:04:00.165088| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:00.173499| SENSOR   | Yaw value received: 7.2
+Time: 12:04:00.175524| SYSTEM   | Changed compass orientation
+Time: 12:04:00.572651| DEBUG    | func: 9| mode: 1| size: 13| data: update (111s)
+Time: 12:04:00.578511| LOG      | [INFO]: received: update (111s)
+Time: 12:04:00.675265| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:00.679226| SENSOR   | Yaw value received: 7.2
+Time: 12:04:00.681151| SYSTEM   | Changed compass orientation
+Time: 12:04:01.081639| DEBUG    | func: 9| mode: 1| size: 13| data: update (112s)
+Time: 12:04:01.084427| LOG      | [INFO]: received: update (112s)
+Time: 12:04:01.183454| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:01.185799| SENSOR   | Yaw value received: 7.2
+Time: 12:04:01.187636| SYSTEM   | Changed compass orientation
+Time: 12:04:01.590147| DEBUG    | func: 9| mode: 1| size: 13| data: update (112s)
+Time: 12:04:01.591611| LOG      | [INFO]: received: update (112s)
+Time: 12:04:01.693378| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:01.793049| SENSOR   | Yaw value received: 7.2
+Time: 12:04:01.795046| SYSTEM   | Changed compass orientation
+Time: 12:04:02.100658| DEBUG    | func: 9| mode: 1| size: 13| data: update (113s)
+Time: 12:04:02.198328| LOG      | [INFO]: received: update (113s)
+Time: 12:04:02.203650| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:02.298730| SENSOR   | Yaw value received: 7.2
+Time: 12:04:02.300754| SYSTEM   | Changed compass orientation
+Time: 12:04:02.616458| DEBUG    | func: 9| mode: 1| size: 13| data: update (113s)
+Time: 12:04:02.703575| LOG      | [INFO]: received: update (113s)
+Time: 12:04:02.719711| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:02.804430| SENSOR   | Yaw value received: 7.2
+Time: 12:04:02.806454| SYSTEM   | Changed compass orientation
+Time: 12:04:03.139788| DEBUG    | func: 9| mode: 1| size: 13| data: update (114s)
+Time: 12:04:03.209614| LOG      | [INFO]: received: update (114s)
+Time: 12:04:03.242316| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:03.310175| SENSOR   | Yaw value received: 7.2
+Time: 12:04:03.312172| SYSTEM   | Changed compass orientation
+Time: 12:04:03.659760| DEBUG    | func: 9| mode: 1| size: 13| data: update (115s)
+Time: 12:04:03.715078| LOG      | [INFO]: received: update (115s)
+Time: 12:04:03.763461| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:03.815786| SENSOR   | Yaw value received: 7.2
+Time: 12:04:03.817783| SYSTEM   | Changed compass orientation
+Time: 12:04:04.271151| DEBUG    | func: 9| mode: 1| size: 13| data: update (115s)
+Time: 12:04:04.321398| LOG      | [INFO]: received: update (115s)
+Time: 12:04:04.374344| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:04.422406| SENSOR   | Yaw value received: 7.2
+Time: 12:04:04.424404| SYSTEM   | Changed compass orientation
+Time: 12:04:04.780114| DEBUG    | func: 9| mode: 1| size: 13| data: update (116s)
+Time: 12:04:04.827282| LOG      | [INFO]: received: update (116s)
+Time: 12:04:04.882060| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:04.927800| SENSOR   | Yaw value received: 7.2
+Time: 12:04:04.929797| SYSTEM   | Changed compass orientation
+Time: 12:04:05.289384| DEBUG    | func: 9| mode: 1| size: 13| data: update (116s)
+Time: 12:04:05.332181| LOG      | [INFO]: received: update (116s)
+Time: 12:04:05.392703| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:05.432928| SENSOR   | Yaw value received: 7.2
+Time: 12:04:05.434952| SYSTEM   | Changed compass orientation
+Time: 12:04:05.798852| DEBUG    | func: 9| mode: 1| size: 13| data: update (117s)
+Time: 12:04:05.837989| LOG      | [INFO]: received: update (117s)
+Time: 12:04:05.902020| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:05.938842| SENSOR   | Yaw value received: 7.2
+Time: 12:04:05.940867| SYSTEM   | Changed compass orientation
+Time: 12:04:06.309105| DEBUG    | func: 9| mode: 1| size: 13| data: update (117s)
+Time: 12:04:06.344316| LOG      | [INFO]: received: update (117s)
+Time: 12:04:06.411027| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:06.445951| SENSOR   | Yaw value received: 7.2
+Time: 12:04:06.447613| SYSTEM   | Changed compass orientation
+Time: 12:04:06.817284| DEBUG    | func: 9| mode: 1| size: 13| data: update (118s)
+Time: 12:04:06.851206| LOG      | [INFO]: received: update (118s)
+Time: 12:04:06.919284| DEBUG    | func: 6| mode: 1| size: 4| data: 7.4
+Time: 12:04:06.952167| SENSOR   | Yaw value received: 7.4
+Time: 12:04:06.954165| SYSTEM   | Changed compass orientation
+Time: 12:04:07.325791| DEBUG    | func: 9| mode: 1| size: 13| data: update (118s)
+Time: 12:04:07.357246| LOG      | [INFO]: received: update (118s)
+Time: 12:04:07.429423| DEBUG    | func: 6| mode: 1| size: 4| data: 7.4
+Time: 12:04:07.458277| SENSOR   | Yaw value received: 7.4
+Time: 12:04:07.460865| SYSTEM   | Changed compass orientation
+Time: 12:04:07.835330| DEBUG    | func: 9| mode: 1| size: 13| data: update (119s)
+Time: 12:04:07.862849| LOG      | [INFO]: received: update (119s)
+Time: 12:04:07.938601| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:07.963437| SENSOR   | Yaw value received: 7.2
+Time: 12:04:07.965462| SYSTEM   | Changed compass orientation
+Time: 12:04:08.352474| DEBUG    | func: 9| mode: 1| size: 13| data: update (119s)
+Time: 12:04:08.369347| LOG      | [INFO]: received: update (119s)
+Time: 12:04:08.455291| DEBUG    | func: 6| mode: 1| size: 4| data: 7.2
+Time: 12:04:08.470332| SENSOR   | Yaw value received: 7.2
+Time: 12:04:08.472358| SYSTEM   | Changed compass orientation
+Time: 12:04:08.875945| DEBUG    | func: 9| mode: 1| size: 13| data: update (120s)
+Time: 12:04:08.975721| LOG      | [INFO]: received: update (120s)
+Time: 12:04:08.977754| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:09.076742| SENSOR   | Yaw value received: 8.1
+Time: 12:04:09.079248| SYSTEM   | Changed compass orientation
+Time: 12:04:09.397470| DEBUG    | func: 9| mode: 1| size: 13| data: update (120s)
+Time: 12:04:09.482881| LOG      | [INFO]: received: update (120s)
+Time: 12:04:09.500669| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:09.583902| SENSOR   | Yaw value received: 8.1
+Time: 12:04:09.585926| SYSTEM   | Changed compass orientation
+Time: 12:04:09.911468| DEBUG    | func: 9| mode: 1| size: 13| data: update (121s)
+Time: 12:04:09.989624| LOG      | [INFO]: received: update (121s)
+Time: 12:04:10.012821| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:10.090704| SENSOR   | Yaw value received: 8.1
+Time: 12:04:10.092728| SYSTEM   | Changed compass orientation
+Time: 12:04:10.521748| DEBUG    | func: 9| mode: 1| size: 13| data: update (121s)
+Time: 12:04:10.597649| LOG      | [INFO]: received: update (121s)
+Time: 12:04:10.625229| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:10.698629| SENSOR   | Yaw value received: 8.1
+Time: 12:04:10.700627| SYSTEM   | Changed compass orientation
+Time: 12:04:11.030715| DEBUG    | func: 9| mode: 1| size: 13| data: update (122s)
+Time: 12:04:11.104011| LOG      | [INFO]: received: update (122s)
+Time: 12:04:11.134025| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:11.205180| SENSOR   | Yaw value received: 8.1
+Time: 12:04:11.207178| SYSTEM   | Changed compass orientation
+Time: 12:04:11.541627| DEBUG    | func: 9| mode: 1| size: 13| data: update (122s)
+Time: 12:04:11.609446| LOG      | [INFO]: received: update (122s)
+Time: 12:04:11.643617| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:11.710054| SENSOR   | Yaw value received: 8.1
+Time: 12:04:11.712644| SYSTEM   | Changed compass orientation
+Time: 12:04:12.050549| DEBUG    | func: 9| mode: 1| size: 13| data: update (123s)
+Time: 12:04:12.115519| LOG      | [INFO]: received: update (123s)
+Time: 12:04:12.153274| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:12.216629| SENSOR   | Yaw value received: 8.1
+Time: 12:04:12.218653| SYSTEM   | Changed compass orientation
+Time: 12:04:12.559743| DEBUG    | func: 9| mode: 1| size: 13| data: update (123s)
+Time: 12:04:12.621610| LOG      | [INFO]: received: update (123s)
+Time: 12:04:12.662781| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:12.722882| SENSOR   | Yaw value received: 8.1
+Time: 12:04:12.724492| SYSTEM   | Changed compass orientation
+Time: 12:04:13.070369| DEBUG    | func: 9| mode: 1| size: 13| data: update (124s)
+Time: 12:04:13.126953| LOG      | [INFO]: received: update (124s)
+Time: 12:04:13.173861| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:13.228868| SENSOR   | Yaw value received: 8.1
+Time: 12:04:13.230455| SYSTEM   | Changed compass orientation
+Time: 12:04:13.580677| DEBUG    | func: 9| mode: 1| size: 13| data: update (124s)
+Time: 12:04:13.633981| LOG      | [INFO]: received: update (124s)
+Time: 12:04:13.683573| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:13.734975| SENSOR   | Yaw value received: 8.1
+Time: 12:04:13.736972| SYSTEM   | Changed compass orientation
+Time: 12:04:14.090906| DEBUG    | func: 9| mode: 1| size: 13| data: update (125s)
+Time: 12:04:14.139696| LOG      | [INFO]: received: update (125s)
+Time: 12:04:14.193001| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:14.240673| SENSOR   | Yaw value received: 8.1
+Time: 12:04:14.242671| SYSTEM   | Changed compass orientation
+Time: 12:04:14.611348| DEBUG    | func: 9| mode: 1| size: 13| data: update (125s)
+Time: 12:04:14.646448| LOG      | [INFO]: received: update (125s)
+Time: 12:04:14.714308| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:14.747509| SENSOR   | Yaw value received: 8.1
+Time: 12:04:14.749534| SYSTEM   | Changed compass orientation
+Time: 12:04:15.123993| DEBUG    | func: 9| mode: 1| size: 13| data: update (126s)
+Time: 12:04:15.152900| LOG      | [INFO]: received: update (126s)
+Time: 12:04:15.227054| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:15.253913| SENSOR   | Yaw value received: 8.1
+Time: 12:04:15.255960| SYSTEM   | Changed compass orientation
+Time: 12:04:15.734616| DEBUG    | func: 9| mode: 1| size: 13| data: update (127s)
+Time: 12:04:15.759282| LOG      | [INFO]: received: update (127s)
+Time: 12:04:15.837432| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:15.860433| SENSOR   | Yaw value received: 8.1
+Time: 12:04:15.862453| SYSTEM   | Changed compass orientation
+Time: 12:04:16.243157| DEBUG    | func: 9| mode: 1| size: 13| data: update (127s)
+Time: 12:04:16.265245| LOG      | [INFO]: received: update (127s)
+Time: 12:04:16.347401| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:16.366323| SENSOR   | Yaw value received: 8.1
+Time: 12:04:16.368348| SYSTEM   | Changed compass orientation
+Time: 12:04:16.754950| DEBUG    | func: 9| mode: 1| size: 13| data: update (128s)
+Time: 12:04:16.771568| LOG      | [INFO]: received: update (128s)
+Time: 12:04:16.857787| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:16.873044| SENSOR   | Yaw value received: 8.1
+Time: 12:04:16.875730| SYSTEM   | Changed compass orientation
+Time: 12:04:17.263518| DEBUG    | func: 9| mode: 1| size: 13| data: update (128s)
+Time: 12:04:17.278677| LOG      | [INFO]: received: update (128s)
+Time: 12:04:17.366311| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:17.379356| SENSOR   | Yaw value received: 8.1
+Time: 12:04:17.381402| SYSTEM   | Changed compass orientation
+Time: 12:04:17.773988| DEBUG    | func: 9| mode: 1| size: 13| data: update (129s)
+Time: 12:04:17.785650| LOG      | [INFO]: received: update (129s)
+Time: 12:04:17.875490| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:17.886650| SENSOR   | Yaw value received: 8.1
+Time: 12:04:17.888646| SYSTEM   | Changed compass orientation
+Time: 12:04:18.282704| DEBUG    | func: 9| mode: 1| size: 13| data: update (129s)
+Time: 12:04:18.291129| LOG      | [INFO]: received: update (129s)
+Time: 12:04:18.384707| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:18.391596| SENSOR   | Yaw value received: 8.1
+Time: 12:04:18.393620| SYSTEM   | Changed compass orientation
+Time: 12:04:18.793132| DEBUG    | func: 9| mode: 1| size: 13| data: update (130s)
+Time: 12:04:18.797206| LOG      | [INFO]: received: update (130s)
+Time: 12:04:18.895942| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:18.897940| SENSOR   | Yaw value received: 8.1
+Time: 12:04:18.899931| SYSTEM   | Changed compass orientation
+Time: 12:04:19.301230| DEBUG    | func: 9| mode: 1| size: 13| data: update (130s)
+Time: 12:04:19.303258| LOG      | [INFO]: received: update (130s)
+Time: 12:04:19.404592| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:19.504780| SENSOR   | Yaw value received: 8.1
+Time: 12:04:19.506842| SYSTEM   | Changed compass orientation
+Time: 12:04:19.824445| DEBUG    | func: 9| mode: 1| size: 13| data: update (131s)
+Time: 12:04:19.908616| LOG      | [INFO]: received: update (131s)
+Time: 12:04:19.925965| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:20.009107| SENSOR   | Yaw value received: 8.1
+Time: 12:04:20.011105| SYSTEM   | Changed compass orientation
+Time: 12:04:20.339293| DEBUG    | func: 9| mode: 1| size: 13| data: update (131s)
+Time: 12:04:20.414660| LOG      | [INFO]: received: update (131s)
+Time: 12:04:20.441120| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:20.515422| SENSOR   | Yaw value received: 8.1
+Time: 12:04:20.517446| SYSTEM   | Changed compass orientation
+Time: 12:04:20.945826| DEBUG    | func: 9| mode: 1| size: 13| data: update (132s)
+Time: 12:04:21.021251| LOG      | [INFO]: received: update (132s)
+Time: 12:04:21.049098| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:21.122272| SENSOR   | Yaw value received: 8.1
+Time: 12:04:21.124269| SYSTEM   | Changed compass orientation
+Time: 12:04:21.456270| DEBUG    | func: 9| mode: 1| size: 13| data: update (132s)
+Time: 12:04:21.526898| LOG      | [INFO]: received: update (132s)
+Time: 12:04:21.557755| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:21.627439| SENSOR   | Yaw value received: 8.1
+Time: 12:04:21.629459| SYSTEM   | Changed compass orientation
+Time: 12:04:21.965555| DEBUG    | func: 9| mode: 1| size: 13| data: update (133s)
+Time: 12:04:22.032643| LOG      | [INFO]: received: update (133s)
+Time: 12:04:22.068856| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:22.133627| SENSOR   | Yaw value received: 8.1
+Time: 12:04:22.135651| SYSTEM   | Changed compass orientation
+Time: 12:04:22.474362| DEBUG    | func: 9| mode: 1| size: 13| data: update (133s)
+Time: 12:04:22.538708| LOG      | [INFO]: received: update (133s)
+Time: 12:04:22.576129| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:22.639267| SENSOR   | Yaw value received: 8.1
+Time: 12:04:22.641264| SYSTEM   | Changed compass orientation
+Time: 12:04:22.984995| DEBUG    | func: 9| mode: 1| size: 13| data: update (134s)
+Time: 12:04:23.044591| LOG      | [INFO]: received: update (134s)
+Time: 12:04:23.087652| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:23.145407| SENSOR   | Yaw value received: 8.1
+Time: 12:04:23.147431| SYSTEM   | Changed compass orientation
+Time: 12:04:23.492700| DEBUG    | func: 9| mode: 1| size: 13| data: update (134s)
+Time: 12:04:23.550803| LOG      | [INFO]: received: update (134s)
+Time: 12:04:23.596495| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:23.651690| SENSOR   | Yaw value received: 8.1
+Time: 12:04:23.653715| SYSTEM   | Changed compass orientation
+Time: 12:04:24.004148| DEBUG    | func: 9| mode: 1| size: 13| data: update (135s)
+Time: 12:04:24.056623| LOG      | [INFO]: received: update (135s)
+Time: 12:04:24.106342| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:24.157523| SENSOR   | Yaw value received: 8.1
+Time: 12:04:24.159521| SYSTEM   | Changed compass orientation
+Time: 12:04:24.514033| DEBUG    | func: 9| mode: 1| size: 13| data: update (135s)
+Time: 12:04:24.562808| LOG      | [INFO]: received: update (135s)
+Time: 12:04:24.617396| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:24.663551| SENSOR   | Yaw value received: 8.1
+Time: 12:04:24.665550| SYSTEM   | Changed compass orientation
+Time: 12:04:25.036842| DEBUG    | func: 9| mode: 1| size: 13| data: update (136s)
+Time: 12:04:25.068714| LOG      | [INFO]: received: update (136s)
+Time: 12:04:25.139657| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:25.170322| SENSOR   | Yaw value received: 8.1
+Time: 12:04:25.172991| SYSTEM   | Changed compass orientation
+Time: 12:04:25.551623| DEBUG    | func: 9| mode: 1| size: 13| data: update (136s)
+Time: 12:04:25.575479| LOG      | [INFO]: received: update (136s)
+Time: 12:04:25.654125| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:25.676145| SENSOR   | Yaw value received: 8.1
+Time: 12:04:25.678775| SYSTEM   | Changed compass orientation
+Time: 12:04:26.075067| DEBUG    | func: 9| mode: 1| size: 13| data: update (137s)
+Time: 12:04:26.081327| LOG      | [INFO]: received: update (137s)
+Time: 12:04:26.175930| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:26.182954| SENSOR   | Yaw value received: 8.1
+Time: 12:04:26.185744| SYSTEM   | Changed compass orientation
+Time: 12:04:26.596943| DEBUG    | func: 9| mode: 1| size: 13| data: update (137s)
+Time: 12:04:26.688080| LOG      | [INFO]: received: update (137s)
+Time: 12:04:26.700298| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:26.788816| SENSOR   | Yaw value received: 8.1
+Time: 12:04:26.790813| SYSTEM   | Changed compass orientation
+Time: 12:04:27.119537| DEBUG    | func: 9| mode: 1| size: 13| data: update (138s)
+Time: 12:04:27.194682| LOG      | [INFO]: received: update (138s)
+Time: 12:04:27.221493| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:27.295173| SENSOR   | Yaw value received: 8.1
+Time: 12:04:27.297170| SYSTEM   | Changed compass orientation
+Time: 12:04:27.729813| DEBUG    | func: 9| mode: 1| size: 13| data: update (138s)
+Time: 12:04:27.801741| LOG      | [INFO]: received: update (138s)
+Time: 12:04:27.832938| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:27.902874| SENSOR   | Yaw value received: 8.1
+Time: 12:04:27.904898| SYSTEM   | Changed compass orientation
+Time: 12:04:28.239841| DEBUG    | func: 9| mode: 1| size: 13| data: update (139s)
+Time: 12:04:28.308331| LOG      | [INFO]: received: update (139s)
+Time: 12:04:28.342251| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:28.409264| SENSOR   | Yaw value received: 8.1
+Time: 12:04:28.411262| SYSTEM   | Changed compass orientation
+Time: 12:04:28.750253| DEBUG    | func: 9| mode: 1| size: 13| data: update (140s)
+Time: 12:04:28.814748| LOG      | [INFO]: received: update (140s)
+Time: 12:04:28.853044| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:28.915800| SENSOR   | Yaw value received: 8.1
+Time: 12:04:28.917824| SYSTEM   | Changed compass orientation
+Time: 12:04:29.258851| DEBUG    | func: 9| mode: 1| size: 13| data: update (140s)
+Time: 12:04:29.320067| LOG      | [INFO]: received: update (140s)
+Time: 12:04:29.362038| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:29.420902| SENSOR   | Yaw value received: 8.1
+Time: 12:04:29.422926| SYSTEM   | Changed compass orientation
+Time: 12:04:29.769376| DEBUG    | func: 9| mode: 1| size: 13| data: update (141s)
+Time: 12:04:29.825553| LOG      | [INFO]: received: update (141s)
+Time: 12:04:29.872231| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:29.926162| SENSOR   | Yaw value received: 8.1
+Time: 12:04:29.928186| SYSTEM   | Changed compass orientation
+Time: 12:04:30.279690| DEBUG    | func: 9| mode: 1| size: 13| data: update (141s)
+Time: 12:04:30.331558| LOG      | [INFO]: received: update (141s)
+Time: 12:04:30.382893| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:30.432593| SENSOR   | Yaw value received: 8.1
+Time: 12:04:30.434630| SYSTEM   | Changed compass orientation
+Time: 12:04:30.788954| DEBUG    | func: 9| mode: 1| size: 13| data: update (142s)
+Time: 12:04:30.836841| LOG      | [INFO]: received: update (142s)
+Time: 12:04:30.892277| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:30.938093| SENSOR   | Yaw value received: 8.1
+Time: 12:04:30.939722| SYSTEM   | Changed compass orientation
+Time: 12:04:31.298852| DEBUG    | func: 9| mode: 1| size: 13| data: update (142s)
+Time: 12:04:31.343164| LOG      | [INFO]: received: update (142s)
+Time: 12:04:31.401921| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:31.444511| SENSOR   | Yaw value received: 8.1
+Time: 12:04:31.446100| SYSTEM   | Changed compass orientation
+Time: 12:04:31.811519| DEBUG    | func: 9| mode: 1| size: 13| data: update (143s)
+Time: 12:04:31.849848| LOG      | [INFO]: received: update (143s)
+Time: 12:04:31.914809| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:31.950901| SENSOR   | Yaw value received: 8.1
+Time: 12:04:31.952925| SYSTEM   | Changed compass orientation
+Time: 12:04:32.333482| DEBUG    | func: 9| mode: 1| size: 13| data: update (143s)
+Time: 12:04:32.356228| LOG      | [INFO]: received: update (143s)
+Time: 12:04:32.435735| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:32.457269| SENSOR   | Yaw value received: 8.1
+Time: 12:04:32.459294| SYSTEM   | Changed compass orientation
+Time: 12:04:32.943836| DEBUG    | func: 9| mode: 1| size: 13| data: update (144s)
+Time: 12:04:32.963518| LOG      | [INFO]: received: update (144s)
+Time: 12:04:33.046815| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:33.064585| SENSOR   | Yaw value received: 8.1
+Time: 12:04:33.066609| SYSTEM   | Changed compass orientation
+Time: 12:04:33.452587| DEBUG    | func: 9| mode: 1| size: 13| data: update (144s)
+Time: 12:04:33.468612| LOG      | [INFO]: received: update (144s)
+Time: 12:04:33.555655| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:33.570242| SENSOR   | Yaw value received: 8.1
+Time: 12:04:33.571871| SYSTEM   | Changed compass orientation
+Time: 12:04:33.961502| DEBUG    | func: 9| mode: 1| size: 13| data: update (145s)
+Time: 12:04:33.975722| LOG      | [INFO]: received: update (145s)
+Time: 12:04:34.064837| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:34.076250| SENSOR   | Yaw value received: 8.1
+Time: 12:04:34.078269| SYSTEM   | Changed compass orientation
+Time: 12:04:34.471680| DEBUG    | func: 9| mode: 1| size: 13| data: update (145s)
+Time: 12:04:34.480939| LOG      | [INFO]: received: update (145s)
+Time: 12:04:34.574055| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:34.581775| SENSOR   | Yaw value received: 8.1
+Time: 12:04:34.583772| SYSTEM   | Changed compass orientation
+Time: 12:04:34.981082| DEBUG    | func: 9| mode: 1| size: 13| data: update (146s)
+Time: 12:04:34.987021| LOG      | [INFO]: received: update (146s)
+Time: 12:04:35.084046| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:35.087801| SENSOR   | Yaw value received: 8.1
+Time: 12:04:35.089440| SYSTEM   | Changed compass orientation
+Time: 12:04:35.490910| DEBUG    | func: 9| mode: 1| size: 13| data: update (146s)
+Time: 12:04:35.492698| LOG      | [INFO]: received: update (146s)
+Time: 12:04:35.593318| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:35.693932| SENSOR   | Yaw value received: 8.1
+Time: 12:04:35.695986| SYSTEM   | Changed compass orientation
+Time: 12:04:36.000917| DEBUG    | func: 9| mode: 1| size: 13| data: update (147s)
+Time: 12:04:36.099262| LOG      | [INFO]: received: update (147s)
+Time: 12:04:36.104816| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:36.200019| SENSOR   | Yaw value received: 8.1
+Time: 12:04:36.202047| SYSTEM   | Changed compass orientation
+Time: 12:04:36.511671| DEBUG    | func: 9| mode: 1| size: 13| data: update (147s)
+Time: 12:04:36.604989| LOG      | [INFO]: received: update (147s)
+Time: 12:04:36.614504| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:36.705963| SENSOR   | Yaw value received: 8.1
+Time: 12:04:36.707987| SYSTEM   | Changed compass orientation
+Time: 12:04:37.024715| DEBUG    | func: 9| mode: 1| size: 13| data: update (148s)
+Time: 12:04:37.111121| LOG      | [INFO]: received: update (148s)
+Time: 12:04:37.126339| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:37.212042| SENSOR   | Yaw value received: 8.1
+Time: 12:04:37.214039| SYSTEM   | Changed compass orientation
+Time: 12:04:37.545974| DEBUG    | func: 9| mode: 1| size: 13| data: update (148s)
+Time: 12:04:37.616233| LOG      | [INFO]: received: update (148s)
+Time: 12:04:37.648860| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:37.716952| SENSOR   | Yaw value received: 8.1
+Time: 12:04:37.718949| SYSTEM   | Changed compass orientation
+Time: 12:04:38.155371| DEBUG    | func: 9| mode: 1| size: 13| data: update (149s)
+Time: 12:04:38.222762| LOG      | [INFO]: received: update (149s)
+Time: 12:04:38.257910| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:38.323715| SENSOR   | Yaw value received: 8.1
+Time: 12:04:38.325713| SYSTEM   | Changed compass orientation
+Time: 12:04:38.664769| DEBUG    | func: 9| mode: 1| size: 13| data: update (149s)
+Time: 12:04:38.728525| LOG      | [INFO]: received: update (149s)
+Time: 12:04:38.766984| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:38.829432| SENSOR   | Yaw value received: 8.1
+Time: 12:04:38.831456| SYSTEM   | Changed compass orientation
+Time: 12:04:39.173602| DEBUG    | func: 9| mode: 1| size: 13| data: update (150s)
+Time: 12:04:39.233038| LOG      | [INFO]: received: update (150s)
+Time: 12:04:39.276031| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:39.333837| SENSOR   | Yaw value received: 8.1
+Time: 12:04:39.335833| SYSTEM   | Changed compass orientation
+Time: 12:04:39.682338| DEBUG    | func: 9| mode: 1| size: 13| data: update (150s)
+Time: 12:04:39.738814| LOG      | [INFO]: received: update (150s)
+Time: 12:04:39.784938| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:39.839768| SENSOR   | Yaw value received: 8.1
+Time: 12:04:39.841793| SYSTEM   | Changed compass orientation
+Time: 12:04:40.191193| DEBUG    | func: 9| mode: 1| size: 13| data: update (151s)
+Time: 12:04:40.244766| LOG      | [INFO]: received: update (151s)
+Time: 12:04:40.294795| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:40.346168| SENSOR   | Yaw value received: 8.1
+Time: 12:04:40.347784| SYSTEM   | Changed compass orientation
+Time: 12:04:40.701257| DEBUG    | func: 9| mode: 1| size: 13| data: update (152s)
+Time: 12:04:40.749860| LOG      | [INFO]: received: update (152s)
+Time: 12:04:40.804549| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:40.850722| SENSOR   | Yaw value received: 8.1
+Time: 12:04:40.852719| SYSTEM   | Changed compass orientation
+Time: 12:04:41.210000| DEBUG    | func: 9| mode: 1| size: 13| data: update (152s)
+Time: 12:04:41.255994| LOG      | [INFO]: received: update (152s)
+Time: 12:04:41.313413| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:41.357316| SENSOR   | Yaw value received: 8.1
+Time: 12:04:41.359313| SYSTEM   | Changed compass orientation
+Time: 12:04:41.719977| DEBUG    | func: 9| mode: 1| size: 13| data: update (153s)
+Time: 12:04:41.762596| LOG      | [INFO]: received: update (153s)
+Time: 12:04:41.823283| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:41.863616| SENSOR   | Yaw value received: 8.1
+Time: 12:04:41.865640| SYSTEM   | Changed compass orientation
+Time: 12:04:42.237698| DEBUG    | func: 9| mode: 1| size: 13| data: update (153s)
+Time: 12:04:42.268786| LOG      | [INFO]: received: update (153s)
+Time: 12:04:42.341044| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:42.369894| SENSOR   | Yaw value received: 8.1
+Time: 12:04:42.371920| SYSTEM   | Changed compass orientation
+Time: 12:04:42.760874| DEBUG    | func: 9| mode: 1| size: 13| data: update (154s)
+Time: 12:04:42.775055| LOG      | [INFO]: received: update (154s)
+Time: 12:04:42.863558| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:42.876338| SENSOR   | Yaw value received: 8.1
+Time: 12:04:42.878380| SYSTEM   | Changed compass orientation
+Time: 12:04:43.282686| DEBUG    | func: 9| mode: 1| size: 13| data: update (154s)
+Time: 12:04:43.381526| LOG      | [INFO]: received: update (154s)
+Time: 12:04:43.385500| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:43.482101| SENSOR   | Yaw value received: 8.1
+Time: 12:04:43.484126| SYSTEM   | Changed compass orientation
+Time: 12:04:43.797296| DEBUG    | func: 9| mode: 1| size: 13| data: update (155s)
+Time: 12:04:43.887158| LOG      | [INFO]: received: update (155s)
+Time: 12:04:43.899316| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:43.988112| SENSOR   | Yaw value received: 8.1
+Time: 12:04:43.990137| SYSTEM   | Changed compass orientation
+Time: 12:04:44.319343| DEBUG    | func: 9| mode: 1| size: 13| data: update (155s)
+Time: 12:04:44.393403| LOG      | [INFO]: received: update (155s)
+Time: 12:04:44.421933| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:44.493988| SENSOR   | Yaw value received: 8.1
+Time: 12:04:44.495584| SYSTEM   | Changed compass orientation
+Time: 12:04:44.929318| DEBUG    | func: 9| mode: 1| size: 13| data: update (156s)
+Time: 12:04:44.998092| LOG      | [INFO]: received: update (156s)
+Time: 12:04:45.031984| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:45.099232| SENSOR   | Yaw value received: 8.1
+Time: 12:04:45.101257| SYSTEM   | Changed compass orientation
+Time: 12:04:45.437920| DEBUG    | func: 9| mode: 1| size: 13| data: update (156s)
+Time: 12:04:45.504238| LOG      | [INFO]: received: update (156s)
+Time: 12:04:45.541166| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:45.605248| SENSOR   | Yaw value received: 8.1
+Time: 12:04:45.607244| SYSTEM   | Changed compass orientation
+Time: 12:04:45.946947| DEBUG    | func: 9| mode: 1| size: 13| data: update (157s)
+Time: 12:04:46.009183| LOG      | [INFO]: received: update (157s)
+Time: 12:04:46.049986| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:46.110684| SENSOR   | Yaw value received: 8.1
+Time: 12:04:46.112276| SYSTEM   | Changed compass orientation
+Time: 12:04:46.457792| DEBUG    | func: 9| mode: 1| size: 13| data: update (157s)
+Time: 12:04:46.515395| LOG      | [INFO]: received: update (157s)
+Time: 12:04:46.559420| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:46.616493| SENSOR   | Yaw value received: 8.1
+Time: 12:04:46.618518| SYSTEM   | Changed compass orientation
+Time: 12:04:46.966682| DEBUG    | func: 9| mode: 1| size: 13| data: update (158s)
+Time: 12:04:47.021417| LOG      | [INFO]: received: update (158s)
+Time: 12:04:47.069656| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:47.122512| SENSOR   | Yaw value received: 8.1
+Time: 12:04:47.124535| SYSTEM   | Changed compass orientation
+Time: 12:04:47.477883| DEBUG    | func: 9| mode: 1| size: 13| data: update (158s)
+Time: 12:04:47.528268| LOG      | [INFO]: received: update (158s)
+Time: 12:04:47.579668| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:47.628674| SENSOR   | Yaw value received: 8.1
+Time: 12:04:47.630698| SYSTEM   | Changed compass orientation
+Time: 12:04:47.985562| DEBUG    | func: 9| mode: 1| size: 13| data: update (159s)
+Time: 12:04:48.034283| LOG      | [INFO]: received: update (159s)
+Time: 12:04:48.088721| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:48.135028| SENSOR   | Yaw value received: 8.1
+Time: 12:04:48.137053| SYSTEM   | Changed compass orientation
+Time: 12:04:48.496675| DEBUG    | func: 9| mode: 1| size: 13| data: update (159s)
+Time: 12:04:48.540775| LOG      | [INFO]: received: update (159s)
+Time: 12:04:48.599535| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:48.641365| SENSOR   | Yaw value received: 8.1
+Time: 12:04:48.644359| SYSTEM   | Changed compass orientation
+Time: 12:04:49.008726| DEBUG    | func: 9| mode: 1| size: 13| data: update (160s)
+Time: 12:04:49.044872| LOG      | [INFO]: received: update (160s)
+Time: 12:04:49.111258| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:49.145996| SENSOR   | Yaw value received: 8.1
+Time: 12:04:49.147957| SYSTEM   | Changed compass orientation
+Time: 12:04:49.619300| DEBUG    | func: 9| mode: 1| size: 13| data: update (160s)
+Time: 12:04:49.650866| LOG      | [INFO]: received: update (160s)
+Time: 12:04:49.721873| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:49.751844| SENSOR   | Yaw value received: 8.1
+Time: 12:04:49.755836| SYSTEM   | Changed compass orientation
+Time: 12:04:50.127301| DEBUG    | func: 9| mode: 1| size: 13| data: update (161s)
+Time: 12:04:50.158150| LOG      | [INFO]: received: update (161s)
+Time: 12:04:50.229831| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:50.258813| SENSOR   | Yaw value received: 8.1
+Time: 12:04:50.261425| SYSTEM   | Changed compass orientation
+Time: 12:04:50.635365| DEBUG    | func: 9| mode: 1| size: 13| data: update (161s)
+Time: 12:04:50.663778| LOG      | [INFO]: received: update (161s)
+Time: 12:04:50.739366| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:50.764920| SENSOR   | Yaw value received: 8.1
+Time: 12:04:50.766946| SYSTEM   | Changed compass orientation
+Time: 12:04:51.143181| DEBUG    | func: 9| mode: 1| size: 13| data: update (162s)
+Time: 12:04:51.169395| LOG      | [INFO]: received: update (162s)
+Time: 12:04:51.246228| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:51.270473| SENSOR   | Yaw value received: 8.1
+Time: 12:04:51.272470| SYSTEM   | Changed compass orientation
+Time: 12:04:51.651616| DEBUG    | func: 9| mode: 1| size: 13| data: update (162s)
+Time: 12:04:51.675645| LOG      | [INFO]: received: update (162s)
+Time: 12:04:51.755264| DEBUG    | func: 6| mode: 1| size: 4| data: 8.1
+Time: 12:04:51.776592| SENSOR   | Yaw value received: 8.1
+Time: 12:04:51.778613| SYSTEM   | Changed compass orientation
+Time: 12:04:51.886941| SYSTEM   | Device ZigBee closed
+Time: 12:04:51.886941| SYSTEM   | Thread to update gui ended
