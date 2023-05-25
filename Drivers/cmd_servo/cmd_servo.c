@@ -17,14 +17,15 @@ Valeurs d'entrée pour le paramètre val: entre 0 et 90
 Valeurs d'entrée pour val: intervale entre 0 et 90
 */
 void set_PWM_value_voile(int val){
-	//entre 150 et 200
-	//150->0
-	//200->90
+	//entre 113 et 150
+	//113->0
+	//150->90
 	int value_PWM = 0;
 	if (val >= 0 && val <=90){
-		value_PWM = (int)(((50*val)/90)+150);
+		value_PWM = (int)(((37*val)/90)+113);
 		TIM1->CCR4 = value_PWM;
 		PRINT("Val pwm voile: %d, val angle: %d\n", value_PWM, val);
+		LOG_VOILE(value_PWM);
 	}
 }
 
@@ -48,6 +49,7 @@ void set_PWM_value_safran(int val){
 	if(val_valid == 1){
 		TIM1->CCR1 = value_PWM[index];
 		PRINT("Val pwm safran: %d, val angle: %d\n", value_PWM[index], val);
+		LOG_SAFRAN(value_PWM[index]);
 	}
 }
 
@@ -112,6 +114,8 @@ void startPWMTask(void const * argument){
 
 	PRINT("PWM initialized\n");
 	sys_setInitFlag(SYS_MASK_PWM);
+
+	vTaskDelete( NULL );
 
 	/*
 	while(1){

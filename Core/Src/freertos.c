@@ -184,7 +184,7 @@ void MX_FREERTOS_Init(void) {
   blinkTaskHandle = osThreadNew(StartBlinkTask, NULL, &blinkTask_attributes);
 
   /* creation of PWMTask */
-//  PWMTaskHandle = osThreadNew(startPWMTask, NULL, &PWMTask_attributes);
+  PWMTaskHandle = osThreadNew(startPWMTask, NULL, &PWMTask_attributes);
 
   /* creation of xbeeTask */
   xbeeTaskHandle = osThreadNew(StartXbeeTask, NULL, &xbeeTask_attributes);
@@ -250,7 +250,20 @@ void StartNavTask(void *argument)
   {
 	  LOG_INFO("update (%ds)", HAL_GetTick() /1000 );
 	  LOG_YAW(imu_getYaw());
-	  osDelay(500 / portTICK_PERIOD_MS);
+
+	  static bool toggle = 0;
+
+	  if(toggle){
+		  set_PWM_value_safran(-30);
+		  set_PWM_value_voile(0);
+	  } else {
+		  set_PWM_value_voile(90);
+		  set_PWM_value_safran(30);
+	  }
+
+	  toggle = !toggle;
+
+	  osDelay(1000 / portTICK_PERIOD_MS);
   }
   /* USER CODE END StartNavTask */
 }
