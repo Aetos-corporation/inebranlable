@@ -17,6 +17,8 @@
 #include <math.h>
 #include <windSensor/windSensor.h>
 #include <i2c.h>
+#include <log/log.h>
+#include <system/system.h>
 
 #define AS5600_ADDR 0x36
 #define AS5600_REG_RAW_ANGLE_HIGH 0x0E // Utilisez cette adresse pour lire la partie haute de l'angle brut
@@ -35,16 +37,14 @@ void StartWindSensorTask(void * argument)
 {
     for(;;)
     {
-    	//I2C_Scan(&hi2c1);
-    	//uint16_t uint8_t = AS5600_ReadVersion();
         uint16_t raw_angle = AS5600_ReadAngle();
         float angle = ((float)raw_angle / 4096.0f) * 360.0f; // Calculate angle
         angle = fabs(angle);
         angle = fmodf(angle, 360.0f); // Wrap angle between 0 and 360
-        //printf("Angle: %f\n", angle);
+        LOG_GIROUETTE(angle);
 
         windAngle = angle;
-        osDelay(500); // Delay for 500 milliseconds
+		osDelay(SENSOR_UPDATE_RATE);
     }
 }
 

@@ -24,8 +24,7 @@ void set_PWM_value_voile(int val){
 	if (val >= 0 && val <=90){
 		value_PWM = (int)(((37*val)/90)+113);
 		TIM1->CCR4 = value_PWM;
-		PRINT("Val pwm voile: %d, val angle: %d\n", value_PWM, val);
-		LOG_VOILE(value_PWM);
+//		LOG_VOILE(value_PWM);
 	}
 }
 
@@ -48,8 +47,7 @@ void set_PWM_value_safran(int val){
 
 	if(val_valid == 1){
 		TIM1->CCR1 = value_PWM[index];
-		PRINT("Val pwm safran: %d, val angle: %d\n", value_PWM[index], val);
-		LOG_SAFRAN(value_PWM[index]);
+//		LOG_SAFRAN(value_PWM[index]);
 	}
 }
 
@@ -116,13 +114,4 @@ void startPWMTask(void const * argument){
 	sys_setInitFlag(SYS_MASK_PWM);
 
 	vTaskDelete( NULL );
-
-	/*
-	while(1){
-		//execute_exemple_safran();
-		//execute_exemple_voile();
-
-		osDelay(100);
-	}
-	*/
 }

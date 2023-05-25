@@ -152,7 +152,8 @@ const osMutexAttr_t traceMutex_attributes = {
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-
+void navTask_loop(void);
+void demo_loop(void);
 /* USER CODE END FunctionPrototypes */
 
 void StartBlinkTask(void *argument);
@@ -278,37 +279,111 @@ void StartNavTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  LOG_INFO("update (%ds)", HAL_GetTick() /1000 );
-//	  LOG_YAW(imu_getYaw());
-
-	  // Get IMU
-//	  float roll = imu_getRoll();
-//	  float pitch = imu_getPitch();
-	  float yaw = imu_getYaw();
-
-	  float windAngle = getWindAngle();
-
-	  mat.x = GPS_getLatitude();
-	  mat.y = GPS_getLongitude();
-
-
-	  int strategie = decision_strategie(bouee, mat, windAngle, yaw);
-	  struct point navigation_result = navigation(bouee, mat, strategie, windAngle, yaw);
-	  struct cmd pilotage_result = pilotage(navigation_result, mat, windAngle, yaw);
-//	  decision_strategie
-//	  navigation
-//	  pilotage
-	  set_PWM_value_safran(pilotage_result.safran);
-	  set_PWM_value_voile(pilotage_result.voile);
-
-
-	  osDelay(3000 / portTICK_PERIOD_MS);
+	  demo_loop();
   }
   /* USER CODE END StartNavTask */
 }
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+void navTask_loop(void)
+{
+	// Update time
+	LOG_INFO("update (%ds)", HAL_GetTick() /1000 );
 
+	// Log mode de nav
+	static uint8_t navMode;
+	uint8_t temp = HAL_GPIO_ReadPin(AUTO_GPIO_Port, AUTO_Pin);
+	if(temp != navMode){
+		// nav mode toggled
+		navMode = temp;  // update val
+		// Log
+		if(navMode)
+			LOG_INFO("Mode Auto ON");
+		else
+			LOG_INFO("Mode Auto OFF");
+	}
+
+	// Get IMU
+	float yaw = (float) imu_getYaw();
+	PRINT("Get imu OK");
+
+	// Get Girouette
+	float windAngle = getWindAngle();
+	PRINT("Get girouette OK");
+
+	// Get GPS
+	mat.x = GPS_getLatitude();
+	mat.y = GPS_getLongitude();
+	PRINT("Get gps OK");
+
+	// Navigation
+	int strategie = decision_strategie(bouee, mat, windAngle, yaw);
+	PRINT("  Strategie: %d", strategie);
+
+	struct point navigation_result = navigation(bouee, mat, strategie, windAngle, yaw);
+	PRINT("  Navigation:   - latitude: %f     - longitude: %f", navigation_result.x, navigation_result.y);
+
+	struct cmd pilotage_result = pilotage(navigation_result, mat, windAngle, yaw);
+	PRINT("  Commandes servos:   - Safran: %f     - Voile: %f", pilotage_result.safran, pilotage_result.voile);
+
+	PRINT("Nav done");
+
+	// Commandes servos
+	set_PWM_value_safran(pilotage_result.safran);
+	set_PWM_value_voile(pilotage_result.voile);
+	LOG_SAFRAN(pilotage_result.safran);
+	LOG_VOILE(pilotage_result.voile);
+	PRINT("Commandes servo done");
+
+	PRINT(" ");  //newline
+	osDelay(3000 / portTICK_PERIOD_MS);
+}
+
+void demo_loop(void)
+{
+	// Update time
+	LOG_INFO("Update (%ds)", HAL_GetTick() /1000 );
+
+	// Get IMU
+	float yaw = (float) imu_getYaw();
+	PRINT("imu = %f", yaw);
+
+	// Get Girouette
+	float windAngle = getWindAngle();
+	PRINT("girouette = %f", windAngle);
+
+	// Get GPS
+	mat.x = GPS_getLatitude();
+	mat.y = GPS_getLongitude();
+	PRINT("GPS:   - latitude: %f   - longitude: %f", mat.x, mat.y);
+
+	// Commandes servos
+	static bool toggle = 0;
+	if(toggle){
+		set_PWM_value_safran(-30);
+		set_PWM_value_voile(0);
+	} else {
+		set_PWM_value_voile(90);
+		set_PWM_value_safran(30);
+	}
+	toggle = !toggle;
+
+	// Log mode de nav
+	static uint8_t navMode;
+	uint8_t temp = HAL_GPIO_ReadPin(AUTO_GPIO_Port, AUTO_Pin);
+	if(temp != navMode){
+		// nav mode toggled
+		navMode = temp;  // update val
+		// Log
+		if(navMode)
+			LOG_INFO("Mode Auto ON");
+		else
+			LOG_INFO("Mode Auto OFF");
+	}
+
+	PRINT(" ");  //newline
+	osDelay(3000 / portTICK_PERIOD_MS);
+}
 /* USER CODE END Application */
 

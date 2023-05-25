@@ -10,6 +10,8 @@
 #include "usart.h"
 #include "trace/trace.h"
 #include <system/system.h>
+#include <log/log.h>
+#include "cmsis_os.h"
 
 // - Variables globales - //
 GPS gps_F9P;
@@ -165,10 +167,8 @@ void GPS_Error_Handler(void){
 }
 
 void StartGpsTask(void const * argument){
-	// Mettre le setup (pour l'instant dans le main
-
 	// - Initialisation des capteurs - //
-//	GPS_Init(&gps_F9P, &huart2, USART2, 38400);
+	GPS_Init(&gps_F9P, &huart2, USART2, 38400);
 	sys_setInitFlag(SYS_MASK_GPS);
 
 	// Mettre le loop ici avec un while 1
@@ -178,17 +178,21 @@ void StartGpsTask(void const * argument){
 	/* USER CODE BEGIN 3 */
 
 	/* Acquisition GPS */
-//		if (gps_F9P.com.GGAFrameReceived){
-//			gps_F9P.com.GGAFrameReceived = false;
-//			GPS_Parse_GGA_Frame(&gps_F9P);
-//			// Envoi de logs
-//		}
-//
-//		if (gps_F9P.com.ZDAFrameReceived){
-//			gps_F9P.com.ZDAFrameReceived = false;
-//			GPS_Parse_ZDA_Frame(&gps_F9P);
-//			// Envoi de logs
-//		}
+		if (gps_F9P.com.GGAFrameReceived){
+			gps_F9P.com.GGAFrameReceived = false;
+			GPS_Parse_GGA_Frame(&gps_F9P);
+			LOG_GPS_LATITUDE(gps_F9P.data.latitude);
+			LOG_GPS_LONGITUDE(gps_F9P.data.longitude);
+		}
+
+		if (gps_F9P.com.ZDAFrameReceived){
+			gps_F9P.com.ZDAFrameReceived = false;
+			GPS_Parse_ZDA_Frame(&gps_F9P);
+			LOG_GPS_LATITUDE(gps_F9P.data.latitude);
+			LOG_GPS_LONGITUDE(gps_F9P.data.longitude);
+		}
+
+		osDelay(SENSOR_UPDATE_RATE);
 	}
 }
 
@@ -200,4 +204,12 @@ float GPS_getLatitude(void)
 float GPS_getLongitude(void)
 {
 	return gps_F9P.data.longitude;
+}
+
+//Interruption sur UART2
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart == &huart2){
+		GPS_UART_Handler(&gps_F9P);
+	}
 }

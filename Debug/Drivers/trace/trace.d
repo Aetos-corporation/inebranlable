@@ -29,10 +29,21 @@ Drivers/trace/trace.o: ../Drivers/trace/trace.c ../Core/Inc/usart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/log/log.h \
- C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/log/frame.h \
+ D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/log/log.h \
+ D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/log/frame.h \
  ../Core/Inc/main.h \
- C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h
+ D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/system/system.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
@@ -65,7 +76,18 @@ Drivers/trace/trace.o: ../Drivers/trace/trace.c ../Core/Inc/usart.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/log/log.h:
-C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/log/frame.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/log/log.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/log/frame.h:
 ../Core/Inc/main.h:
-C:/Users/Arthur\ R-P/Desktop/inebranlable-dev/Drivers/system/system.h:
+D:/Documents/Prog/bateau/repos_github/inebranlable_dev/Drivers/system/system.h:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+../Core/Inc/FreeRTOSConfig.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:

@@ -15,6 +15,7 @@
 #include "trace/trace.h"
 #include "usart.h"
 #include "system/system.h"
+#include "log/log.h"
 
 /* PINOUT
  * ****************
@@ -63,7 +64,7 @@ void StartImuTask(void const * argument)
 	else
 	{
 		PRINT("  Connexion error!");
-		while(1);
+		vTaskDelete(NULL);
 	}
 	taskEXIT_CRITICAL();
 
@@ -71,8 +72,8 @@ void StartImuTask(void const * argument)
 
 	for(;;){
 		imu_updateRPY(&imu);
-//		PRINT("Roll: %.3f   Pitch: %.3f   Yaw: %.3f", imu.roll, imu.pitch, imu.yaw);
-		osDelay(1000);
+		LOG_YAW(imu.yaw);
+		osDelay(SENSOR_UPDATE_RATE);
 	}
 }
 
