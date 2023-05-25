@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\ihm_inebranlable_v3.ui'
+# Form implementation generated from reading ui file 'ihm_inebranlable_v3.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.0
 #
@@ -1150,6 +1150,9 @@ class Ui_MainWindow(object):
         self.textEdit_logs = QtWidgets.QTextEdit(self.groupBox_9)
         self.textEdit_logs.setGeometry(QtCore.QRect(10, 50, 550, 241))
         self.textEdit_logs.setObjectName("textEdit_logs")
+        self.pushButton_clear_console = QtWidgets.QPushButton(self.groupBox_9)
+        self.pushButton_clear_console.setGeometry(QtCore.QRect(460, 23, 92, 25))
+        self.pushButton_clear_console.setObjectName("pushButton_clear_console")
         self.groupBox_11 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_11.setGeometry(QtCore.QRect(230, 340, 171, 51))
         self.groupBox_11.setObjectName("groupBox_11")
@@ -1226,6 +1229,7 @@ class Ui_MainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.pushButton_clear_console.setText(_translate("MainWindow", "Clear"))
         self.groupBox_11.setTitle(_translate("MainWindow", "Pitch"))
         self.label_19.setText(_translate("MainWindow", "°"))
         self.groupBox_12.setTitle(_translate("MainWindow", "Roll"))

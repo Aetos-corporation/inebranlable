@@ -137,6 +137,8 @@ class frameZigBee(object):
         self.gui.checkBox_log_level_warnings.stateChanged.connect(self.log_level_warning)
         # Connects the checkbox checkBox_log_level_errors to method log_level_error
         self.gui.checkBox_log_level_errors.stateChanged.connect(self.log_level_error)
+        # Connects the button pushButton_clear_console to method clear_console
+        self.gui.pushButton_clear_console.clicked.connect(self.clear_console)
         # Connects the button to kill the application to method stop_application
         self.app.aboutToQuit.connect(self.stop_application)
 
@@ -212,6 +214,15 @@ class frameZigBee(object):
             self.log_error = False
         
         self.trace.log("SYSTEM", "Log level error set to {}".format(self.log_info))
+
+    def clear_console(self):
+        """
+        Clears the log console when pushbutton pushButton_clear_console is clicked
+        ``Args:``
+        ``Raises:``
+        ``Return:``
+        """
+        self.gui.textEdit_logs.clear()
 
     def update_gui_object_dict(self, func, wr, size, data):
         """

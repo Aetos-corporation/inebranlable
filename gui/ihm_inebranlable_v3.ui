@@ -1584,6 +1584,19 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_clear_console">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>23</y>
+       <width>92</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_11">
     <property name="geometry">
